@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pavel Mart - Sống Chất Lượng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              green: {
+                50: "#f0f9f0",
+                100: "#dcf4dc",
+                200: "#bce7bc",
+                300: "#8fd68f",
+                400: "#5bb85b",
+                500: "#389738",
+                600: "#2c7a2c",
+                700: "#256425",
+                800: "#1f4f1f",
+                900: "#1a4a1a",
+              },
+              orange: {
+                400: "#fb923c",
+                500: "#f97316",
+                600: "#ea580c",
+              },
+            },
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          #389738 0%,
+          #256425 50%,
+          #1a4a1a 100%
+        );
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .section-divider {
+        background: linear-gradient(
+          to right,
+          transparent,
+          #389738,
+          transparent
+        );
+        height: 2px;
+      }
+
+      /* Active navigation styles */
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link.active {
+        color: #389738 !important;
+        font-weight: 600;
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #389738;
+        border-radius: 2px;
+      }
+
+      .nav-link:not(.active):hover {
+        color: #389738;
+      }
+
+      /* Dropdown active styles */
+      .dropdown-link.active {
+        background-color: #f0f9f0;
+        color: #389738 !important;
+        font-weight: 600;
+      }
+
+      /* Mobile navigation active styles */
+      .mobile-nav-link.active {
+        color: #389738 !important;
+        font-weight: 600;
+        background-color: #f0f9f0;
+        border-left: 4px solid #389738;
+        padding-left: calc(1rem - 4px);
+      }
+
+      .mobile-dropdown-link.active {
+        color: #389738 !important;
+        font-weight: 600;
+        background-color: #f0f9f0;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Top Header Bar -->
+    <div class="bg-gray-100 py-2 text-sm border-b border-gray-200">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-end items-center space-x-2 md:space-x-6">
+          <!-- Tìm siêu thị gần bạn -->
+          <button
+            class="text-gray-700 hover:text-green-600 transition-colors flex items-center space-x-1"
+          >
+            <span>📍</span>
+            <span class="hidden sm:inline">Tìm siêu thị gần bạn</span>
+          </button>
+
+          <!-- Tìm kiếm thông tin -->
+          <button
+            class="text-gray-700 hover:text-green-600 transition-colors flex items-center space-x-1"
+          >
+            <span>🔍</span>
+            <span class="hidden sm:inline">Tìm kiếm thông tin</span>
+          </button>
+
+          <!-- Đăng ký KHTV -->
+          <button
+            class="text-gray-700 hover:text-green-600 transition-colors flex items-center space-x-1"
+          >
+            <span>👤</span>
+            <span class="hidden md:inline">Đăng ký KHTV</span>
+          </button>
+
+          <!-- VI/EN -->
+          <div
+            class="flex items-center bg-white rounded-full border border-gray-200"
+          >
+            <button
+              class="px-2 md:px-3 text-xs md:text-sm font-medium text-white bg-green-600 rounded-full transition-colors"
+            >
+              VI
+            </button>
+            <button
+              class="px-2 md:px-3 text-xs md:text-sm font-medium text-gray-600 hover:text-green-600 transition-colors"
+            >
+              EN
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <nav class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center space-x-3">
+            <a href="./index.html" class="flex items-center space-x-3">
+              <div
+                class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center"
+              >
+                <span class="text-white font-bold text-xl">P</span>
+              </div>
+              <div>
+                <h1 class="text-xl font-bold text-green-800">Pavel Mart</h1>
+                <p class="text-sm text-gray-600">Sống Chất Lượng</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Navigation Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="./index.html"
+              class="nav-link text-gray-700 hover:text-green-600 transition-colors"
+              data-page="index"
+              >Trang chủ</a
+            >
+
+            <!-- Giới thiệu Dropdown -->
+            <div class="relative group">
+              <button
+                class="nav-link flex items-center text-gray-700 hover:text-green-600 transition-colors"
+                data-page="gioi-thieu"
+              >
+                Giới thiệu
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <div class="py-1">
+                  <a
+                    href="./gioi-thieu.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="gioi-thieu"
+                    >Về chúng tôi</a
+                  >
+                  <a
+                    href="./hoat-dong-cong-dong.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="hoat-dong-cong-dong"
+                    >Hoạt động cộng đồng</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Khuyến mãi Dropdown -->
+            <div class="relative group">
+              <button
+                class="nav-link flex items-center text-gray-700 hover:text-green-600 transition-colors"
+                data-page="khuyen-mai"
+              >
+                Khuyến mãi
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <div class="py-1">
+                  <a
+                    href="./tin-khuyen-mai.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="tin-khuyen-mai"
+                    >Tin khuyến mãi</a
+                  >
+                  <a
+                    href="./uu-dai-dat-hang-online.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="uu-dai-dat-hang-online"
+                    >Ưu đãi khi đặt hàng online</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="./su-kien-tin-tuc.html"
+              class="nav-link text-gray-700 hover:text-green-600 transition-colors"
+              data-page="su-kien-tin-tuc"
+              >Sự kiện và tin tức</a
+            >
+            <a
+              href="./khach-hang-thanh-vien.html"
+              class="nav-link text-gray-700 hover:text-green-600 transition-colors"
+              data-page="khach-hang-thanh-vien"
+              >Khách hàng thành viên</a
+            >
+
+            <!-- Liên hệ Dropdown -->
+            <div class="relative group">
+              <button
+                class="nav-link flex items-center text-gray-700 hover:text-green-600 transition-colors"
+                data-page="lien-he"
+              >
+                Liên hệ
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <div class="py-1">
+                  <a
+                    href="./thong-tin-lien-he.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="thong-tin-lien-he"
+                    >Thông tin liên hệ</a
+                  >
+                  <a
+                    href="./he-thong-sieu-thi.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="he-thong-sieu-thi"
+                    >Hệ thống siêu thị</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button id="mobileMenuBtn" class="md:hidden p-2">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile Menu Modal -->
+    <div id="mobileMenuModal" class="fixed inset-0 z-50 hidden md:hidden">
+      <!-- Backdrop -->
+      <div
+        class="fixed inset-0 bg-black bg-opacity-50"
+        onclick="closeMobileMenu()"
+      ></div>
+
+      <!-- Modal Content -->
+      <div
+        class="fixed top-0 left-0 w-80 h-full bg-white shadow-xl transform -translate-x-full transition-transform duration-300"
+        id="mobileMenuContent"
+      >
+        <!-- Header -->
+        <div
+          class="flex items-center justify-between p-4 border-b border-gray-200"
+        >
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center"
+            >
+              <span class="text-white font-bold text-lg">P</span>
+            </div>
+            <div>
+              <h1 class="text-lg font-bold text-green-800">Pavel Mart</h1>
+              <p class="text-xs text-gray-600">Sống Chất Lượng</p>
+            </div>
+          </div>
+          <button
+            onclick="closeMobileMenu()"
+            class="p-2 text-gray-500 hover:text-gray-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="flex flex-col h-full overflow-y-auto pb-20">
+          <div class="p-4 space-y-2">
+            <a
+              href="./index.html"
+              class="mobile-nav-link block py-3 text-gray-700 hover:text-green-600 transition-colors border-b border-gray-100"
+              data-page="index"
+              onclick="closeMobileMenu()"
+              >Trang chủ</a
+            >
+
+            <!-- Mobile Giới thiệu -->
+            <div class="border-b border-gray-100">
+              <button
+                class="mobile-nav-link flex items-center justify-between w-full py-3 text-gray-700 hover:text-green-600 transition-colors"
+                data-page="gioi-thieu"
+                onclick="toggleMobileSubmenu('about')"
+              >
+                <span>Giới thiệu</span>
+                <svg
+                  class="w-4 h-4 transform transition-transform"
+                  id="about-arrow"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="about-submenu" class="hidden pl-4 pb-2 space-y-1">
+                <a
+                  href="./gioi-thieu.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="gioi-thieu"
+                  onclick="closeMobileMenu()"
+                  >Về chúng tôi</a
+                >
+                <a
+                  href="./hoat-dong-cong-dong.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="hoat-dong-cong-dong"
+                  onclick="closeMobileMenu()"
+                  >Hoạt động cộng đồng</a
+                >
+              </div>
+            </div>
+
+            <!-- Mobile Khuyến mãi -->
+            <div class="border-b border-gray-100">
+              <button
+                class="mobile-nav-link flex items-center justify-between w-full py-3 text-gray-700 hover:text-green-600 transition-colors"
+                data-page="khuyen-mai"
+                onclick="toggleMobileSubmenu('promotions')"
+              >
+                <span>Khuyến mãi</span>
+                <svg
+                  class="w-4 h-4 transform transition-transform"
+                  id="promotions-arrow"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="promotions-submenu" class="hidden pl-4 pb-2 space-y-1">
+                <a
+                  href="./tin-khuyen-mai.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="tin-khuyen-mai"
+                  onclick="closeMobileMenu()"
+                  >Tin khuyến mãi</a
+                >
+                <a
+                  href="./uu-dai-dat-hang-online.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="uu-dai-dat-hang-online"
+                  onclick="closeMobileMenu()"
+                  >Ưu đãi khi đặt hàng online</a
+                >
+              </div>
+            </div>
+
+            <a
+              href="./su-kien-tin-tuc.html"
+              class="mobile-nav-link block py-3 text-gray-700 hover:text-green-600 transition-colors border-b border-gray-100"
+              data-page="su-kien-tin-tuc"
+              onclick="closeMobileMenu()"
+              >Sự kiện và tin tức</a
+            >
+            <a
+              href="./khach-hang-thanh-vien.html"
+              class="mobile-nav-link block py-3 text-gray-700 hover:text-green-600 transition-colors border-b border-gray-100"
+              data-page="khach-hang-thanh-vien"
+              onclick="closeMobileMenu()"
+              >Khách hàng thành viên</a
+            >
+
+            <!-- Mobile Liên hệ -->
+            <div class="border-b border-gray-100">
+              <button
+                class="mobile-nav-link flex items-center justify-between w-full py-3 text-gray-700 hover:text-green-600 transition-colors"
+                data-page="lien-he"
+                onclick="toggleMobileSubmenu('contact')"
+              >
+                <span>Liên hệ</span>
+                <svg
+                  class="w-4 h-4 transform transition-transform"
+                  id="contact-arrow"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="contact-submenu" class="hidden pl-4 pb-2 space-y-1">
+                <a
+                  href="./thong-tin-lien-he.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="thong-tin-lien-he"
+                  onclick="closeMobileMenu()"
+                  >Thông tin liên hệ</a
+                >
+                <a
+                  href="./he-thong-sieu-thi.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="he-thong-sieu-thi"
+                  onclick="closeMobileMenu()"
+                  >Hệ thống siêu thị</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl font-bold mb-6">Khách Hàng Thành Viên</h1>
+        <p class="text-xl text-green-100 max-w-3xl mx-auto mb-8">
+          Trở thành thành viên Pavel Mart để tận hưởng đặc quyền mua sắm và tích
+          lũy điểm thưởng
+        </p>
+        <button
+          class="bg-orange-500 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition shadow-xl"
+        >
+          🎁 Đăng ký miễn phí ngay
+        </button>
+      </div>
+    </section>
+
+    <!-- Membership Tiers -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-4 text-green-800">
+          Các Hạng Thẻ Thành Viên
+        </h2>
+        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          4 hạng thẻ với quyền lợi ngày càng cao, phù hợp với mọi nhu cầu mua
+          sắm
+        </p>
+
+        <div class="grid md:grid-cols-4 gap-6">
+          <!-- Silver Card -->
+          <div
+            class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden shadow-lg card-hover border-2 border-gray-300"
+          >
+            <div
+              class="bg-gradient-to-r from-gray-400 to-gray-500 text-white p-6 text-center"
+            >
+              <div class="text-5xl mb-3">🥈</div>
+              <h3 class="text-2xl font-bold mb-2">Silver</h3>
+              <p class="text-sm text-gray-100">Thẻ Bạc</p>
+            </div>
+            <div class="p-6">
+              <div class="text-center mb-6">
+                <div class="text-sm text-gray-600 mb-2">Điều kiện</div>
+                <div class="text-2xl font-bold text-gray-800">Miễn phí</div>
+                <div class="text-sm text-gray-600">Đăng ký ngay</div>
+              </div>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Tích điểm: 1 điểm/10,000đ</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700">Giảm giá: 2%</span>
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Sinh nhật: Voucher 50k</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Ưu đãi đặc biệt hàng tháng</span
+                  >
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-gray-500 text-white py-3 rounded-lg font-bold hover:bg-gray-600 transition"
+              >
+                Đăng ký
+              </button>
+            </div>
+          </div>
+
+          <!-- Gold Card -->
+          <div
+            class="bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl overflow-hidden shadow-xl card-hover border-2 border-yellow-400 transform scale-105"
+          >
+            <div
+              class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white p-6 text-center relative"
+            >
+              <div class="absolute top-2 right-2">
+                <span
+                  class="bg-orange-500 px-2 py-1 rounded-full text-xs font-bold"
+                  >PHỔ BIẾN</span
+                >
+              </div>
+              <div class="text-5xl mb-3">🥇</div>
+              <h3 class="text-2xl font-bold mb-2">Gold</h3>
+              <p class="text-sm text-yellow-100">Thẻ Vàng</p>
+            </div>
+            <div class="p-6">
+              <div class="text-center mb-6">
+                <div class="text-sm text-gray-600 mb-2">Điều kiện</div>
+                <div class="text-2xl font-bold text-yellow-700">5 Triệu</div>
+                <div class="text-sm text-gray-600">Chi tiêu/năm</div>
+              </div>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Tích điểm: 1.5 điểm/10,000đ</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700">Giảm giá: 5%</span>
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Sinh nhật: Voucher 150k</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Freeship đơn từ 200k</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700">Ưu tiên thanh toán</span>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-500 text-white py-3 rounded-lg font-bold hover:bg-yellow-600 transition"
+              >
+                Nâng hạng
+              </button>
+            </div>
+          </div>
+
+          <!-- Platinum Card -->
+          <div
+            class="bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl overflow-hidden shadow-lg card-hover border-2 border-purple-400"
+          >
+            <div
+              class="bg-gradient-to-r from-purple-500 to-purple-700 text-white p-6 text-center"
+            >
+              <div class="text-5xl mb-3">💎</div>
+              <h3 class="text-2xl font-bold mb-2">Platinum</h3>
+              <p class="text-sm text-purple-100">Thẻ Bạch Kim</p>
+            </div>
+            <div class="p-6">
+              <div class="text-center mb-6">
+                <div class="text-sm text-gray-600 mb-2">Điều kiện</div>
+                <div class="text-2xl font-bold text-purple-700">15 Triệu</div>
+                <div class="text-sm text-gray-600">Chi tiêu/năm</div>
+              </div>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Tích điểm: 2 điểm/10,000đ</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700">Giảm giá: 8%</span>
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Sinh nhật: Voucher 300k</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Freeship mọi đơn hàng</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Tư vấn mua sắm cá nhân</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Sự kiện VIP độc quyền</span
+                  >
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-purple-600 text-white py-3 rounded-lg font-bold hover:bg-purple-700 transition"
+              >
+                Nâng hạng
+              </button>
+            </div>
+          </div>
+
+          <!-- Diamond Card -->
+          <div
+            class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl overflow-hidden shadow-lg card-hover border-2 border-blue-400"
+          >
+            <div
+              class="bg-gradient-to-r from-blue-500 to-blue-700 text-white p-6 text-center relative"
+            >
+              <div class="absolute top-2 right-2">
+                <span
+                  class="bg-red-500 px-2 py-1 rounded-full text-xs font-bold"
+                  >PREMIUM</span
+                >
+              </div>
+              <div class="text-5xl mb-3">💠</div>
+              <h3 class="text-2xl font-bold mb-2">Diamond</h3>
+              <p class="text-sm text-blue-100">Thẻ Kim Cương</p>
+            </div>
+            <div class="p-6">
+              <div class="text-center mb-6">
+                <div class="text-sm text-gray-600 mb-2">Điều kiện</div>
+                <div class="text-2xl font-bold text-blue-700">50 Triệu</div>
+                <div class="text-sm text-gray-600">Chi tiêu/năm</div>
+              </div>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Tích điểm: 3 điểm/10,000đ</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700">Giảm giá: 12%</span>
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Sinh nhật: Voucher 500k</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Giao hàng Express 2h</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700">Butler Service 24/7</span>
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Lounge VIP tại siêu thị</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span class="text-sm text-gray-700"
+                    >Du lịch tri ân hàng năm</span
+                  >
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition"
+              >
+                Liên hệ
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12 text-green-800">
+          So Sánh Quyền Lợi
+        </h2>
+
+        <div
+          class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden"
+        >
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead>
+                <tr class="bg-green-600 text-white">
+                  <th class="p-4 text-left font-bold">Quyền lợi</th>
+                  <th class="p-4 text-center font-bold">Silver 🥈</th>
+                  <th class="p-4 text-center font-bold">Gold 🥇</th>
+                  <th class="p-4 text-center font-bold">Platinum 💎</th>
+                  <th class="p-4 text-center font-bold">Diamond 💠</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-4 font-semibold">Tỷ lệ tích điểm</td>
+                  <td class="p-4 text-center">1đ/10k</td>
+                  <td class="p-4 text-center text-yellow-600 font-bold">
+                    1.5đ/10k
+                  </td>
+                  <td class="p-4 text-center text-purple-600 font-bold">
+                    2đ/10k
+                  </td>
+                  <td class="p-4 text-center text-blue-600 font-bold">
+                    3đ/10k
+                  </td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-4 font-semibold">Giảm giá tự động</td>
+                  <td class="p-4 text-center">2%</td>
+                  <td class="p-4 text-center text-yellow-600 font-bold">5%</td>
+                  <td class="p-4 text-center text-purple-600 font-bold">8%</td>
+                  <td class="p-4 text-center text-blue-600 font-bold">12%</td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-4 font-semibold">Voucher sinh nhật</td>
+                  <td class="p-4 text-center">50k</td>
+                  <td class="p-4 text-center text-yellow-600 font-bold">
+                    150k
+                  </td>
+                  <td class="p-4 text-center text-purple-600 font-bold">
+                    300k
+                  </td>
+                  <td class="p-4 text-center text-blue-600 font-bold">500k</td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-4 font-semibold">Freeship</td>
+                  <td class="p-4 text-center text-gray-400">✗</td>
+                  <td class="p-4 text-center text-green-600">✓ Từ 200k</td>
+                  <td class="p-4 text-center text-green-600">✓ Mọi đơn</td>
+                  <td class="p-4 text-center text-green-600">✓ Express 2h</td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-4 font-semibold">Ưu tiên thanh toán</td>
+                  <td class="p-4 text-center text-gray-400">✗</td>
+                  <td class="p-4 text-center text-green-600 font-bold">✓</td>
+                  <td class="p-4 text-center text-green-600 font-bold">✓</td>
+                  <td class="p-4 text-center text-green-600 font-bold">✓</td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-4 font-semibold">Tư vấn cá nhân</td>
+                  <td class="p-4 text-center text-gray-400">✗</td>
+                  <td class="p-4 text-center text-gray-400">✗</td>
+                  <td class="p-4 text-center text-green-600 font-bold">✓</td>
+                  <td class="p-4 text-center text-green-600 font-bold">✓</td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-4 font-semibold">Sự kiện VIP</td>
+                  <td class="p-4 text-center text-gray-400">✗</td>
+                  <td class="p-4 text-center text-gray-400">✗</td>
+                  <td class="p-4 text-center text-green-600 font-bold">✓</td>
+                  <td class="p-4 text-center text-green-600 font-bold">✓</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-4 font-semibold">VIP Lounge</td>
+                  <td class="p-4 text-center text-gray-400">✗</td>
+                  <td class="p-4 text-center text-gray-400">✗</td>
+                  <td class="p-4 text-center text-gray-400">✗</td>
+                  <td class="p-4 text-center text-green-600 font-bold">✓</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Points System -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-4 text-green-800">
+          Hệ Thống Tích Điểm
+        </h2>
+        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          Mua sắm và tích điểm để đổi quà, voucher và nhiều ưu đãi hấp dẫn
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <!-- Earn Points -->
+          <div
+            class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 text-center card-hover"
+          >
+            <div
+              class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-4xl">💰</span>
+            </div>
+            <h3 class="text-2xl font-bold text-green-800 mb-4">Tích Điểm</h3>
+            <div class="space-y-3 text-left">
+              <div class="flex items-center">
+                <span class="text-green-600 mr-2">•</span>
+                <span>Mua sắm tại siêu thị</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-green-600 mr-2">•</span>
+                <span>Đặt hàng online</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-green-600 mr-2">•</span>
+                <span>Giới thiệu bạn bè</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-green-600 mr-2">•</span>
+                <span>Tham gia sự kiện</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-green-600 mr-2">•</span>
+                <span>Đánh giá sản phẩm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Use Points -->
+          <div
+            class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 text-center card-hover"
+          >
+            <div
+              class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-4xl">🎁</span>
+            </div>
+            <h3 class="text-2xl font-bold text-orange-600 mb-4">Đổi Quà</h3>
+            <div class="space-y-3 text-left">
+              <div class="flex items-center">
+                <span class="text-orange-500 mr-2">•</span>
+                <span>Voucher giảm giá</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-orange-500 mr-2">•</span>
+                <span>Sản phẩm độc quyền</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-orange-500 mr-2">•</span>
+                <span>Freeship</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-orange-500 mr-2">•</span>
+                <span>Combo ưu đãi</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-orange-500 mr-2">•</span>
+                <span>Trải nghiệm VIP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Points Value -->
+          <div
+            class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 text-center card-hover"
+          >
+            <div
+              class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-4xl">💎</span>
+            </div>
+            <h3 class="text-2xl font-bold text-blue-600 mb-4">Giá Trị Điểm</h3>
+            <div class="space-y-3">
+              <div class="bg-white rounded-lg p-3">
+                <div class="text-3xl font-bold text-blue-600">1 Điểm</div>
+                <div class="text-sm text-gray-600">= 1,000 VNĐ</div>
+              </div>
+              <div class="bg-white rounded-lg p-3">
+                <div class="text-2xl font-bold text-green-600">100 Điểm</div>
+                <div class="text-sm text-gray-600">= Voucher 100k</div>
+              </div>
+              <div class="bg-white rounded-lg p-3">
+                <div class="text-2xl font-bold text-orange-600">500 Điểm</div>
+                <div class="text-sm text-gray-600">= Quà tặng đặc biệt</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Points Calculator -->
+        <div
+          class="max-w-3xl mx-auto bg-gradient-to-r from-green-600 to-green-800 rounded-2xl p-8 text-white shadow-xl"
+        >
+          <h3 class="text-3xl font-bold text-center mb-6">
+            Tính Điểm Tích Lũy
+          </h3>
+          <div class="bg-white/10 rounded-xl p-6 backdrop-blur mb-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-semibold mb-2"
+                  >Tổng giá trị đơn hàng (VNĐ)</label
+                >
+                <input
+                  type="number"
+                  placeholder="1,000,000"
+                  class="w-full px-4 py-3 rounded-lg text-gray-800 font-semibold"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-2">Hạng thẻ</label>
+                <select
+                  class="w-full px-4 py-3 rounded-lg text-gray-800 font-semibold"
+                >
+                  <option>Silver (1đ/10k)</option>
+                  <option>Gold (1.5đ/10k)</option>
+                  <option>Platinum (2đ/10k)</option>
+                  <option>Diamond (3đ/10k)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button
+              class="bg-orange-500 px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition shadow-lg"
+            >
+              🧮 Tính điểm
+            </button>
+            <div class="mt-6 bg-white/20 rounded-xl p-6 backdrop-blur">
+              <div class="text-sm mb-2">Điểm tích lũy dự kiến</div>
+              <div class="text-5xl font-bold">100 điểm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rewards Catalog -->
+    <section class="py-16 bg-gradient-to-br from-gray-50 to-green-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-4 text-green-800">
+          Danh Mục Đổi Quà
+        </h2>
+        <p class="text-gray-600 text-center mb-12">
+          Sử dụng điểm tích lũy để đổi những phần quà hấp dẫn
+        </p>
+
+        <div class="grid md:grid-cols-4 gap-6">
+          <!-- Reward 1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+            <div
+              class="h-40 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center"
+            >
+              <div class="text-white text-6xl">🎫</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-gray-800 mb-2">Voucher 100K</h3>
+              <p class="text-sm text-gray-600 mb-4">Áp dụng cho đơn từ 500k</p>
+              <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-green-600">100</div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition text-sm"
+                >
+                  Đổi ngay
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reward 2 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+            <div
+              class="h-40 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center"
+            >
+              <div class="text-white text-6xl">🚚</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-gray-800 mb-2">Freeship 1 Tháng</h3>
+              <p class="text-sm text-gray-600 mb-4">
+                Miễn phí ship toàn bộ đơn
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-orange-600">200</div>
+                <button
+                  class="bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 transition text-sm"
+                >
+                  Đổi ngay
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reward 3 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+            <div
+              class="h-40 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center"
+            >
+              <div class="text-white text-6xl">🍷</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-gray-800 mb-2">Rượu Vang Cao Cấp</h3>
+              <p class="text-sm text-gray-600 mb-4">Rượu vang Pháp nhập khẩu</p>
+              <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-purple-600">350</div>
+                <button
+                  class="bg-purple-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-700 transition text-sm"
+                >
+                  Đổi ngay
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reward 4 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+            <div
+              class="h-40 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
+            >
+              <div class="text-white text-6xl">✈️</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-gray-800 mb-2">Du Lịch Đà Lạt</h3>
+              <p class="text-sm text-gray-600 mb-4">Tour 3N2Đ cho 2 người</p>
+              <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-blue-600">1000</div>
+                <button
+                  class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition text-sm"
+                >
+                  Đổi ngay
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reward 5 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+            <div
+              class="h-40 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center"
+            >
+              <div class="text-white text-6xl">📱</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-gray-800 mb-2">iPhone 15 Pro</h3>
+              <p class="text-sm text-gray-600 mb-4">Phiên bản 256GB</p>
+              <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-red-600">5000</div>
+                <button
+                  class="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition text-sm"
+                >
+                  Đổi ngay
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reward 6 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+            <div
+              class="h-40 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center"
+            >
+              <div class="text-white text-6xl">🍔</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-gray-800 mb-2">Food Court Voucher</h3>
+              <p class="text-sm text-gray-600 mb-4">Set ăn cho 4 người</p>
+              <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-yellow-600">80</div>
+                <button
+                  class="bg-yellow-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition text-sm"
+                >
+                  Đổi ngay
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reward 7 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+            <div
+              class="h-40 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center"
+            >
+              <div class="text-white text-6xl">🎮</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-gray-800 mb-2">PlayStation 5</h3>
+              <p class="text-sm text-gray-600 mb-4">Console + 2 tay cầm</p>
+              <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-teal-600">3500</div>
+                <button
+                  class="bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition text-sm"
+                >
+                  Đổi ngay
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reward 8 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+            <div
+              class="h-40 bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center"
+            >
+              <div class="text-white text-6xl">🎁</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-gray-800 mb-2">Giỏ Quà Tết</h3>
+              <p class="text-sm text-gray-600 mb-4">Hộp quà cao cấp</p>
+              <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-pink-600">150</div>
+                <button
+                  class="bg-pink-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-pink-700 transition text-sm"
+                >
+                  Đổi ngay
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            class="bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition shadow-lg"
+          >
+            Xem tất cả quà tặng →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Member Benefits -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12 text-green-800">
+          Đặc Quyền Thành Viên
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="text-center">
+            <div
+              class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-5xl">🎂</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">
+              Sinh Nhật Đặc Biệt
+            </h3>
+            <p class="text-gray-600">
+              Voucher sinh nhật, quà tặng và ưu đãi đặc biệt trong tháng sinh
+              nhật của bạn
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-5xl">🔔</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Thông Báo Sớm</h3>
+            <p class="text-gray-600">
+              Nhận thông tin về chương trình khuyến mãi và sự kiện trước 24-48
+              giờ
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-24 h-24 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-5xl">🎪</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">
+              Sự Kiện Độc Quyền
+            </h3>
+            <p class="text-gray-600">
+              Tham gia các sự kiện VIP, workshop và trải nghiệm dành riêng cho
+              thành viên
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-5xl">💳</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">
+              Thanh Toán Linh Hoạt
+            </h3>
+            <p class="text-gray-600">
+              Trả góp 0%, thanh toán sau và nhiều hình thức thanh toán tiện lợi
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-5xl">🎯</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">
+              Ưu Đãi Cá Nhân Hóa
+            </h3>
+            <p class="text-gray-600">
+              Nhận ưu đãi dựa trên sở thích và lịch sử mua sắm của bạn
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-24 h-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-5xl">👥</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">
+              Giới Thiệu Bạn Bè
+            </h3>
+            <p class="text-gray-600">
+              Nhận 100 điểm cho mỗi bạn bè đăng ký thành công qua link giới
+              thiệu
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration CTA -->
+    <section
+      class="py-16 bg-gradient-to-br from-green-600 to-green-800 text-white"
+    >
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="text-7xl mb-6">🎉</div>
+          <h2 class="text-5xl font-bold mb-6">Đăng Ký Ngay Hôm Nay!</h2>
+          <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+            Hoàn toàn miễn phí! Nhận ngay 50 điểm thưởng và voucher 100K khi
+            đăng ký thành công
+          </p>
+
+          <div class="bg-white rounded-2xl p-8 shadow-2xl max-w-2xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+              <input
+                type="text"
+                placeholder="Họ và tên *"
+                class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-gray-700"
+              />
+              <input
+                type="tel"
+                placeholder="Số điện thoại *"
+                class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-gray-700"
+              />
+            </div>
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+              <input
+                type="email"
+                placeholder="Email *"
+                class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-gray-700"
+              />
+              <input
+                type="date"
+                placeholder="Ngày sinh"
+                class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-gray-700"
+              />
+            </div>
+            <div class="mb-6">
+              <select
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-gray-700"
+              >
+                <option>Giới tính</option>
+                <option>Nam</option>
+                <option>Nữ</option>
+                <option>Khác</option>
+              </select>
+            </div>
+            <div class="flex items-center gap-2 mb-6 text-gray-600">
+              <input type="checkbox" id="terms" class="w-5 h-5" />
+              <label for="terms" class="text-sm text-left">
+                Tôi đồng ý với
+                <a href="#" class="text-green-600 font-semibold underline"
+                  >Điều khoản & Điều kiện</a
+                >
+                của chương trình thành viên Pavel Mart
+              </label>
+            </div>
+            <button
+              class="w-full bg-green-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition shadow-lg"
+            >
+              🎁 Đăng ký miễn phí
+            </button>
+          </div>
+
+          <div class="mt-12 grid md:grid-cols-3 gap-6">
+            <div class="bg-white/10 rounded-xl p-6 backdrop-blur">
+              <div class="text-4xl font-bold mb-2">5M+</div>
+              <div class="text-green-100">Thành viên</div>
+            </div>
+            <div class="bg-white/10 rounded-xl p-6 backdrop-blur">
+              <div class="text-4xl font-bold mb-2">98%</div>
+              <div class="text-green-100">Hài lòng</div>
+            </div>
+            <div class="bg-white/10 rounded-xl p-6 backdrop-blur">
+              <div class="text-4xl font-bold mb-2">24/7</div>
+              <div class="text-green-100">Hỗ trợ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-4 text-green-800">
+          Câu Hỏi Thường Gặp
+        </h2>
+        <p class="text-gray-600 text-center mb-12">
+          Giải đáp các thắc mắc về chương trình thành viên
+        </p>
+
+        <div class="max-w-3xl mx-auto space-y-4">
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="font-bold text-gray-800 mb-2">
+              ❓ Làm thế nào để đăng ký thẻ thành viên?
+            </h3>
+            <p class="text-gray-600">
+              Bạn có thể đăng ký trực tuyến qua website, app Pavel Mart hoặc
+              trực tiếp tại quầy dịch vụ khách hàng ở bất kỳ siêu thị nào. Hoàn
+              toàn miễn phí!
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="font-bold text-gray-800 mb-2">
+              ❓ Điểm tích lũy có thời hạn sử dụng không?
+            </h3>
+            <p class="text-gray-600">
+              Điểm tích lũy có hiệu lực trong 12 tháng kể từ ngày tích điểm. Sau
+              thời gian này, điểm sẽ tự động bị hủy nếu không sử dụng.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="font-bold text-gray-800 mb-2">
+              ❓ Làm sao để nâng hạng thẻ?
+            </h3>
+            <p class="text-gray-600">
+              Hạng thẻ được nâng tự động dựa trên tổng chi tiêu trong 12 tháng
+              gần nhất. Ví dụ: Chi tiêu đạt 5 triệu/năm sẽ tự động lên Gold.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="font-bold text-gray-800 mb-2">
+              ❓ Có thể dùng điểm để thanh toán trực tiếp không?
+            </h3>
+            <p class="text-gray-600">
+              Có! Bạn có thể quy đổi điểm thành voucher hoặc sử dụng trực tiếp
+              để thanh toán với tỷ lệ 1 điểm = 1,000 VNĐ.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="font-bold text-gray-800 mb-2">
+              ❓ Thẻ có được sử dụng tại tất cả siêu thị không?
+            </h3>
+            <p class="text-gray-600">
+              Thẻ thành viên Pavel Mart có giá trị sử dụng tại toàn bộ 150+ siêu
+              thị trên cả nước và khi mua sắm online.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="font-bold text-gray-800 mb-2">
+              ❓ Nếu mất thẻ thì làm thế nào?
+            </h3>
+            <p class="text-gray-600">
+              Hãy liên hệ hotline 1900 6868 để khóa thẻ cũ và cấp lại thẻ mới.
+              Điểm tích lũy của bạn vẫn được bảo toàn 100%.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-12">
+      <div class="container mx-auto px-4">
+        <!-- Main Footer Content -->
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <!-- About Pavel Mart -->
+          <div>
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 bg-white rounded-lg flex items-center justify-center mr-3"
+              >
+                <span class="text-green-800 font-bold text-xl">P</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold">Pavel Mart</h4>
+                <p class="text-sm text-green-300">Sống Chất Lượng</p>
+              </div>
+            </div>
+            <p class="text-green-200 text-sm leading-relaxed mb-4">
+              Pavel Mart - Nâng tầm cuộc sống gia đình Việt. Nơi mỗi lựa chọn là
+              một bước nâng tầm cuộc sống, nơi gia đình Việt được trải nghiệm
+              chất lượng Châu Âu ngay tại nhà.
+            </p>
+            <p class="text-green-300 text-xs">
+              Giấy chứng nhận đăng ký kinh doanh số xxx do Sở Kế Hoạch & Đầu tư
+              TP.HN cấp
+            </p>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h4 class="text-xl font-bold mb-4">Thông tin liên hệ</h4>
+            <div class="space-y-3 text-green-200 text-sm">
+              <div class="flex items-start space-x-2">
+                <span class="text-lg">📍</span>
+                <div>
+                  <p class="font-semibold">Địa chỉ cửa hàng:</p>
+                  <p>91 Nguyen Chi Thanh, Dong Da, HN</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-lg">📞</span>
+                <div>
+                  <p class="font-semibold">Hotline: 0909 888 999</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-lg">📧</span>
+                <div>
+                  <p class="font-semibold">Email: pavelmart@gmail.com</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-lg">🌐</span>
+                <div>
+                  <p class="font-semibold">Website: www.pavelmart.vn</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4 class="text-xl font-bold mb-4">Liên kết nhanh</h4>
+            <div class="space-y-2 text-green-200 text-sm">
+              <a href="#about" class="block hover:text-white transition-colors"
+                >Giới thiệu Pavel Mart</a
+              >
+              <a
+                href="#products"
+                class="block hover:text-white transition-colors"
+                >Sản phẩm</a
+              >
+              <a
+                href="#promotions"
+                class="block hover:text-white transition-colors"
+                >Khuyến mãi</a
+              >
+              <a
+                href="#membership"
+                class="block hover:text-white transition-colors"
+                >Thành viên</a
+              >
+              <a
+                href="#services"
+                class="block hover:text-white transition-colors"
+                >Dịch vụ</a
+              >
+              <a href="#stores" class="block hover:text-white transition-colors"
+                >Hệ thống cửa hàng</a
+              >
+              <a
+                href="#contact"
+                class="block hover:text-white transition-colors"
+                >Liên hệ</a
+              >
+              <a href="#news" class="block hover:text-white transition-colors"
+                >Tin tức</a
+              >
+            </div>
+          </div>
+
+          <!-- Social & Newsletter -->
+          <div>
+            <h4 class="text-xl font-bold mb-4">Kết nối với chúng tôi</h4>
+            <div class="flex space-x-3 mb-4">
+              <a
+                href="#"
+                class="text-green-200 hover:text-white transition-colors"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center"
+                >
+                  <span class="font-bold">f</span>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-green-200 hover:text-white transition-colors"
+              >
+                <div
+                  class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center"
+                >
+                  <span class="font-bold">📷</span>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-green-200 hover:text-white transition-colors"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center"
+                >
+                  <span class="font-bold">Z</span>
+                </div>
+              </a>
+            </div>
+            <p class="text-sm text-green-200 mb-4">
+              Fanpage • Instagram • Zalo OA
+            </p>
+
+            <!-- Newsletter -->
+            <div class="bg-green-700 p-4 rounded-lg">
+              <h5 class="font-semibold mb-2">Đăng ký nhận tin</h5>
+              <p class="text-xs text-green-200 mb-3">
+                Nhận thông tin ưu đãi mới nhất từ Pavel Mart
+              </p>
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Email của bạn"
+                  class="flex-1 px-3 py-2 text-sm rounded-l-lg text-gray-800"
+                />
+                <button
+                  class="bg-orange-500 px-4 py-2 text-sm rounded-r-lg hover:bg-orange-600 transition-colors"
+                >
+                  Đăng ký
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Community Activities -->
+        <div class="border-t border-green-700 pt-8 mb-8">
+          <h4 class="text-lg font-bold mb-4 text-center">
+            TRẢI NGHIỆM KHÁCH HÀNG & CỘNG ĐỒNG
+          </h4>
+          <p class="text-green-200 text-center mb-6 max-w-4xl mx-auto text-sm">
+            Pavel Mart không chỉ bán hàng, chúng tôi xây dựng một lối sống. Tham
+            gia Workshop & Talkshow hướng dẫn dinh dưỡng, nấu ăn lành mạnh, chăm
+            sóc sức khỏe gia đình cùng các hoạt động cộng đồng ý nghĩa.
+          </p>
+          <div class="text-center">
+            <button
+              class="bg-white text-green-800 px-6 py-2 rounded-lg font-semibold hover:bg-green-100 transition-colors"
+            >
+              Tìm hiểu thêm về hoạt động cộng đồng
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="border-t border-green-700 pt-6">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center text-sm text-green-200"
+          >
+            <p>
+              © 2025 Pavel Mart. All rights reserved. | "Pavel Mart - Nâng tầm
+              cuộc sống gia đình Việt"
+            </p>
+            <div class="flex space-x-4 mt-2 md:mt-0">
+              <a href="#" class="hover:text-white transition-colors"
+                >Chính sách bảo mật</a
+              >
+              <a href="#" class="hover:text-white transition-colors"
+                >Điều khoản sử dụng</a
+              >
+              <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button
+      id="scrollTop"
+      class="fixed bottom-6 right-6 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-colors opacity-0 invisible"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        ></path>
+      </svg>
+    </button>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Show/hide scroll to top button
+      const scrollTopBtn = document.getElementById("scrollTop");
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          scrollTopBtn.classList.remove("opacity-0", "invisible");
+        } else {
+          scrollTopBtn.classList.add("opacity-0", "invisible");
+        }
+      });
+
+      // Scroll to top functionality
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenuModal = document.getElementById("mobileMenuModal");
+      const mobileMenuContent = document.getElementById("mobileMenuContent");
+
+      function openMobileMenu() {
+        if (mobileMenuModal && mobileMenuContent) {
+          mobileMenuModal.classList.remove("hidden");
+          // Trigger animation after modal is shown
+          setTimeout(() => {
+            mobileMenuContent.classList.remove("-translate-x-full");
+          }, 10);
+        }
+      }
+
+      function closeMobileMenu() {
+        if (mobileMenuModal && mobileMenuContent) {
+          mobileMenuContent.classList.add("-translate-x-full");
+          // Hide modal after animation completes
+          setTimeout(() => {
+            mobileMenuModal.classList.add("hidden");
+          }, 300);
+        }
+      }
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener("click", openMobileMenu);
+      }
+
+      // Toggle mobile submenu function
+      function toggleMobileSubmenu(menuId) {
+        const submenu = document.getElementById(menuId + "-submenu");
+        const arrow = document.getElementById(menuId + "-arrow");
+        if (submenu && arrow) {
+          submenu.classList.toggle("hidden");
+          arrow.classList.toggle("rotate-180");
+        }
+      }
+
+      // Make functions available globally
+      window.toggleMobileSubmenu = toggleMobileSubmenu;
+      window.openMobileMenu = openMobileMenu;
+      window.closeMobileMenu = closeMobileMenu;
+
+      // Active navigation state management
+      function setActiveNavigation() {
+        // Get current page from URL
+        const currentPage =
+          window.location.pathname.split("/").pop().replace(".html", "") ||
+          "index";
+
+        // Remove active class from all nav links and dropdown links
+        document
+          .querySelectorAll(
+            ".nav-link, .dropdown-link, .mobile-nav-link, .mobile-dropdown-link"
+          )
+          .forEach((link) => {
+            link.classList.remove("active");
+          });
+
+        // Find and activate the matching desktop nav link
+        const navLinks = document.querySelectorAll(".nav-link[data-page]");
+        navLinks.forEach((link) => {
+          const pageName = link.getAttribute("data-page");
+
+          // Check if current page matches
+          if (
+            currentPage === pageName ||
+            (currentPage === "" && pageName === "index") ||
+            (currentPage === "index" && pageName === "index")
+          ) {
+            link.classList.add("active");
+          }
+        });
+
+        // Find and activate the matching desktop dropdown link
+        const dropdownLinks = document.querySelectorAll(
+          ".dropdown-link[data-page]"
+        );
+        dropdownLinks.forEach((link) => {
+          const pageName = link.getAttribute("data-page");
+
+          if (currentPage === pageName) {
+            link.classList.add("active");
+
+            // Also activate parent dropdown button
+            const parentDropdown = link.closest(".group");
+            if (parentDropdown) {
+              const parentButton = parentDropdown.querySelector(".nav-link");
+              if (parentButton) {
+                parentButton.classList.add("active");
+              }
+            }
+          }
+        });
+
+        // Find and activate the matching mobile nav link
+        const mobileNavLinks = document.querySelectorAll(
+          ".mobile-nav-link[data-page]"
+        );
+        mobileNavLinks.forEach((link) => {
+          const pageName = link.getAttribute("data-page");
+
+          if (
+            currentPage === pageName ||
+            (currentPage === "" && pageName === "index") ||
+            (currentPage === "index" && pageName === "index")
+          ) {
+            link.classList.add("active");
+          }
+        });
+
+        // Find and activate the matching mobile dropdown link
+        const mobileDropdownLinks = document.querySelectorAll(
+          ".mobile-dropdown-link[data-page]"
+        );
+        mobileDropdownLinks.forEach((link) => {
+          const pageName = link.getAttribute("data-page");
+
+          if (currentPage === pageName) {
+            link.classList.add("active");
+
+            // Also activate parent mobile menu button and expand submenu
+            const submenuDiv = link.closest('[id$="-submenu"]');
+            if (submenuDiv) {
+              submenuDiv.classList.remove("hidden");
+
+              // Find and activate parent button
+              const submenuId = submenuDiv.id.replace("-submenu", "");
+              const parentButton = document.querySelector(
+                `button[onclick="toggleMobileSubmenu('${submenuId}')"]`
+              );
+              if (parentButton) {
+                parentButton.classList.add("active");
+
+                // Rotate arrow to show submenu is open
+                const arrow = document.getElementById(submenuId + "-arrow");
+                if (arrow) {
+                  arrow.classList.add("rotate-180");
+                }
+              }
+            }
+          }
+        });
+      }
+
+      // Set active navigation on page load
+      document.addEventListener("DOMContentLoaded", setActiveNavigation);
+
+      // Also run immediately in case DOM is already loaded
+      setActiveNavigation();
+    </script>
+  </body>
+</html>

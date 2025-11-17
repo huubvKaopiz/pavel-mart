@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pavel Mart - Sống Chất Lượng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              green: {
+                50: "#f0f9f0",
+                100: "#dcf4dc",
+                200: "#bce7bc",
+                300: "#8fd68f",
+                400: "#5bb85b",
+                500: "#389738",
+                600: "#2c7a2c",
+                700: "#256425",
+                800: "#1f4f1f",
+                900: "#1a4a1a",
+              },
+              orange: {
+                400: "#fb923c",
+                500: "#f97316",
+                600: "#ea580c",
+              },
+            },
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          #389738 0%,
+          #256425 50%,
+          #1a4a1a 100%
+        );
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .section-divider {
+        background: linear-gradient(
+          to right,
+          transparent,
+          #389738,
+          transparent
+        );
+        height: 2px;
+      }
+
+      /* Active navigation styles */
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link.active {
+        color: #389738 !important;
+        font-weight: 600;
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #389738;
+        border-radius: 2px;
+      }
+
+      .nav-link:not(.active):hover {
+        color: #389738;
+      }
+
+      /* Dropdown active styles */
+      .dropdown-link.active {
+        background-color: #f0f9f0;
+        color: #389738 !important;
+        font-weight: 600;
+      }
+
+      /* Mobile navigation active styles */
+      .mobile-nav-link.active {
+        color: #389738 !important;
+        font-weight: 600;
+        background-color: #f0f9f0;
+        border-left: 4px solid #389738;
+        padding-left: calc(1rem - 4px);
+      }
+
+      .mobile-dropdown-link.active {
+        color: #389738 !important;
+        font-weight: 600;
+        background-color: #f0f9f0;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Top Header Bar -->
+    <div class="bg-gray-100 py-2 text-sm border-b border-gray-200">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-end items-center space-x-2 md:space-x-6">
+          <!-- Tìm siêu thị gần bạn -->
+          <button
+            class="text-gray-700 hover:text-green-600 transition-colors flex items-center space-x-1"
+          >
+            <span>📍</span>
+            <span class="hidden sm:inline">Tìm siêu thị gần bạn</span>
+          </button>
+
+          <!-- Tìm kiếm thông tin -->
+          <button
+            class="text-gray-700 hover:text-green-600 transition-colors flex items-center space-x-1"
+          >
+            <span>🔍</span>
+            <span class="hidden sm:inline">Tìm kiếm thông tin</span>
+          </button>
+
+          <!-- Đăng ký KHTV -->
+          <button
+            class="text-gray-700 hover:text-green-600 transition-colors flex items-center space-x-1"
+          >
+            <span>👤</span>
+            <span class="hidden md:inline">Đăng ký KHTV</span>
+          </button>
+
+          <!-- VI/EN -->
+          <div
+            class="flex items-center bg-white rounded-full border border-gray-200"
+          >
+            <button
+              class="px-2 md:px-3 text-xs md:text-sm font-medium text-white bg-green-600 rounded-full transition-colors"
+            >
+              VI
+            </button>
+            <button
+              class="px-2 md:px-3 text-xs md:text-sm font-medium text-gray-600 hover:text-green-600 transition-colors"
+            >
+              EN
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <nav class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center space-x-3">
+            <a href="./index.html" class="flex items-center space-x-3">
+              <div
+                class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center"
+              >
+                <span class="text-white font-bold text-xl">P</span>
+              </div>
+              <div>
+                <h1 class="text-xl font-bold text-green-800">Pavel Mart</h1>
+                <p class="text-sm text-gray-600">Sống Chất Lượng</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Navigation Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="./index.html"
+              class="nav-link text-gray-700 hover:text-green-600 transition-colors"
+              data-page="index"
+              >Trang chủ</a
+            >
+
+            <!-- Giới thiệu Dropdown -->
+            <div class="relative group">
+              <button
+                class="nav-link flex items-center text-gray-700 hover:text-green-600 transition-colors"
+                data-page="gioi-thieu"
+              >
+                Giới thiệu
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <div class="py-1">
+                  <a
+                    href="./gioi-thieu.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="gioi-thieu"
+                    >Về chúng tôi</a
+                  >
+                  <a
+                    href="./hoat-dong-cong-dong.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="hoat-dong-cong-dong"
+                    >Hoạt động cộng đồng</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Khuyến mãi Dropdown -->
+            <div class="relative group">
+              <button
+                class="nav-link flex items-center text-gray-700 hover:text-green-600 transition-colors"
+                data-page="khuyen-mai"
+              >
+                Khuyến mãi
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <div class="py-1">
+                  <a
+                    href="./tin-khuyen-mai.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="tin-khuyen-mai"
+                    >Tin khuyến mãi</a
+                  >
+                  <a
+                    href="./uu-dai-dat-hang-online.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="uu-dai-dat-hang-online"
+                    >Ưu đãi khi đặt hàng online</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="./su-kien-tin-tuc.html"
+              class="nav-link text-gray-700 hover:text-green-600 transition-colors"
+              data-page="su-kien-tin-tuc"
+              >Sự kiện và tin tức</a
+            >
+            <a
+              href="./khach-hang-thanh-vien.html"
+              class="nav-link text-gray-700 hover:text-green-600 transition-colors"
+              data-page="khach-hang-thanh-vien"
+              >Khách hàng thành viên</a
+            >
+
+            <!-- Liên hệ Dropdown -->
+            <div class="relative group">
+              <button
+                class="nav-link flex items-center text-gray-700 hover:text-green-600 transition-colors"
+                data-page="lien-he"
+              >
+                Liên hệ
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <div class="py-1">
+                  <a
+                    href="./thong-tin-lien-he.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="thong-tin-lien-he"
+                    >Thông tin liên hệ</a
+                  >
+                  <a
+                    href="./he-thong-sieu-thi.html"
+                    class="dropdown-link block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    data-page="he-thong-sieu-thi"
+                    >Hệ thống siêu thị</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button id="mobileMenuBtn" class="md:hidden p-2">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile Menu Modal -->
+    <div id="mobileMenuModal" class="fixed inset-0 z-50 hidden md:hidden">
+      <!-- Backdrop -->
+      <div
+        class="fixed inset-0 bg-black bg-opacity-50"
+        onclick="closeMobileMenu()"
+      ></div>
+
+      <!-- Modal Content -->
+      <div
+        class="fixed top-0 left-0 w-80 h-full bg-white shadow-xl transform -translate-x-full transition-transform duration-300"
+        id="mobileMenuContent"
+      >
+        <!-- Header -->
+        <div
+          class="flex items-center justify-between p-4 border-b border-gray-200"
+        >
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center"
+            >
+              <span class="text-white font-bold text-lg">P</span>
+            </div>
+            <div>
+              <h1 class="text-lg font-bold text-green-800">Pavel Mart</h1>
+              <p class="text-xs text-gray-600">Sống Chất Lượng</p>
+            </div>
+          </div>
+          <button
+            onclick="closeMobileMenu()"
+            class="p-2 text-gray-500 hover:text-gray-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="flex flex-col h-full overflow-y-auto pb-20">
+          <div class="p-4 space-y-2">
+            <a
+              href="./index.html"
+              class="mobile-nav-link block py-3 text-gray-700 hover:text-green-600 transition-colors border-b border-gray-100"
+              data-page="index"
+              onclick="closeMobileMenu()"
+              >Trang chủ</a
+            >
+
+            <!-- Mobile Giới thiệu -->
+            <div class="border-b border-gray-100">
+              <button
+                class="mobile-nav-link flex items-center justify-between w-full py-3 text-gray-700 hover:text-green-600 transition-colors"
+                data-page="gioi-thieu"
+                onclick="toggleMobileSubmenu('about')"
+              >
+                <span>Giới thiệu</span>
+                <svg
+                  class="w-4 h-4 transform transition-transform"
+                  id="about-arrow"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="about-submenu" class="hidden pl-4 pb-2 space-y-1">
+                <a
+                  href="./gioi-thieu.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="gioi-thieu"
+                  onclick="closeMobileMenu()"
+                  >Về chúng tôi</a
+                >
+                <a
+                  href="./hoat-dong-cong-dong.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="hoat-dong-cong-dong"
+                  onclick="closeMobileMenu()"
+                  >Hoạt động cộng đồng</a
+                >
+              </div>
+            </div>
+
+            <!-- Mobile Khuyến mãi -->
+            <div class="border-b border-gray-100">
+              <button
+                class="mobile-nav-link flex items-center justify-between w-full py-3 text-gray-700 hover:text-green-600 transition-colors"
+                data-page="khuyen-mai"
+                onclick="toggleMobileSubmenu('promotions')"
+              >
+                <span>Khuyến mãi</span>
+                <svg
+                  class="w-4 h-4 transform transition-transform"
+                  id="promotions-arrow"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="promotions-submenu" class="hidden pl-4 pb-2 space-y-1">
+                <a
+                  href="./tin-khuyen-mai.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="tin-khuyen-mai"
+                  onclick="closeMobileMenu()"
+                  >Tin khuyến mãi</a
+                >
+                <a
+                  href="./uu-dai-dat-hang-online.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="uu-dai-dat-hang-online"
+                  onclick="closeMobileMenu()"
+                  >Ưu đãi khi đặt hàng online</a
+                >
+              </div>
+            </div>
+
+            <a
+              href="./su-kien-tin-tuc.html"
+              class="mobile-nav-link block py-3 text-gray-700 hover:text-green-600 transition-colors border-b border-gray-100"
+              data-page="su-kien-tin-tuc"
+              onclick="closeMobileMenu()"
+              >Sự kiện và tin tức</a
+            >
+            <a
+              href="./khach-hang-thanh-vien.html"
+              class="mobile-nav-link block py-3 text-gray-700 hover:text-green-600 transition-colors border-b border-gray-100"
+              data-page="khach-hang-thanh-vien"
+              onclick="closeMobileMenu()"
+              >Khách hàng thành viên</a
+            >
+
+            <!-- Mobile Liên hệ -->
+            <div class="border-b border-gray-100">
+              <button
+                class="mobile-nav-link flex items-center justify-between w-full py-3 text-gray-700 hover:text-green-600 transition-colors"
+                data-page="lien-he"
+                onclick="toggleMobileSubmenu('contact')"
+              >
+                <span>Liên hệ</span>
+                <svg
+                  class="w-4 h-4 transform transition-transform"
+                  id="contact-arrow"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="contact-submenu" class="hidden pl-4 pb-2 space-y-1">
+                <a
+                  href="./thong-tin-lien-he.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="thong-tin-lien-he"
+                  onclick="closeMobileMenu()"
+                  >Thông tin liên hệ</a
+                >
+                <a
+                  href="./he-thong-sieu-thi.html"
+                  class="mobile-dropdown-link block py-2 text-sm text-gray-600 hover:text-green-600"
+                  data-page="he-thong-sieu-thi"
+                  onclick="closeMobileMenu()"
+                  >Hệ thống siêu thị</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Banner Slider -->
+    <section class="relative overflow-hidden">
+      <div class="slider-container">
+        <!-- Slide 1: Combo Tết -->
+        <div
+          class="slide active"
+          style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%)"
+        >
+          <div class="container mx-auto px-4 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <div class="text-white">
+                <div
+                  class="inline-block bg-yellow-400 text-red-800 px-4 py-2 rounded-full font-bold text-sm mb-4"
+                >
+                  🎁 ƯU ĐÃI TẾT 2026
+                </div>
+                <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                  Combo Quà Tết<br />Siêu Tiết Kiệm
+                </h2>
+                <p class="text-2xl mb-4 text-red-100">
+                  Miễn phí gói quà cực đẹp!
+                </p>
+                <p class="text-xl mb-8 text-red-50">
+                  Tết này mua sắm thả ga, rinh quà về nhà. Mua càng nhiều - Ưu
+                  đãi càng đặc biệt!
+                </p>
+                <button
+                  class="bg-yellow-400 text-red-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors"
+                >
+                  Xem combo ngay →
+                </button>
+              </div>
+              <div class="hidden lg:flex items-center justify-center">
+                <div class="text-9xl animate-bounce">🎁</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Tri ân khách hàng -->
+        <div
+          class="slide"
+          style="background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)"
+        >
+          <div class="container mx-auto px-4 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <div class="text-white">
+                <div
+                  class="inline-block bg-pink-400 text-purple-900 px-4 py-2 rounded-full font-bold text-sm mb-4"
+                >
+                  ⭐ KHÁCH HÀNG VIP
+                </div>
+                <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                  Tri Ân Đặc Biệt
+                </h2>
+                <p class="text-2xl mb-4 text-purple-100">
+                  Dành cho khách hàng thân thiết
+                </p>
+                <p class="text-xl mb-8 text-purple-50">
+                  Mua hàng > 10 triệu đồng/năm - Nhận ngay quà tặng cao cấp và
+                  voucher độc quyền!
+                </p>
+                <button
+                  class="bg-pink-400 text-purple-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-pink-300 transition-colors"
+                >
+                  Kiểm tra ưu đãi →
+                </button>
+              </div>
+              <div class="hidden lg:flex items-center justify-center">
+                <div class="text-9xl animate-pulse">👑</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Tuần lễ hàng Việt -->
+        <div
+          class="slide"
+          style="background: linear-gradient(135deg, #059669 0%, #047857 100%)"
+        >
+          <div class="container mx-auto px-4 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <div class="text-white">
+                <div
+                  class="inline-block bg-yellow-400 text-green-900 px-4 py-2 rounded-full font-bold text-sm mb-4"
+                >
+                  🇻🇳 HÀNG VIỆT NAM CHẤT LƯỢNG CAO
+                </div>
+                <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                  Tuần Lễ Hàng Việt
+                </h2>
+                <p class="text-2xl mb-4 text-green-100">
+                  Giảm giá đặc biệt cho nông sản Việt
+                </p>
+                <p class="text-xl mb-8 text-green-50">
+                  Ủng hộ hàng Việt, nhận ưu đãi cực khủng. Nông sản sạch, tươi
+                  ngon từ các nông trại uy tín!
+                </p>
+                <button
+                  class="bg-yellow-400 text-green-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors"
+                >
+                  Mua ngay →
+                </button>
+              </div>
+              <div class="hidden lg:flex items-center justify-center">
+                <div class="text-9xl">🌾</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Navigation -->
+      <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10"
+      >
+        <button class="slider-dot active" onclick="goToSlide(0)"></button>
+        <button class="slider-dot" onclick="goToSlide(1)"></button>
+        <button class="slider-dot" onclick="goToSlide(2)"></button>
+      </div>
+
+      <!-- Previous/Next Buttons -->
+      <button
+        class="slider-nav-btn absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 text-white p-4 rounded-full z-10"
+        onclick="previousSlide()"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          ></path>
+        </svg>
+      </button>
+      <button
+        class="slider-nav-btn absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 text-white p-4 rounded-full z-10"
+        onclick="nextSlide()"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+      </button>
+    </section>
+
+    <!-- Promotion Cards -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h3 class="text-3xl font-bold text-green-800 mb-4">
+            CHƯƠNG TRÌNH KHUYẾN MÃI NỔI BẬT
+          </h3>
+          <div class="section-divider w-24 mx-auto mb-8"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Promo 1: Combo Tết -->
+          <div
+            class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+          >
+            <div class="bg-red-600 text-white text-center py-3 font-bold">
+              🎊 ƯU ĐÃI TẾT 2026
+            </div>
+            <div class="p-6">
+              <div class="text-6xl text-center mb-4">🎁</div>
+              <h4 class="text-2xl font-bold text-red-800 mb-3 text-center">
+                Combo Quà Tết Siêu Tiết Kiệm
+              </h4>
+              <div class="space-y-3 text-gray-700 mb-6">
+                <p class="flex items-start">
+                  <span class="text-red-600 mr-2">✓</span>
+                  <span>Miễn phí gói quà đẹp mắt, sang trọng</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-red-600 mr-2">✓</span>
+                  <span>Combo từ 500K - Giảm ngay 10%</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-red-600 mr-2">✓</span>
+                  <span>Combo từ 1 triệu - Giảm ngay 15%</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-red-600 mr-2">✓</span>
+                  <span>Tặng kèm lịch Tết cao cấp</span>
+                </p>
+              </div>
+              <div class="bg-yellow-100 rounded-lg p-4 mb-4 text-center">
+                <p class="text-sm text-gray-600 mb-1">Thời gian áp dụng</p>
+                <p class="font-bold text-red-700">01/12/2025 - 31/01/2026</p>
+              </div>
+              <button
+                class="w-full bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition-colors"
+              >
+                Đặt combo ngay
+              </button>
+            </div>
+          </div>
+
+          <!-- Promo 2: Tri ân VIP -->
+          <div
+            class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+          >
+            <div class="bg-purple-600 text-white text-center py-3 font-bold">
+              👑 KHÁCH HÀNG THÂN THIẾT
+            </div>
+            <div class="p-6">
+              <div class="text-6xl text-center mb-4">⭐</div>
+              <h4 class="text-2xl font-bold text-purple-800 mb-3 text-center">
+                Tri Ân Khách Hàng VIP
+              </h4>
+              <div class="space-y-3 text-gray-700 mb-6">
+                <p class="flex items-start">
+                  <span class="text-purple-600 mr-2">✓</span>
+                  <span>Mua > 10 triệu đồng/năm</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-purple-600 mr-2">✓</span>
+                  <span>Nhận quà tặng cao cấp độc quyền</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-purple-600 mr-2">✓</span>
+                  <span>Voucher 500K cho mua sắm tiếp theo</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-purple-600 mr-2">✓</span>
+                  <span>Ưu tiên mua sản phẩm độc quyền</span>
+                </p>
+              </div>
+              <div class="bg-pink-100 rounded-lg p-4 mb-4 text-center">
+                <p class="text-sm text-gray-600 mb-1">Điều kiện</p>
+                <p class="font-bold text-purple-700">
+                  Tích lũy từ 01/2025 - 12/2025
+                </p>
+              </div>
+              <button
+                class="w-full bg-purple-600 text-white py-3 rounded-lg font-bold hover:bg-purple-700 transition-colors"
+              >
+                Kiểm tra tích lũy
+              </button>
+            </div>
+          </div>
+
+          <!-- Promo 3: Tuần lễ hàng Việt -->
+          <div
+            class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+          >
+            <div class="bg-green-600 text-white text-center py-3 font-bold">
+              🇻🇳 HÀNG VIỆT CHẤT LƯỢNG
+            </div>
+            <div class="p-6">
+              <div class="text-6xl text-center mb-4">🌾</div>
+              <h4 class="text-2xl font-bold text-green-800 mb-3 text-center">
+                Tuần Lễ Hàng Việt
+              </h4>
+              <div class="space-y-3 text-gray-700 mb-6">
+                <p class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span>Nông sản Việt giảm đến 30%</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span>Rau củ hữu cơ tươi mỗi ngày</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span>Gạo, trái cây chất lượng cao</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-green-600 mr-2">✓</span>
+                  <span>Ủng hộ nông dân Việt Nam</span>
+                </p>
+              </div>
+              <div class="bg-yellow-100 rounded-lg p-4 mb-4 text-center">
+                <p class="text-sm text-gray-600 mb-1">Diễn ra hàng tháng</p>
+                <p class="font-bold text-green-700">Tuần 2 mỗi tháng</p>
+              </div>
+              <button
+                class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-colors"
+              >
+                Xem sản phẩm
+              </button>
+            </div>
+          </div>
+
+          <!-- Promo 4: Túi vải xanh -->
+          <div
+            class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+          >
+            <div class="bg-teal-600 text-white text-center py-3 font-bold">
+              🌱 SỐNG XANH
+            </div>
+            <div class="p-6">
+              <div class="text-6xl text-center mb-4">🛍️</div>
+              <h4 class="text-2xl font-bold text-teal-800 mb-3 text-center">
+                Túi Vải - Giảm Giá Ngay
+              </h4>
+              <div class="space-y-3 text-gray-700 mb-6">
+                <p class="flex items-start">
+                  <span class="text-teal-600 mr-2">✓</span>
+                  <span>Mang túi vải đựng đồ</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-teal-600 mr-2">✓</span>
+                  <span>Giảm ngay 5% mọi hóa đơn</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-teal-600 mr-2">✓</span>
+                  <span>Không giới hạn số lần sử dụng</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-teal-600 mr-2">✓</span>
+                  <span>Bảo vệ môi trường xanh sạch</span>
+                </p>
+              </div>
+              <div class="bg-green-100 rounded-lg p-4 mb-4 text-center">
+                <p class="text-sm text-gray-600 mb-1">Áp dụng</p>
+                <p class="font-bold text-teal-700">
+                  Toàn bộ hệ thống Pavel Mart
+                </p>
+              </div>
+              <button
+                class="w-full bg-teal-600 text-white py-3 rounded-lg font-bold hover:bg-teal-700 transition-colors"
+              >
+                Tìm hiểu thêm
+              </button>
+            </div>
+          </div>
+
+          <!-- Promo 5: Check-in nhận quà -->
+          <div
+            class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+          >
+            <div class="bg-orange-600 text-white text-center py-3 font-bold">
+              📸 CHECK-IN NHẬN QUÀ
+            </div>
+            <div class="p-6">
+              <div class="text-6xl text-center mb-4">🎉</div>
+              <h4 class="text-2xl font-bold text-orange-800 mb-3 text-center">
+                Check-in Nhận Quà Tết
+              </h4>
+              <div class="space-y-3 text-gray-700 mb-6">
+                <p class="flex items-start">
+                  <span class="text-orange-600 mr-2">✓</span>
+                  <span>Check-in tại Pavel Mart</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-orange-600 mr-2">✓</span>
+                  <span>Tag @pavelmart trên Facebook</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-orange-600 mr-2">✓</span>
+                  <span>Nhận ngay: Lịch, sổ tay, túi vải</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-orange-600 mr-2">✓</span>
+                  <span>Quà xinh xắn, hữu ích</span>
+                </p>
+              </div>
+              <div class="bg-yellow-100 rounded-lg p-4 mb-4 text-center">
+                <p class="text-sm text-gray-600 mb-1">Số lượng có hạn</p>
+                <p class="font-bold text-orange-700">500 phần quà/ngày</p>
+              </div>
+              <button
+                class="w-full bg-orange-600 text-white py-3 rounded-lg font-bold hover:bg-orange-700 transition-colors"
+              >
+                Đến ngay
+              </button>
+            </div>
+          </div>
+
+          <!-- Promo 6: Online Deals -->
+          <div
+            class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+          >
+            <div class="bg-blue-600 text-white text-center py-3 font-bold">
+              💻 MUA ONLINE
+            </div>
+            <div class="p-6">
+              <div class="text-6xl text-center mb-4">🚀</div>
+              <h4 class="text-2xl font-bold text-blue-800 mb-3 text-center">
+                Đặt Hàng Online
+              </h4>
+              <div class="space-y-3 text-gray-700 mb-6">
+                <p class="flex items-start">
+                  <span class="text-blue-600 mr-2">✓</span>
+                  <span>Giảm 10% đơn hàng đầu tiên</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-blue-600 mr-2">✓</span>
+                  <span>Freeship đơn từ 300K</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-blue-600 mr-2">✓</span>
+                  <span>Giao hàng trong 2 giờ</span>
+                </p>
+                <p class="flex items-start">
+                  <span class="text-blue-600 mr-2">✓</span>
+                  <span>Tích điểm đổi quà hấp dẫn</span>
+                </p>
+              </div>
+              <div class="bg-indigo-100 rounded-lg p-4 mb-4 text-center">
+                <p class="text-sm text-gray-600 mb-1">Đặt hàng ngay</p>
+                <p class="font-bold text-blue-700">
+                  App Pavel Mart hoặc Website
+                </p>
+              </div>
+              <button
+                class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+              >
+                Mua ngay
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section
+      class="py-16 bg-gradient-to-r from-green-600 to-green-800 text-white"
+    >
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-4xl font-bold mb-6">Đừng bỏ lỡ cơ hội vàng!</h3>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          Hàng ngàn sản phẩm đang chờ bạn với giá ưu đãi đặc biệt. Ghé Pavel
+          Mart ngay hôm nay!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors text-lg"
+          >
+            📍 Tìm siêu thị gần nhất
+          </button>
+          <button
+            class="bg-white text-green-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg"
+          >
+            📱 Tải App Pavel Mart
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .slider-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+      }
+
+      .slide.active {
+        position: relative;
+        opacity: 1;
+        transform: translateX(0);
+        z-index: 2;
+      }
+
+      .slide.prev {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      .slider-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .slider-dot:hover {
+        background: rgba(255, 255, 255, 0.8);
+        transform: scale(1.2);
+      }
+
+      .slider-dot.active {
+        background: white;
+        width: 32px;
+        border-radius: 6px;
+      }
+
+      /* Smooth hover effects for navigation buttons */
+      .slider-nav-btn {
+        transition: all 0.3s ease;
+      }
+
+      .slider-nav-btn:hover {
+        background-color: rgba(255, 255, 255, 0.7) !important;
+        transform: scale(1.1);
+      }
+    </style>
+
+    <script>
+      let currentSlide = 0;
+      let isAnimating = false;
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".slider-dot");
+      let autoSlideInterval;
+
+      function showSlide(index, direction = "next") {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const oldSlide = currentSlide;
+
+        // Calculate new slide index
+        currentSlide = index;
+        if (currentSlide >= slides.length) currentSlide = 0;
+        if (currentSlide < 0) currentSlide = slides.length - 1;
+
+        // Remove all classes
+        slides.forEach((slide) => {
+          slide.classList.remove("active", "prev");
+        });
+        dots.forEach((dot) => dot.classList.remove("active"));
+
+        // Set previous slide
+        if (direction === "next") {
+          slides[oldSlide].classList.add("prev");
+        }
+
+        // Activate new slide
+        slides[currentSlide].classList.add("active");
+        dots[currentSlide].classList.add("active");
+
+        // Reset animation lock after transition
+        setTimeout(() => {
+          isAnimating = false;
+        }, 800);
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1, "next");
+      }
+
+      function previousSlide() {
+        showSlide(currentSlide - 1, "prev");
+      }
+
+      function goToSlide(index) {
+        const direction = index > currentSlide ? "next" : "prev";
+        showSlide(index, direction);
+        resetAutoSlide();
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, 5000);
+      }
+
+      // Initialize first slide
+      slides[0].classList.add("active");
+      dots[0].classList.add("active");
+
+      // Auto slide every 5 seconds
+      autoSlideInterval = setInterval(nextSlide, 5000);
+
+      // Pause on hover
+      const sliderContainer = document.querySelector(".slider-container");
+      sliderContainer.addEventListener("mouseenter", () => {
+        clearInterval(autoSlideInterval);
+      });
+
+      sliderContainer.addEventListener("mouseleave", () => {
+        resetAutoSlide();
+      });
+
+      // Touch support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      sliderContainer.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      sliderContainer.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+
+      function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+          nextSlide();
+          resetAutoSlide();
+        }
+        if (touchEndX > touchStartX + 50) {
+          previousSlide();
+          resetAutoSlide();
+        }
+      }
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-12">
+      <div class="container mx-auto px-4">
+        <!-- Main Footer Content -->
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <!-- About Pavel Mart -->
+          <div>
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 bg-white rounded-lg flex items-center justify-center mr-3"
+              >
+                <span class="text-green-800 font-bold text-xl">P</span>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold">Pavel Mart</h4>
+                <p class="text-sm text-green-300">Sống Chất Lượng</p>
+              </div>
+            </div>
+            <p class="text-green-200 text-sm leading-relaxed mb-4">
+              Pavel Mart - Nâng tầm cuộc sống gia đình Việt. Nơi mỗi lựa chọn là
+              một bước nâng tầm cuộc sống, nơi gia đình Việt được trải nghiệm
+              chất lượng Châu Âu ngay tại nhà.
+            </p>
+            <p class="text-green-300 text-xs">
+              Giấy chứng nhận đăng ký kinh doanh số xxx do Sở Kế Hoạch & Đầu tư
+              TP.HN cấp
+            </p>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h4 class="text-xl font-bold mb-4">Thông tin liên hệ</h4>
+            <div class="space-y-3 text-green-200 text-sm">
+              <div class="flex items-start space-x-2">
+                <span class="text-lg">📍</span>
+                <div>
+                  <p class="font-semibold">Địa chỉ cửa hàng:</p>
+                  <p>91 Nguyen Chi Thanh, Dong Da, HN</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-lg">📞</span>
+                <div>
+                  <p class="font-semibold">Hotline: 0909 888 999</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-lg">📧</span>
+                <div>
+                  <p class="font-semibold">Email: pavelmart@gmail.com</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-lg">🌐</span>
+                <div>
+                  <p class="font-semibold">Website: www.pavelmart.vn</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4 class="text-xl font-bold mb-4">Liên kết nhanh</h4>
+            <div class="space-y-2 text-green-200 text-sm">
+              <a href="#about" class="block hover:text-white transition-colors"
+                >Giới thiệu Pavel Mart</a
+              >
+              <a
+                href="#products"
+                class="block hover:text-white transition-colors"
+                >Sản phẩm</a
+              >
+              <a
+                href="#promotions"
+                class="block hover:text-white transition-colors"
+                >Khuyến mãi</a
+              >
+              <a
+                href="#membership"
+                class="block hover:text-white transition-colors"
+                >Thành viên</a
+              >
+              <a
+                href="#services"
+                class="block hover:text-white transition-colors"
+                >Dịch vụ</a
+              >
+              <a href="#stores" class="block hover:text-white transition-colors"
+                >Hệ thống cửa hàng</a
+              >
+              <a
+                href="#contact"
+                class="block hover:text-white transition-colors"
+                >Liên hệ</a
+              >
+              <a href="#news" class="block hover:text-white transition-colors"
+                >Tin tức</a
+              >
+            </div>
+          </div>
+
+          <!-- Social & Newsletter -->
+          <div>
+            <h4 class="text-xl font-bold mb-4">Kết nối với chúng tôi</h4>
+            <div class="flex space-x-3 mb-4">
+              <a
+                href="#"
+                class="text-green-200 hover:text-white transition-colors"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center"
+                >
+                  <span class="font-bold">f</span>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-green-200 hover:text-white transition-colors"
+              >
+                <div
+                  class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center"
+                >
+                  <span class="font-bold">📷</span>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-green-200 hover:text-white transition-colors"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center"
+                >
+                  <span class="font-bold">Z</span>
+                </div>
+              </a>
+            </div>
+            <p class="text-sm text-green-200 mb-4">
+              Fanpage • Instagram • Zalo OA
+            </p>
+
+            <!-- Newsletter -->
+            <div class="bg-green-700 p-4 rounded-lg">
+              <h5 class="font-semibold mb-2">Đăng ký nhận tin</h5>
+              <p class="text-xs text-green-200 mb-3">
+                Nhận thông tin ưu đãi mới nhất từ Pavel Mart
+              </p>
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Email của bạn"
+                  class="flex-1 px-3 py-2 text-sm rounded-l-lg text-gray-800"
+                />
+                <button
+                  class="bg-orange-500 px-4 py-2 text-sm rounded-r-lg hover:bg-orange-600 transition-colors"
+                >
+                  Đăng ký
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Community Activities -->
+        <div class="border-t border-green-700 pt-8 mb-8">
+          <h4 class="text-lg font-bold mb-4 text-center">
+            TRẢI NGHIỆM KHÁCH HÀNG & CỘNG ĐỒNG
+          </h4>
+          <p class="text-green-200 text-center mb-6 max-w-4xl mx-auto text-sm">
+            Pavel Mart không chỉ bán hàng, chúng tôi xây dựng một lối sống. Tham
+            gia Workshop & Talkshow hướng dẫn dinh dưỡng, nấu ăn lành mạnh, chăm
+            sóc sức khỏe gia đình cùng các hoạt động cộng đồng ý nghĩa.
+          </p>
+          <div class="text-center">
+            <button
+              class="bg-white text-green-800 px-6 py-2 rounded-lg font-semibold hover:bg-green-100 transition-colors"
+            >
+              Tìm hiểu thêm về hoạt động cộng đồng
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="border-t border-green-700 pt-6">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center text-sm text-green-200"
+          >
+            <p>
+              © 2025 Pavel Mart. All rights reserved. | "Pavel Mart - Nâng tầm
+              cuộc sống gia đình Việt"
+            </p>
+            <div class="flex space-x-4 mt-2 md:mt-0">
+              <a href="#" class="hover:text-white transition-colors"
+                >Chính sách bảo mật</a
+              >
+              <a href="#" class="hover:text-white transition-colors"
+                >Điều khoản sử dụng</a
+              >
+              <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button
+      id="scrollTop"
+      class="fixed bottom-6 right-6 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-colors opacity-0 invisible"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        ></path>
+      </svg>
+    </button>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Show/hide scroll to top button
+      const scrollTopBtn = document.getElementById("scrollTop");
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          scrollTopBtn.classList.remove("opacity-0", "invisible");
+        } else {
+          scrollTopBtn.classList.add("opacity-0", "invisible");
+        }
+      });
+
+      // Scroll to top functionality
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenuModal = document.getElementById("mobileMenuModal");
+      const mobileMenuContent = document.getElementById("mobileMenuContent");
+
+      function openMobileMenu() {
+        if (mobileMenuModal && mobileMenuContent) {
+          mobileMenuModal.classList.remove("hidden");
+          // Trigger animation after modal is shown
+          setTimeout(() => {
+            mobileMenuContent.classList.remove("-translate-x-full");
+          }, 10);
+        }
+      }
+
+      function closeMobileMenu() {
+        if (mobileMenuModal && mobileMenuContent) {
+          mobileMenuContent.classList.add("-translate-x-full");
+          // Hide modal after animation completes
+          setTimeout(() => {
+            mobileMenuModal.classList.add("hidden");
+          }, 300);
+        }
+      }
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener("click", openMobileMenu);
+      }
+
+      // Toggle mobile submenu function
+      function toggleMobileSubmenu(menuId) {
+        const submenu = document.getElementById(menuId + "-submenu");
+        const arrow = document.getElementById(menuId + "-arrow");
+        if (submenu && arrow) {
+          submenu.classList.toggle("hidden");
+          arrow.classList.toggle("rotate-180");
+        }
+      }
+
+      // Make functions available globally
+      window.toggleMobileSubmenu = toggleMobileSubmenu;
+      window.openMobileMenu = openMobileMenu;
+      window.closeMobileMenu = closeMobileMenu;
+
+      // Active navigation state management
+      function setActiveNavigation() {
+        // Get current page from URL
+        const currentPage =
+          window.location.pathname.split("/").pop().replace(".html", "") ||
+          "index";
+
+        // Remove active class from all nav links and dropdown links
+        document
+          .querySelectorAll(
+            ".nav-link, .dropdown-link, .mobile-nav-link, .mobile-dropdown-link"
+          )
+          .forEach((link) => {
+            link.classList.remove("active");
+          });
+
+        // Find and activate the matching desktop nav link
+        const navLinks = document.querySelectorAll(".nav-link[data-page]");
+        navLinks.forEach((link) => {
+          const pageName = link.getAttribute("data-page");
+
+          // Check if current page matches
+          if (
+            currentPage === pageName ||
+            (currentPage === "" && pageName === "index") ||
+            (currentPage === "index" && pageName === "index")
+          ) {
+            link.classList.add("active");
+          }
+        });
+
+        // Find and activate the matching desktop dropdown link
+        const dropdownLinks = document.querySelectorAll(
+          ".dropdown-link[data-page]"
+        );
+        dropdownLinks.forEach((link) => {
+          const pageName = link.getAttribute("data-page");
+
+          if (currentPage === pageName) {
+            link.classList.add("active");
+
+            // Also activate parent dropdown button
+            const parentDropdown = link.closest(".group");
+            if (parentDropdown) {
+              const parentButton = parentDropdown.querySelector(".nav-link");
+              if (parentButton) {
+                parentButton.classList.add("active");
+              }
+            }
+          }
+        });
+
+        // Find and activate the matching mobile nav link
+        const mobileNavLinks = document.querySelectorAll(
+          ".mobile-nav-link[data-page]"
+        );
+        mobileNavLinks.forEach((link) => {
+          const pageName = link.getAttribute("data-page");
+
+          if (
+            currentPage === pageName ||
+            (currentPage === "" && pageName === "index") ||
+            (currentPage === "index" && pageName === "index")
+          ) {
+            link.classList.add("active");
+          }
+        });
+
+        // Find and activate the matching mobile dropdown link
+        const mobileDropdownLinks = document.querySelectorAll(
+          ".mobile-dropdown-link[data-page]"
+        );
+        mobileDropdownLinks.forEach((link) => {
+          const pageName = link.getAttribute("data-page");
+
+          if (currentPage === pageName) {
+            link.classList.add("active");
+
+            // Also activate parent mobile menu button and expand submenu
+            const submenuDiv = link.closest('[id$="-submenu"]');
+            if (submenuDiv) {
+              submenuDiv.classList.remove("hidden");
+
+              // Find and activate parent button
+              const submenuId = submenuDiv.id.replace("-submenu", "");
+              const parentButton = document.querySelector(
+                `button[onclick="toggleMobileSubmenu('${submenuId}')"]`
+              );
+              if (parentButton) {
+                parentButton.classList.add("active");
+
+                // Rotate arrow to show submenu is open
+                const arrow = document.getElementById(submenuId + "-arrow");
+                if (arrow) {
+                  arrow.classList.add("rotate-180");
+                }
+              }
+            }
+          }
+        });
+      }
+
+      // Set active navigation on page load
+      document.addEventListener("DOMContentLoaded", setActiveNavigation);
+
+      // Also run immediately in case DOM is already loaded
+      setActiveNavigation();
+    </script>
+  </body>
+</html>
