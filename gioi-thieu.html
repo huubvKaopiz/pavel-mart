@@ -6,7 +6,7 @@
     <title>Pavel Mart - Sống Chất Lượng</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <script>
@@ -33,7 +33,8 @@
               },
             },
             fontFamily: {
-              inter: ["Inter", "sans-serif"],
+              display: ["Playfair Display", "serif"],
+              body: ["Inter", "sans-serif"],
             },
           },
         },
@@ -42,6 +43,16 @@
     <style>
       body {
         font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
       }
       .hero-gradient {
         background: linear-gradient(
@@ -551,73 +562,320 @@
       </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient text-white py-16">
-      <div class="container mx-auto px-4">
-        <div class="text-center max-w-4xl mx-auto">
-          <h1 class="text-4xl md:text-5xl font-bold mb-6">
-            Pavel Mart - Hành trình từ Châu Âu đến trái tim gia đình Việt
-          </h1>
-          <div
-            class="section-divider w-24 mx-auto mb-8"
-            style="
-              background: linear-gradient(
-                to right,
-                transparent,
-                white,
-                transparent
-              );
-              height: 2px;
-            "
-          ></div>
+    <!-- Hero Section with Large Visual -->
+    <section
+      class="relative h-screen flex items-center justify-center overflow-hidden"
+    >
+      <!-- Background Image Placeholder -->
+      <div class="absolute inset-0 hero-gradient">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <!-- Large Background Pattern/Image -->
+        <div
+          class="absolute inset-0 flex items-center justify-center opacity-10"
+        >
+          <div class="text-white text-9xl">🏪</div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center max-w-4xl mx-auto text-white">
+          <!-- Brand Logo Large -->
+          <div class="mb-8">
+            <div
+              class="w-32 h-32 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl"
+            >
+              <span class="text-green-800 font-bold text-6xl">P</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">PAVEL MART</h1>
+            <div class="text-2xl md:text-3xl font-semibold mb-6 text-green-200">
+              Sống Chất Lượng
+            </div>
+          </div>
+
+          <p class="text-xl md:text-2xl leading-relaxed mb-8 text-white/90">
+            Hành trình từ Châu Âu đến trái tim gia đình Việt
+          </p>
+
+          <!-- Scroll Indicator -->
+          <div class="animate-bounce mt-12">
+            <svg
+              class="w-8 h-8 mx-auto text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              ></path>
+            </svg>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- About Pavel Mart -->
-    <section class="py-16 bg-white">
+    <!-- Brand Story with Large Visuals -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <!-- Story Block 1 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+          <div class="order-2 lg:order-1">
+            <div
+              class="bg-gradient-to-br from-green-100 to-green-200 rounded-3xl h-96 flex items-center justify-center shadow-2xl"
+            >
+              <div class="text-center p-8">
+                <span class="text-8xl mb-4 block">🌍</span>
+                <p class="text-green-800 font-semibold text-lg">
+                  Tinh hoa Châu Âu
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div
+              class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-4"
+            >
+              Ra đời 2026
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-green-800 mb-6">
+              Phong cách sống tinh tế chuẩn Châu Âu
+            </h2>
+            <p class="text-xl text-gray-700 leading-relaxed">
+              PAVEL MART không chỉ là siêu thị hiện đại, mà là cánh cửa đưa
+              phong cách sống tinh tế chuẩn châu Âu đến gần hơn với mỗi gia đình
+              Việt.
+            </p>
+          </div>
+        </div>
+
+        <!-- Story Block 2 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+          <div>
+            <div
+              class="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-4"
+            >
+              Trải nghiệm
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-blue-800 mb-6">
+              Không gian mua sắm đẳng cấp
+            </h2>
+            <p class="text-xl text-gray-700 leading-relaxed">
+              Sang trọng nhẹ nhàng, tinh giản nhưng đầy tiện nghi - nơi mọi bước
+              chân đều mang đến cảm giác thoải mái và tinh tế.
+            </p>
+          </div>
+          <div>
+            <div
+              class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-3xl h-96 flex items-center justify-center shadow-2xl"
+            >
+              <div class="text-center p-8">
+                <span class="text-8xl mb-4 block">✨</span>
+                <p class="text-blue-800 font-semibold text-lg">
+                  Trải nghiệm đẳng cấp
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Block 3 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1">
+            <div
+              class="bg-gradient-to-br from-purple-100 to-purple-200 rounded-3xl h-96 flex items-center justify-center shadow-2xl"
+            >
+              <div class="text-center p-8">
+                <span class="text-8xl mb-4 block">🛒</span>
+                <p class="text-purple-800 font-semibold text-lg">
+                  Sản phẩm chọn lọc
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div
+              class="inline-block bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold mb-4"
+            >
+              Sản phẩm
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-purple-800 mb-6">
+              Hàng nghìn sản phẩm đa dạng
+            </h2>
+            <p class="text-xl text-gray-700 leading-relaxed">
+              Từ thực phẩm tươi ngon đến hàng nhập khẩu từ các thương hiệu danh
+              tiếng châu Âu - tất cả đều được chọn lọc kỹ lưỡng.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values with Icons -->
+    <section class="py-20 bg-gradient-to-br from-green-50 to-green-100">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-green-800 mb-4">
+            Giá trị cốt lõi
+          </h2>
+          <div class="section-divider w-24 mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div
+            class="bg-white rounded-2xl p-8 text-center shadow-xl card-hover"
+          >
+            <div
+              class="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <span class="text-white text-5xl">🏆</span>
+            </div>
+            <h3 class="text-2xl font-bold text-green-800 mb-4">Chất lượng</h3>
+            <p class="text-gray-600 text-lg">
+              Sản phẩm an toàn, đạt chuẩn quốc tế
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-2xl p-8 text-center shadow-xl card-hover"
+          >
+            <div
+              class="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <span class="text-white text-5xl">❤️</span>
+            </div>
+            <h3 class="text-2xl font-bold text-blue-800 mb-4">Tận tâm</h3>
+            <p class="text-gray-600 text-lg">Dịch vụ chuyên nghiệp, chu đáo</p>
+          </div>
+
+          <div
+            class="bg-white rounded-2xl p-8 text-center shadow-xl card-hover"
+          >
+            <div
+              class="w-24 h-24 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <span class="text-white text-5xl">🌱</span>
+            </div>
+            <h3 class="text-2xl font-bold text-purple-800 mb-4">Bền vững</h3>
+            <p class="text-gray-600 text-lg">Phát triển có trách nhiệm</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Statement - Large Visual -->
+    <section class="py-20 bg-white">
       <div class="container mx-auto px-4">
         <div class="max-w-5xl mx-auto">
-          <div class="prose prose-lg max-w-none">
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
-              Ra đời vào năm 2026,
-              <strong class="text-green-700">PAVEL MART</strong> không chỉ đơn
-              thuần là hệ thống siêu thị hiện đại mà còn là cánh cửa đưa phong
-              cách sống tinh tế chuẩn châu Âu đến gần hơn với mỗi gia đình Việt.
-              Sự xuất hiện của PAVEL MART đánh dấu một bước chuyển mình đầy táo
-              bạo trong lĩnh vực bán lẻ, nơi chất lượng tiêu dùng được nâng tầm
-              và trải nghiệm mua sắm trở thành một hành trình đáng nhớ.
+          <div
+            class="bg-gradient-to-r from-green-600 to-green-800 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl"
+          >
+            <div class="mb-8">
+              <span class="text-8xl">🏪</span>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+              "Nâng tầm cuộc sống gia đình Việt"
+            </h2>
+            <p
+              class="text-xl md:text-2xl leading-relaxed text-green-100 max-w-3xl mx-auto"
+            >
+              Pavel Mart cam kết trở thành biểu tượng của uy tín, chất lượng và
+              phong cách sống hiện đại
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
-              Lấy khách hàng làm trung tâm và phát triển bền vững làm kim chỉ
-              nam, PAVEL MART đầu tư đồng bộ từ cơ sở vật chất hiện đại, hệ
-              thống quản lý thông minh cho đến quy trình vận hành tinh gọn.
-              Không gian mua sắm được kiến tạo với sự sang trọng nhẹ nhàng, tinh
-              giản nhưng đầy tiện nghi - nơi mọi bước chân đều mang đến cảm giác
-              thoải mái và tinh tế.
-            </p>
+    <!-- Journey Steps - Visual Timeline -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            Hành trình của chúng tôi
+          </h2>
+          <div class="section-divider w-24 mx-auto"></div>
+        </div>
 
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
-              Bên trong PAVEL MART là thế giới của hàng nghìn sản phẩm đa dạng,
-              được chọn lọc kỹ lưỡng: từ thực phẩm tươi ngon, hàng tiêu dùng
-              thiết yếu, mỹ phẩm và đồ gia dụng cao cấp, đến những mặt hàng nhập
-              khẩu từ các thương hiệu danh tiếng châu Âu. PAVEL MART tự hào là
-              điểm dừng chân thi vị, nơi khách hàng có thể thư giãn và thưởng
-              thức những hương vị tinh tế giữa không gian hiện đại đầy cảm hứng.
-            </p>
+        <div class="grid md:grid-cols-5 gap-8 max-w-6xl mx-auto">
+          <div class="text-center">
+            <div
+              class="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
+            >
+              <span class="text-white text-5xl">🚜</span>
+            </div>
+            <h4 class="font-bold text-lg text-gray-800 mb-2">Nguồn gốc</h4>
+            <p class="text-gray-600">Nông trại uy tín</p>
+          </div>
 
-            <p class="text-lg text-gray-700 leading-relaxed mb-8">
-              Với phương châm
-              <strong class="text-green-700"
-                >"PAVEL MART - Nâng tầm cuộc sống gia đình Việt"</strong
-              >, chúng tôi cam kết mang đến những sản phẩm an toàn, chất lượng
-              cùng dịch vụ tận tâm, chuyên nghiệp. Trong tương lai, PAVEL MART
-              sẽ tiếp tục mở rộng hệ thống trên toàn quốc, trở thành biểu tượng
-              của uy tín, chất lượng và phong cách sống hiện đại, nơi mỗi lần
-              ghé thăm là một lần chạm vào hành trình trải nghiệm đậm chất Âu
-              ngay bên nhà.
-            </p>
+          <div class="text-center">
+            <div
+              class="w-32 h-32 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
+            >
+              <span class="text-white text-5xl">🔍</span>
+            </div>
+            <h4 class="font-bold text-lg text-gray-800 mb-2">Kiểm định</h4>
+            <p class="text-gray-600">Chất lượng nghiêm ngặt</p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-32 h-32 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
+            >
+              <span class="text-white text-5xl">🚚</span>
+            </div>
+            <h4 class="font-bold text-lg text-gray-800 mb-2">Vận chuyển</h4>
+            <p class="text-gray-600">An toàn, nhanh chóng</p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-32 h-32 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
+            >
+              <span class="text-white text-5xl">🏪</span>
+            </div>
+            <h4 class="font-bold text-lg text-gray-800 mb-2">Siêu thị</h4>
+            <p class="text-gray-600">Pavel Mart</p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-32 h-32 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
+            >
+              <span class="text-white text-5xl">👨‍👩‍👧‍👦</span>
+            </div>
+            <h4 class="font-bold text-lg text-gray-800 mb-2">Gia đình</h4>
+            <p class="text-gray-600">Hạnh phúc trọn vẹn</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-green-600">
+      <div class="container mx-auto px-4">
+        <div class="text-center text-white max-w-4xl mx-auto">
+          <h2 class="text-4xl md:text-5xl font-bold mb-6">
+            Trải nghiệm Pavel Mart ngay hôm nay
+          </h2>
+          <p class="text-xl mb-8 text-green-100">
+            Ghé thăm cửa hàng gần bạn hoặc mua sắm trực tuyến
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="./he-thong-sieu-thi.html"
+              class="bg-white text-green-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors text-lg"
+            >
+              Tìm cửa hàng
+            </a>
+            <a
+              href="./index.html"
+              class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-green-600 transition-colors text-lg"
+            >
+              Khám phá sản phẩm
+            </a>
           </div>
         </div>
       </div>

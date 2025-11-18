@@ -6,7 +6,7 @@
     <title>Pavel Mart - Sống Chất Lượng</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <script>
@@ -33,7 +33,8 @@
               },
             },
             fontFamily: {
-              inter: ["Inter", "sans-serif"],
+              display: ["Playfair Display", "serif"],
+              body: ["Inter", "sans-serif"],
             },
           },
         },
@@ -42,6 +43,16 @@
     <style>
       body {
         font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
       }
       .hero-gradient {
         background: linear-gradient(
@@ -711,6 +722,91 @@
       </button>
     </section>
 
+    <!-- Filter & Sort Section -->
+    <section class="py-6 bg-white shadow-sm sticky top-0 z-20">
+      <div class="container mx-auto px-4">
+        <!-- Search Box - Full Width -->
+        <div class="mb-4">
+          <div class="relative max-w-2xl mx-auto">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Tìm kiếm khuyến mãi..."
+              class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-500 text-lg shadow-sm"
+              onkeyup="filterPromotions()"
+            />
+            <svg
+              class="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div
+          class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-center"
+        >
+          <!-- Category Filter -->
+          <div class="flex-1 sm:flex-none">
+            <select
+              id="categoryFilter"
+              class="w-full sm:w-auto pl-4 pr-10 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-500 bg-white cursor-pointer font-medium text-gray-700 shadow-sm hover:border-gray-300 transition-colors"
+              onchange="filterPromotions()"
+            >
+              <option value="all">📂 Tất cả ngành hàng</option>
+              <option value="fresh">🥬 Thực phẩm tươi sống</option>
+              <option value="import">🌏 Hàng nhập khẩu</option>
+              <option value="household">🏠 Gia dụng</option>
+              <option value="beauty">💄 Mỹ phẩm</option>
+              <option value="combo">🎁 Combo tiết kiệm</option>
+            </select>
+          </div>
+
+          <!-- Time Filter -->
+          <div class="flex-1 sm:flex-none">
+            <select
+              id="timeFilter"
+              class="w-full sm:w-auto pl-4 pr-10 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-500 bg-white cursor-pointer font-medium text-gray-700 shadow-sm hover:border-gray-300 transition-colors"
+              onchange="filterPromotions()"
+            >
+              <option value="all">📅 Tất cả</option>
+              <option value="this-week">⭐ Tuần này</option>
+              <option value="expiring">⏰ Sắp hết hạn</option>
+              <option value="new">🆕 Mới nhất</option>
+            </select>
+          </div>
+
+          <!-- Reset Button -->
+          <button
+            onclick="resetFilters()"
+            class="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors font-semibold shadow-sm border-2 border-gray-200 hover:border-gray-300"
+          >
+            🔄 Xóa bộ lọc
+          </button>
+        </div>
+
+        <!-- Results Count -->
+        <div class="mt-4 text-center">
+          <p id="resultsCount" class="text-sm text-gray-600">
+            Hiển thị
+            <span class="font-bold text-green-600 text-lg" id="countNumber"
+              >12</span
+            >
+            khuyến mãi
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Promotion Cards -->
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
@@ -721,10 +817,16 @@
           <div class="section-divider w-24 mx-auto mb-8"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          id="promotionGrid"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           <!-- Promo 1: Combo Tết -->
           <div
-            class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            class="promotion-card bg-gradient-to-br from-red-50 to-red-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            data-category="combo"
+            data-time="this-week"
+            data-keywords="combo tết quà tặng tiết kiệm"
           >
             <div class="bg-red-600 text-white text-center py-3 font-bold">
               🎊 ƯU ĐÃI TẾT 2026
@@ -766,7 +868,10 @@
 
           <!-- Promo 2: Tri ân VIP -->
           <div
-            class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            class="promotion-card bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            data-category="all"
+            data-time="all"
+            data-keywords="vip khách hàng tri ân thành viên"
           >
             <div class="bg-purple-600 text-white text-center py-3 font-bold">
               👑 KHÁCH HÀNG THÂN THIẾT
@@ -810,7 +915,10 @@
 
           <!-- Promo 3: Tuần lễ hàng Việt -->
           <div
-            class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            class="promotion-card bg-gradient-to-br from-green-50 to-green-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            data-category="fresh"
+            data-time="this-week"
+            data-keywords="hàng việt nông sản rau củ tươi sống"
           >
             <div class="bg-green-600 text-white text-center py-3 font-bold">
               🇻🇳 HÀNG VIỆT CHẤT LƯỢNG
@@ -852,7 +960,10 @@
 
           <!-- Promo 4: Túi vải xanh -->
           <div
-            class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            class="promotion-card bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            data-category="all"
+            data-time="all"
+            data-keywords="túi vải xanh môi trường giảm giá"
           >
             <div class="bg-teal-600 text-white text-center py-3 font-bold">
               🌱 SỐNG XANH
@@ -896,7 +1007,10 @@
 
           <!-- Promo 5: Check-in nhận quà -->
           <div
-            class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            class="promotion-card bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            data-category="all"
+            data-time="new"
+            data-keywords="check-in facebook quà tặng mạng xã hội"
           >
             <div class="bg-orange-600 text-white text-center py-3 font-bold">
               📸 CHECK-IN NHẬN QUÀ
@@ -938,7 +1052,10 @@
 
           <!-- Promo 6: Online Deals -->
           <div
-            class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            class="promotion-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl overflow-hidden shadow-lg card-hover"
+            data-category="all"
+            data-time="all"
+            data-keywords="online đặt hàng freeship giảm giá app website giao hàng"
           >
             <div class="bg-blue-600 text-white text-center py-3 font-bold">
               💻 MUA ONLINE
@@ -1573,6 +1690,211 @@
 
       // Also run immediately in case DOM is already loaded
       setActiveNavigation();
+
+      // ===== Promotion Filtering System =====
+
+      // Get filter elements
+      const searchInput = document.getElementById("search-input");
+      const categorySelect = document.getElementById("category-select");
+      const timeSelect = document.getElementById("time-select");
+      const resetBtn = document.getElementById("reset-btn");
+      const activeFiltersDiv = document.getElementById("active-filters");
+      const resultsCountSpan = document.getElementById("results-count");
+      const promotionCards = document.querySelectorAll(".promotion-card");
+
+      // Filter state
+      let filters = {
+        search: "",
+        category: "all",
+        time: "all",
+      };
+
+      // Initialize filtering
+      function initializeFilters() {
+        if (searchInput) {
+          searchInput.addEventListener("input", (e) => {
+            filters.search = e.target.value.toLowerCase().trim();
+            applyFilters();
+          });
+        }
+
+        if (categorySelect) {
+          categorySelect.addEventListener("change", (e) => {
+            filters.category = e.target.value;
+            applyFilters();
+          });
+        }
+
+        if (timeSelect) {
+          timeSelect.addEventListener("change", (e) => {
+            filters.time = e.target.value;
+            applyFilters();
+          });
+        }
+
+        if (resetBtn) {
+          resetBtn.addEventListener("click", resetFilters);
+        }
+      }
+
+      // Apply filters to promotion cards
+      function applyFilters() {
+        let visibleCount = 0;
+
+        promotionCards.forEach((card) => {
+          const cardCategory = card.getAttribute("data-category") || "all";
+          const cardTime = card.getAttribute("data-time") || "all";
+          const cardKeywords = (
+            card.getAttribute("data-keywords") || ""
+          ).toLowerCase();
+
+          // Check search filter
+          const searchMatch =
+            !filters.search || cardKeywords.includes(filters.search);
+
+          // Check category filter
+          const categoryMatch =
+            filters.category === "all" ||
+            cardCategory === "all" ||
+            cardCategory === filters.category;
+
+          // Check time filter
+          const timeMatch =
+            filters.time === "all" ||
+            cardTime === "all" ||
+            cardTime === filters.time;
+
+          // Show or hide card
+          if (searchMatch && categoryMatch && timeMatch) {
+            card.style.display = "block";
+            visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        // Update results count
+        updateResultsCount(visibleCount);
+
+        // Update active filters display
+        updateActiveFilters();
+      }
+
+      // Update results count
+      function updateResultsCount(count) {
+        if (resultsCountSpan) {
+          resultsCountSpan.textContent = count;
+        }
+      }
+
+      // Update active filters display
+      function updateActiveFilters() {
+        if (!activeFiltersDiv) return;
+
+        const activeTags = [];
+
+        // Add search tag
+        if (filters.search) {
+          activeTags.push({
+            label: `Tìm kiếm: "${filters.search}"`,
+            type: "search",
+          });
+        }
+
+        // Add category tag
+        if (filters.category !== "all") {
+          const categoryLabels = {
+            fresh: "Thực phẩm tươi sống",
+            imported: "Hàng nhập khẩu",
+            household: "Gia dụng",
+            cosmetics: "Mỹ phẩm",
+            combo: "Combo tiết kiệm",
+          };
+          activeTags.push({
+            label: categoryLabels[filters.category] || filters.category,
+            type: "category",
+          });
+        }
+
+        // Add time tag
+        if (filters.time !== "all") {
+          const timeLabels = {
+            "this-week": "Tuần này",
+            "ending-soon": "Sắp hết hạn",
+            new: "Mới nhất",
+          };
+          activeTags.push({
+            label: timeLabels[filters.time] || filters.time,
+            type: "time",
+          });
+        }
+
+        // Render tags
+        if (activeTags.length > 0) {
+          activeFiltersDiv.innerHTML = activeTags
+            .map(
+              (tag) => `
+            <span class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+              <span>${tag.label}</span>
+              <button onclick="removeFilter('${tag.type}')" class="hover:text-green-900 font-bold">×</button>
+            </span>
+          `
+            )
+            .join("");
+          activeFiltersDiv.classList.remove("hidden");
+        } else {
+          activeFiltersDiv.innerHTML = "";
+          activeFiltersDiv.classList.add("hidden");
+        }
+      }
+
+      // Remove specific filter
+      function removeFilter(type) {
+        if (type === "search") {
+          filters.search = "";
+          if (searchInput) searchInput.value = "";
+        } else if (type === "category") {
+          filters.category = "all";
+          if (categorySelect) categorySelect.value = "all";
+        } else if (type === "time") {
+          filters.time = "all";
+          if (timeSelect) timeSelect.value = "all";
+        }
+        applyFilters();
+      }
+
+      // Reset all filters
+      function resetFilters() {
+        filters = {
+          search: "",
+          category: "all",
+          time: "all",
+        };
+
+        if (searchInput) searchInput.value = "";
+        if (categorySelect) categorySelect.value = "all";
+        if (timeSelect) timeSelect.value = "all";
+
+        applyFilters();
+      }
+
+      // Make removeFilter available globally
+      window.removeFilter = removeFilter;
+
+      // Initialize filters when DOM is ready
+      document.addEventListener("DOMContentLoaded", () => {
+        initializeFilters();
+        // Initial count
+        updateResultsCount(promotionCards.length);
+      });
+
+      // Run immediately in case DOM is already loaded
+      if (document.readyState === "loading") {
+        // Do nothing, DOMContentLoaded will fire
+      } else {
+        initializeFilters();
+        updateResultsCount(promotionCards.length);
+      }
     </script>
   </body>
 </html>

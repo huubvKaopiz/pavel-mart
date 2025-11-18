@@ -6,7 +6,7 @@
     <title>Pavel Mart - Sống Chất Lượng</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <script>
@@ -33,7 +33,8 @@
               },
             },
             fontFamily: {
-              inter: ["Inter", "sans-serif"],
+              display: ["Playfair Display", "serif"],
+              body: ["Inter", "sans-serif"],
             },
           },
         },
@@ -42,6 +43,11 @@
     <style>
       body {
         font-family: "Inter", sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
       }
       .hero-gradient {
         background: linear-gradient(
@@ -561,6 +567,20 @@
       </div>
     </section>
 
+    <!-- Breadcrumbs -->
+    <section class="bg-gray-50 py-4 border-b border-gray-200">
+      <div class="container mx-auto px-4">
+        <nav class="flex items-center text-sm text-gray-600">
+          <a href="index.html" class="hover:text-green-600 transition">
+            <span class="mr-2">🏠</span>
+            Trang chủ
+          </a>
+          <span class="mx-3 text-gray-400">/</span>
+          <span class="text-green-700 font-semibold">Sự kiện & Tin tức</span>
+        </nav>
+      </div>
+    </section>
+
     <!-- Filter Tabs -->
     <section class="bg-white py-6 sticky top-0 z-40 shadow-md">
       <div class="container mx-auto px-4">
@@ -599,53 +619,120 @@
       </div>
     </section>
 
-    <!-- Featured News Section -->
-    <section class="py-16 bg-gray-50">
+    <!-- Main Content with Sidebar -->
+    <section class="py-8 lg:py-16 bg-gray-50">
       <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="flex flex-col lg:flex-row lg:gap-8">
+          <!-- Sidebar - Left Menu (Hidden on Mobile) -->
+          <aside class="hidden lg:block lg:w-64 flex-shrink-0">
+            <div class="sticky top-24">
+              <!-- Categories Menu -->
+              <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                  <span>📂</span>
+                  <span>Danh mục</span>
+                </h3>
+                <nav class="space-y-2">
+                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-green-50 text-green-700 font-semibold transition hover:bg-green-100">
+                    <span>🔥</span>
+                    <span>Tất cả</span>
+                  </a>
+                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
+                    <span>🎉</span>
+                    <span>Sự kiện</span>
+                  </a>
+                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
+                    <span>📰</span>
+                    <span>Tin tức</span>
+                  </a>
+                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
+                    <span>🎁</span>
+                    <span>Khuyến mãi</span>
+                  </a>
+                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
+                    <span>🌱</span>
+                    <span>Cộng đồng</span>
+                  </a>
+                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
+                    <span>🛒</span>
+                    <span>Cẩm nang</span>
+                  </a>
+                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
+                    <span>🏆</span>
+                    <span>Thành tựu</span>
+                  </a>
+                </nav>
+              </div>
+
+              <!-- Search Box -->
+              <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                  <span>🔍</span>
+                  <span>Tìm kiếm</span>
+                </h3>
+                <div class="relative">
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm..."
+                    class="w-full px-4 py-2 pr-10 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none text-sm"
+                  />
+                  <button class="absolute right-2 top-1/2 -translate-y-1/2 text-green-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Content Area -->
+          <div class="flex-1 w-full">
+            <!-- Featured News Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-8 lg:mb-12">
           <!-- Main Featured -->
           <div
-            class="bg-white rounded-2xl overflow-hidden shadow-xl card-hover"
+            class="bg-white rounded-xl lg:rounded-2xl overflow-hidden shadow-lg lg:shadow-xl card-hover"
           >
             <div
-              class="h-80 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center relative"
+              class="h-48 lg:h-80 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center relative"
             >
-              <div class="absolute top-4 left-4">
+              <div class="absolute top-3 left-3 lg:top-4 lg:left-4">
                 <span
-                  class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold"
+                  class="bg-red-500 text-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-full text-xs lg:text-sm font-bold"
                   >🔥 HOT</span
                 >
               </div>
-              <div class="text-white text-center p-8">
-                <div class="text-7xl mb-4">🎊</div>
-                <div class="text-3xl font-bold">MEGA SALE TẾT 2025</div>
+              <div class="text-white text-center p-4 lg:p-8">
+                <div class="text-5xl lg:text-7xl mb-2 lg:mb-4">🎊</div>
+                <div class="text-xl lg:text-3xl font-bold">MEGA SALE TẾT 2025</div>
               </div>
             </div>
-            <div class="p-8">
-              <div class="flex items-center gap-4 mb-4 text-sm text-gray-600">
+            <div class="p-4 lg:p-8">
+              <div class="flex items-center gap-2 lg:gap-4 mb-3 lg:mb-4 text-xs lg:text-sm text-gray-600">
                 <span>📅 15/11/2025</span>
                 <span>•</span>
                 <span
-                  class="bg-orange-100 text-orange-600 px-3 py-1 rounded-full font-semibold"
+                  class="bg-orange-100 text-orange-600 px-2 py-1 lg:px-3 lg:py-1 rounded-full font-semibold"
                   >Khuyến mãi</span
                 >
               </div>
-              <h3 class="text-3xl font-bold text-green-800 mb-4">
+              <h3 class="text-xl lg:text-3xl font-bold text-green-800 mb-3 lg:mb-4">
                 Đại Tiệc Mua Sắm Tết - Giảm Đến 50%
               </h3>
-              <p class="text-gray-700 mb-6 leading-relaxed">
+              <p class="text-sm lg:text-base text-gray-700 mb-4 lg:mb-6 leading-relaxed">
                 Pavel Mart khai màn chương trình khuyến mãi lớn nhất năm với
                 hàng ngàn sản phẩm giảm giá sâu. Từ thực phẩm tươi sống, bánh
                 kẹo Tết, đến đồ dùng gia đình - tất cả đều có ưu đãi đặc biệt.
               </p>
-              <div class="flex gap-3">
+              <div class="flex gap-2 lg:gap-3">
                 <button
-                  class="flex-1 bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition"
+                  class="flex-1 bg-green-600 text-white py-2.5 lg:py-3 rounded-lg text-sm lg:text-base font-bold hover:bg-green-700 transition"
                 >
                   Xem chi tiết
                 </button>
                 <button
-                  class="px-6 border-2 border-green-600 text-green-600 py-3 rounded-lg font-bold hover:bg-green-50 transition"
+                  class="px-4 lg:px-6 border-2 border-green-600 text-green-600 py-2.5 lg:py-3 rounded-lg text-sm lg:text-base font-bold hover:bg-green-50 transition"
                 >
                   Chia sẻ
                 </button>
@@ -654,29 +741,29 @@
           </div>
 
           <!-- Secondary Featured -->
-          <div class="space-y-6">
+          <div class="space-y-4 lg:space-y-6">
             <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg card-hover flex"
+              class="bg-white rounded-xl overflow-hidden shadow-lg card-hover flex flex-col sm:flex-row"
             >
               <div
-                class="w-1/3 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center"
+                class="w-full sm:w-1/3 h-32 sm:h-auto bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center"
               >
-                <div class="text-6xl">🎁</div>
+                <div class="text-5xl sm:text-6xl">🎁</div>
               </div>
-              <div class="w-2/3 p-6">
-                <div class="text-sm text-gray-600 mb-2">
+              <div class="w-full sm:w-2/3 p-4 lg:p-6">
+                <div class="text-xs lg:text-sm text-gray-600 mb-2">
                   📅 10/11/2025 •
                   <span class="text-orange-600 font-semibold">Sự kiện</span>
                 </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                <h3 class="text-lg lg:text-xl font-bold text-gray-800 mb-2">
                   Lễ Tri Ân Khách Hàng VIP Lần 5
                 </h3>
-                <p class="text-gray-600 text-sm mb-3">
+                <p class="text-gray-600 text-xs lg:text-sm mb-3 line-clamp-2">
                   Chương trình dành riêng cho 10,000 khách hàng VIP với quà tặng
                   độc quyền và ưu đãi đặc biệt...
                 </p>
                 <button
-                  class="text-green-600 font-semibold hover:text-green-700"
+                  class="text-green-600 text-sm lg:text-base font-semibold hover:text-green-700"
                 >
                   Đọc thêm →
                 </button>
@@ -684,27 +771,27 @@
             </div>
 
             <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg card-hover flex"
+              class="bg-white rounded-xl overflow-hidden shadow-lg card-hover flex flex-col sm:flex-row"
             >
               <div
-                class="w-1/3 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center"
+                class="w-full sm:w-1/3 h-32 sm:h-auto bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center"
               >
-                <div class="text-6xl">🌱</div>
+                <div class="text-5xl sm:text-6xl">🌱</div>
               </div>
-              <div class="w-2/3 p-6">
-                <div class="text-sm text-gray-600 mb-2">
+              <div class="w-full sm:w-2/3 p-4 lg:p-6">
+                <div class="text-xs lg:text-sm text-gray-600 mb-2">
                   📅 05/11/2025 •
                   <span class="text-green-600 font-semibold">Cộng đồng</span>
                 </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                <h3 class="text-lg lg:text-xl font-bold text-gray-800 mb-2">
                   Trồng 50,000 Cây Xanh Vì Môi Trường
                 </h3>
-                <p class="text-gray-600 text-sm mb-3">
+                <p class="text-gray-600 text-xs lg:text-sm mb-3 line-clamp-2">
                   Pavel Mart phối hợp cùng Hội Bảo vệ Thiên nhiên triển khai
                   chiến dịch trồng cây quy mô lớn...
                 </p>
                 <button
-                  class="text-green-600 font-semibold hover:text-green-700"
+                  class="text-green-600 text-sm lg:text-base font-semibold hover:text-green-700"
                 >
                   Đọc thêm →
                 </button>
@@ -712,27 +799,27 @@
             </div>
 
             <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg card-hover flex"
+              class="bg-white rounded-xl overflow-hidden shadow-lg card-hover flex flex-col sm:flex-row"
             >
               <div
-                class="w-1/3 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
+                class="w-full sm:w-1/3 h-32 sm:h-auto bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
               >
-                <div class="text-6xl">🏆</div>
+                <div class="text-5xl sm:text-6xl">🏆</div>
               </div>
-              <div class="w-2/3 p-6">
-                <div class="text-sm text-gray-600 mb-2">
+              <div class="w-full sm:w-2/3 p-4 lg:p-6">
+                <div class="text-xs lg:text-sm text-gray-600 mb-2">
                   📅 01/11/2025 •
                   <span class="text-blue-600 font-semibold">Thành tựu</span>
                 </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                <h3 class="text-lg lg:text-xl font-bold text-gray-800 mb-2">
                   Pavel Mart Nhận Giải "Doanh Nghiệp Xanh"
                 </h3>
-                <p class="text-gray-600 text-sm mb-3">
+                <p class="text-gray-600 text-xs lg:text-sm mb-3 line-clamp-2">
                   Vinh dự được Bộ Tài nguyên & Môi trường trao tặng danh hiệu
                   Doanh nghiệp Xanh tiêu biểu 2025...
                 </p>
                 <button
-                  class="text-green-600 font-semibold hover:text-green-700"
+                  class="text-green-600 text-sm lg:text-base font-semibold hover:text-green-700"
                 >
                   Đọc thêm →
                 </button>
@@ -740,20 +827,19 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
+            </div>
+            <!-- End Featured News Section -->
 
-    <!-- Latest News Grid -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-4 text-green-800">
+            <!-- Latest News Grid -->
+            <div class="mb-8 lg:mb-12">
+        <h2 class="text-2xl lg:text-4xl font-bold text-center mb-3 lg:mb-4 text-green-800">
           Tin Tức Mới Nhất
         </h2>
-        <p class="text-gray-600 text-center mb-12">
+        <p class="text-sm lg:text-base text-gray-600 text-center mb-6 lg:mb-12 px-4">
           Cập nhật thường xuyên các hoạt động và chương trình của Pavel Mart
         </p>
 
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           <!-- News Card 1 -->
           <div
             class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100"
@@ -973,12 +1059,9 @@
             Xem thêm tin tức →
           </button>
         </div>
-      </div>
-    </section>
 
-    <!-- Upcoming Events Section -->
-    <section class="py-16 bg-gradient-to-br from-green-50 to-orange-50">
-      <div class="container mx-auto px-4">
+            <!-- Upcoming Events Section -->
+            <div class="mb-12 bg-gradient-to-br from-green-50 to-orange-50 rounded-2xl p-8">
         <h2 class="text-4xl font-bold text-center mb-4 text-green-800">
           Sự Kiện Sắp Diễn Ra
         </h2>
@@ -986,7 +1069,7 @@
           Đừng bỏ lỡ những sự kiện đặc biệt của Pavel Mart
         </p>
 
-        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <!-- Event 1 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-xl">
             <div
@@ -1085,51 +1168,48 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Community Activities Timeline -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-4 text-green-800">
+            <!-- Community Activities Timeline -->
+            <div class="mb-8 lg:mb-12">
+        <h2 class="text-2xl lg:text-4xl font-bold text-center mb-3 lg:mb-4 text-green-800">
           Hoạt Động Cộng Đồng
         </h2>
-        <p class="text-gray-600 text-center mb-12">
+        <p class="text-sm lg:text-base text-gray-600 text-center mb-6 lg:mb-12 px-4">
           Pavel Mart luôn đồng hành cùng cộng đồng
         </p>
 
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-4xl mx-auto space-y-4 lg:space-y-0">
           <!-- Timeline Item 1 -->
-          <div class="flex gap-6 mb-8">
-            <div class="flex-shrink-0 w-24 text-right">
+          <div class="lg:flex lg:gap-6 mb-6 lg:mb-8">
+            <div class="flex items-center lg:block mb-3 lg:mb-0 lg:flex-shrink-0 lg:w-24 lg:text-right">
               <div
-                class="bg-green-100 text-green-600 px-3 py-2 rounded-lg font-bold inline-block"
+                class="bg-green-100 text-green-600 px-3 py-1.5 lg:py-2 rounded-lg font-bold text-sm lg:text-base inline-block"
               >
                 THG 10
               </div>
             </div>
-            <div class="flex-shrink-0 w-1 bg-green-200 relative">
+            <div class="hidden lg:block lg:flex-shrink-0 lg:w-1 bg-green-200 relative">
               <div
                 class="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-green-600 rounded-full"
               ></div>
             </div>
-            <div class="flex-1 pb-8">
+            <div class="lg:flex-1 lg:pb-8">
               <div
-                class="bg-green-50 rounded-xl p-6 border-l-4 border-green-600"
+                class="bg-green-50 rounded-xl p-4 lg:p-6 border-l-4 border-green-600"
               >
-                <div class="flex items-center gap-3 mb-3">
-                  <span class="text-3xl">🌱</span>
-                  <h3 class="text-xl font-bold text-green-800">
+                <div class="flex items-center gap-2 lg:gap-3 mb-2 lg:mb-3">
+                  <span class="text-2xl lg:text-3xl">🌱</span>
+                  <h3 class="text-lg lg:text-xl font-bold text-green-800">
                     Chiến Dịch "Siêu Thị Xanh"
                   </h3>
                 </div>
-                <p class="text-gray-700 mb-3">
+                <p class="text-sm lg:text-base text-gray-700 mb-2 lg:mb-3">
                   Triển khai túi vải tái sử dụng miễn phí cho khách hàng, thu
                   gom nhựa tái chế và cam kết giảm 50% túi nilon trong 6 tháng
                   tới.
                 </p>
                 <div class="flex gap-2">
-                  <span class="text-sm text-gray-600"
+                  <span class="text-xs lg:text-sm text-gray-600"
                     >✓ 200,000 túi vải phát miễn phí</span
                   >
                 </div>
@@ -1138,35 +1218,35 @@
           </div>
 
           <!-- Timeline Item 2 -->
-          <div class="flex gap-6 mb-8">
-            <div class="flex-shrink-0 w-24 text-right">
+          <div class="lg:flex lg:gap-6 mb-6 lg:mb-8">
+            <div class="flex items-center lg:block mb-3 lg:mb-0 lg:flex-shrink-0 lg:w-24 lg:text-right">
               <div
-                class="bg-orange-100 text-orange-600 px-3 py-2 rounded-lg font-bold inline-block"
+                class="bg-orange-100 text-orange-600 px-3 py-1.5 lg:py-2 rounded-lg font-bold text-sm lg:text-base inline-block"
               >
                 THG 9
               </div>
             </div>
-            <div class="flex-shrink-0 w-1 bg-green-200 relative">
+            <div class="hidden lg:block lg:flex-shrink-0 lg:w-1 bg-green-200 relative">
               <div
                 class="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-orange-500 rounded-full"
               ></div>
             </div>
-            <div class="flex-1 pb-8">
+            <div class="lg:flex-1 lg:pb-8">
               <div
-                class="bg-orange-50 rounded-xl p-6 border-l-4 border-orange-500"
+                class="bg-orange-50 rounded-xl p-4 lg:p-6 border-l-4 border-orange-500"
               >
-                <div class="flex items-center gap-3 mb-3">
-                  <span class="text-3xl">📚</span>
-                  <h3 class="text-xl font-bold text-orange-600">
+                <div class="flex items-center gap-2 lg:gap-3 mb-2 lg:mb-3">
+                  <span class="text-2xl lg:text-3xl">📚</span>
+                  <h3 class="text-lg lg:text-xl font-bold text-orange-600">
                     Tặng 10,000 Suất Học Bổng
                   </h3>
                 </div>
-                <p class="text-gray-700 mb-3">
+                <p class="text-sm lg:text-base text-gray-700 mb-2 lg:mb-3">
                   Pavel Mart trao học bổng cho học sinh, sinh viên có hoàn cảnh
                   khó khăn nhưng học giỏi tại 20 tỉnh/thành phố.
                 </p>
                 <div class="flex gap-2">
-                  <span class="text-sm text-gray-600"
+                  <span class="text-xs lg:text-sm text-gray-600"
                     >✓ Mỗi suất 5 triệu đồng</span
                   >
                 </div>
@@ -1175,68 +1255,68 @@
           </div>
 
           <!-- Timeline Item 3 -->
-          <div class="flex gap-6 mb-8">
-            <div class="flex-shrink-0 w-24 text-right">
+          <div class="lg:flex lg:gap-6 mb-6 lg:mb-8">
+            <div class="flex items-center lg:block mb-3 lg:mb-0 lg:flex-shrink-0 lg:w-24 lg:text-right">
               <div
-                class="bg-blue-100 text-blue-600 px-3 py-2 rounded-lg font-bold inline-block"
+                class="bg-blue-100 text-blue-600 px-3 py-1.5 lg:py-2 rounded-lg font-bold text-sm lg:text-base inline-block"
               >
                 THG 8
               </div>
             </div>
-            <div class="flex-shrink-0 w-1 bg-green-200 relative">
+            <div class="hidden lg:block lg:flex-shrink-0 lg:w-1 bg-green-200 relative">
               <div
                 class="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full"
               ></div>
             </div>
-            <div class="flex-1 pb-8">
-              <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-600">
-                <div class="flex items-center gap-3 mb-3">
-                  <span class="text-3xl">❤️</span>
-                  <h3 class="text-xl font-bold text-blue-600">
+            <div class="lg:flex-1 lg:pb-8">
+              <div class="bg-blue-50 rounded-xl p-4 lg:p-6 border-l-4 border-blue-600">
+                <div class="flex items-center gap-2 lg:gap-3 mb-2 lg:mb-3">
+                  <span class="text-2xl lg:text-3xl">❤️</span>
+                  <h3 class="text-lg lg:text-xl font-bold text-blue-600">
                     Ngày Hội "Giọt Hồng Yêu Thương"
                   </h3>
                 </div>
-                <p class="text-gray-700 mb-3">
+                <p class="text-sm lg:text-base text-gray-700 mb-2 lg:mb-3">
                   Tổ chức hiến máu tình nguyện với sự tham gia của 5,000 CBNV và
                   khách hàng, góp phần cứu sống nhiều người bệnh.
                 </p>
                 <div class="flex gap-2">
-                  <span class="text-sm text-gray-600">✓ 3,500 đơn vị máu</span>
+                  <span class="text-xs lg:text-sm text-gray-600">✓ 3,500 đơn vị máu</span>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Timeline Item 4 -->
-          <div class="flex gap-6">
-            <div class="flex-shrink-0 w-24 text-right">
+          <div class="lg:flex lg:gap-6">
+            <div class="flex items-center lg:block mb-3 lg:mb-0 lg:flex-shrink-0 lg:w-24 lg:text-right">
               <div
-                class="bg-purple-100 text-purple-600 px-3 py-2 rounded-lg font-bold inline-block"
+                class="bg-purple-100 text-purple-600 px-3 py-1.5 lg:py-2 rounded-lg font-bold text-sm lg:text-base inline-block"
               >
                 THG 7
               </div>
             </div>
-            <div class="flex-shrink-0 w-1 bg-green-200 relative">
+            <div class="hidden lg:block lg:flex-shrink-0 lg:w-1 bg-green-200 relative">
               <div
                 class="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-purple-600 rounded-full"
               ></div>
             </div>
-            <div class="flex-1">
+            <div class="lg:flex-1">
               <div
-                class="bg-purple-50 rounded-xl p-6 border-l-4 border-purple-600"
+                class="bg-purple-50 rounded-xl p-4 lg:p-6 border-l-4 border-purple-600"
               >
-                <div class="flex items-center gap-3 mb-3">
-                  <span class="text-3xl">🏠</span>
-                  <h3 class="text-xl font-bold text-purple-600">
+                <div class="flex items-center gap-2 lg:gap-3 mb-2 lg:mb-3">
+                  <span class="text-2xl lg:text-3xl">🏠</span>
+                  <h3 class="text-lg lg:text-xl font-bold text-purple-600">
                     Xây Dựng 20 Nhà Tình Thương
                   </h3>
                 </div>
-                <p class="text-gray-700 mb-3">
+                <p class="text-sm lg:text-base text-gray-700 mb-2 lg:mb-3">
                   Hỗ trợ xây dựng nhà ở cho người nghèo, gia đình chính sách tại
                   các tỉnh miền núi, vùng sâu vùng xa.
                 </p>
                 <div class="flex gap-2">
-                  <span class="text-sm text-gray-600"
+                  <span class="text-xs lg:text-sm text-gray-600"
                     >✓ Tổng giá trị 2 tỷ đồng</span
                   >
                 </div>
@@ -1244,38 +1324,35 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Press & Media Section -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-4 text-green-800">
+            <!-- Press & Media Section -->
+            <div class="mb-8 lg:mb-12 bg-gray-50 rounded-xl lg:rounded-2xl p-4 lg:p-8">
+        <h2 class="text-2xl lg:text-4xl font-bold text-center mb-3 lg:mb-4 text-green-800">
           Pavel Mart Trên Báo Chí
         </h2>
-        <p class="text-gray-600 text-center mb-12">
+        <p class="text-sm lg:text-base text-gray-600 text-center mb-6 lg:mb-12 px-4">
           Những bài viết nổi bật về Pavel Mart
         </p>
 
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
           <div
-            class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-green-600"
+            class="bg-white rounded-lg lg:rounded-xl p-4 lg:p-6 shadow-md lg:shadow-lg card-hover border-l-4 border-green-600"
           >
-            <div class="flex items-start gap-4">
+            <div class="flex items-start gap-3 lg:gap-4">
               <div
-                class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                class="w-12 h-12 lg:w-16 lg:h-16 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0"
               >
-                <span class="text-2xl">📰</span>
+                <span class="text-xl lg:text-2xl">📰</span>
               </div>
-              <div>
-                <div class="text-sm text-gray-500 mb-2">
+              <div class="flex-1 min-w-0">
+                <div class="text-xs lg:text-sm text-gray-500 mb-1 lg:mb-2">
                   VnExpress • 15/11/2025
                 </div>
-                <h3 class="font-bold text-gray-800 mb-2">
+                <h3 class="text-sm lg:text-base font-bold text-gray-800 mb-1 lg:mb-2 line-clamp-2">
                   "Pavel Mart - Câu chuyện thành công của chuỗi siêu thị Châu Âu
                   tại Việt Nam"
                 </h3>
-                <p class="text-sm text-gray-600">
+                <p class="text-xs lg:text-sm text-gray-600 line-clamp-2">
                   Với 150+ siêu thị và 10 năm phát triển, Pavel Mart đã trở
                   thành lựa chọn hàng đầu...
                 </p>
@@ -1284,20 +1361,20 @@
           </div>
 
           <div
-            class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-orange-500"
+            class="bg-white rounded-lg lg:rounded-xl p-4 lg:p-6 shadow-md lg:shadow-lg card-hover border-l-4 border-orange-500"
           >
-            <div class="flex items-start gap-4">
+            <div class="flex items-start gap-3 lg:gap-4">
               <div
-                class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                class="w-12 h-12 lg:w-16 lg:h-16 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0"
               >
-                <span class="text-2xl">📺</span>
+                <span class="text-xl lg:text-2xl">📺</span>
               </div>
-              <div>
-                <div class="text-sm text-gray-500 mb-2">VTV1 • 10/11/2025</div>
-                <h3 class="font-bold text-gray-800 mb-2">
+              <div class="flex-1 min-w-0">
+                <div class="text-xs lg:text-sm text-gray-500 mb-1 lg:mb-2">VTV1 • 10/11/2025</div>
+                <h3 class="text-sm lg:text-base font-bold text-gray-800 mb-1 lg:mb-2 line-clamp-2">
                   "Doanh nghiệp đồng hành cùng cộng đồng trong đại dịch"
                 </h3>
-                <p class="text-sm text-gray-600">
+                <p class="text-xs lg:text-sm text-gray-600 line-clamp-2">
                   Pavel Mart được vinh danh với những đóng góp tích cực cho xã
                   hội trong năm qua...
                 </p>
@@ -1306,22 +1383,22 @@
           </div>
 
           <div
-            class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-blue-600"
+            class="bg-white rounded-lg lg:rounded-xl p-4 lg:p-6 shadow-md lg:shadow-lg card-hover border-l-4 border-blue-600"
           >
-            <div class="flex items-start gap-4">
+            <div class="flex items-start gap-3 lg:gap-4">
               <div
-                class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                class="w-12 h-12 lg:w-16 lg:h-16 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
               >
-                <span class="text-2xl">💼</span>
+                <span class="text-xl lg:text-2xl">💼</span>
               </div>
-              <div>
-                <div class="text-sm text-gray-500 mb-2">
+              <div class="flex-1 min-w-0">
+                <div class="text-xs lg:text-sm text-gray-500 mb-1 lg:mb-2">
                   Thời báo Kinh tế • 08/11/2025
                 </div>
-                <h3 class="font-bold text-gray-800 mb-2">
+                <h3 class="text-sm lg:text-base font-bold text-gray-800 mb-1 lg:mb-2 line-clamp-2">
                   "Chiến lược xanh của Pavel Mart: Hướng tới bền vững"
                 </h3>
-                <p class="text-sm text-gray-600">
+                <p class="text-xs lg:text-sm text-gray-600 line-clamp-2">
                   Doanh nghiệp bán lẻ đi đầu trong việc áp dụng các giải pháp
                   thân thiện môi trường...
                 </p>
@@ -1330,22 +1407,22 @@
           </div>
 
           <div
-            class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-purple-600"
+            class="bg-white rounded-lg lg:rounded-xl p-4 lg:p-6 shadow-md lg:shadow-lg card-hover border-l-4 border-purple-600"
           >
-            <div class="flex items-start gap-4">
+            <div class="flex items-start gap-3 lg:gap-4">
               <div
-                class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                class="w-12 h-12 lg:w-16 lg:h-16 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0"
               >
-                <span class="text-2xl">🏆</span>
+                <span class="text-xl lg:text-2xl">🏆</span>
               </div>
-              <div>
-                <div class="text-sm text-gray-500 mb-2">
+              <div class="flex-1 min-w-0">
+                <div class="text-xs lg:text-sm text-gray-500 mb-1 lg:mb-2">
                   Forbes Vietnam • 01/11/2025
                 </div>
-                <h3 class="font-bold text-gray-800 mb-2">
+                <h3 class="text-sm lg:text-base font-bold text-gray-800 mb-1 lg:mb-2 line-clamp-2">
                   "Top 50 doanh nghiệp bán lẻ uy tín năm 2025"
                 </h3>
-                <p class="text-sm text-gray-600">
+                <p class="text-xs lg:text-sm text-gray-600 line-clamp-2">
                   Pavel Mart xếp hạng thứ 3 trong danh sách các chuỗi siêu thị
                   được yêu thích nhất...
                 </p>
@@ -1353,8 +1430,13 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
+
+            </div>
+            <!-- End Main Content Area -->
+
+          </div>
+        </div>
+      </section>
 
     <!-- Newsletter Section -->
     <section
