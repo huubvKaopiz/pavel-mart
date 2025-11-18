@@ -9,6 +9,13 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -597,46 +604,18 @@
       </div>
     </section>
 
-    <!-- Store Locator with Google Maps -->
+    <!-- Store Locator with OpenStreetMap -->
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-4 text-green-800">
           Tìm Siêu Thị Gần Bạn
         </h2>
         <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Nhập vị trí của bạn để tìm siêu thị Pavel Mart gần nhất
+          Nhấn vào marker trên bản đồ để xem thông tin chi tiết
         </p>
 
-        <!-- Search Box -->
-        <div class="max-w-4xl mx-auto mb-8">
-          <div class="bg-white rounded-xl shadow-lg p-6">
-            <div class="flex flex-col md:flex-row gap-4">
-              <div class="flex-1">
-                <input
-                  type="text"
-                  id="location-input"
-                  placeholder="Nhập địa chỉ, quận, thành phố..."
-                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none"
-                />
-              </div>
-              <button
-                onclick="searchNearbyStores()"
-                class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition whitespace-nowrap"
-              >
-                🔍 Tìm kiếm
-              </button>
-              <button
-                onclick="useCurrentLocation()"
-                class="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition whitespace-nowrap"
-              >
-                📍 Vị trí của tôi
-              </button>
-            </div>
-          </div>
-        </div>
-
         <!-- Map Container -->
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-6xl mx-auto mb-8">
           <div
             class="bg-gray-200 rounded-2xl overflow-hidden shadow-xl"
             style="height: 600px"
@@ -646,7 +625,10 @@
         </div>
 
         <!-- Store List -->
-        <div class="max-w-6xl mx-auto mt-8">
+        <div class="max-w-6xl mx-auto">
+          <h3 class="text-2xl font-bold text-green-800 mb-6">
+            Danh Sách Cửa Hàng
+          </h3>
           <div id="store-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Store cards will be populated here -->
           </div>
@@ -1737,63 +1719,63 @@
       const stores = [
         {
           id: 1,
-          name: "Pavel Mart Nguyễn Huệ",
-          lat: 10.7769,
-          lng: 106.7009,
-          address: "123 Nguyễn Huệ, Q.1, TP.HCM",
+          name: "Pavel Mart Hoàn Kiếm",
+          lat: 21.0285,
+          lng: 105.8542,
+          address: "123 Hàng Bài, Hoàn Kiếm, Hà Nội",
           type: "Hypermarket",
-          phone: "028 3827 1234",
+          phone: "024 3826 1234",
         },
         {
           id: 2,
-          name: "Pavel Mart Thảo Điền",
-          lat: 10.8031,
-          lng: 106.7378,
-          address: "456 Xuân Thủy, Thảo Điền, Q.2, TP.HCM",
+          name: "Pavel Mart Cầu Giấy",
+          lat: 21.0278,
+          lng: 105.7823,
+          address: "456 Xuân Thủy, Cầu Giấy, Hà Nội",
           type: "Supermarket",
-          phone: "028 3744 5678",
+          phone: "024 3754 5678",
         },
         {
           id: 3,
-          name: "Pavel Mart Phú Nhuận",
-          lat: 10.7971,
-          lng: 106.6791,
-          address: "789 Phan Đăng Lưu, Phú Nhuận, TP.HCM",
+          name: "Pavel Mart Đống Đa",
+          lat: 21.0171,
+          lng: 105.8265,
+          address: "789 Nguyễn Chí Thanh, Đống Đa, Hà Nội",
           type: "Supermarket",
-          phone: "028 3997 9012",
+          phone: "024 3537 9012",
         },
         {
           id: 4,
-          name: "Pavel Mart Tân Bình",
-          lat: 10.8004,
-          lng: 106.6528,
-          address: "321 Cộng Hòa, Tân Bình, TP.HCM",
+          name: "Pavel Mart Hai Bà Trưng",
+          lat: 21.0071,
+          lng: 105.8488,
+          address: "321 Bạch Mai, Hai Bà Trưng, Hà Nội",
           type: "Mart Express",
-          phone: "028 3810 3456",
+          phone: "024 3869 3456",
         },
         {
           id: 5,
-          name: "Pavel Mart Bình Thạnh",
-          lat: 10.8127,
-          lng: 106.7067,
-          address: "555 Xô Viết Nghệ Tĩnh, Bình Thạnh, TP.HCM",
+          name: "Pavel Mart Thanh Xuân",
+          lat: 20.9952,
+          lng: 105.8078,
+          address: "654 Nguyễn Trãi, Thanh Xuân, Hà Nội",
           type: "Supermarket",
-          phone: "028 3512 7890",
+          phone: "024 3557 7890",
         },
         {
           id: 6,
-          name: "Pavel Mart Gò Vấp",
-          lat: 10.8377,
-          lng: 106.6674,
-          address: "888 Quang Trung, Gò Vấp, TP.HCM",
-          type: "Supermarket",
-          phone: "028 3894 1234",
+          name: "Pavel Mart Long Biên",
+          lat: 21.0365,
+          lng: 105.8973,
+          address: "987 Ngọc Lâm, Long Biên, Hà Nội",
+          type: "Mart Express",
+          phone: "024 3872 1122",
         },
       ];
 
       function initMap() {
-        // Default center (Ho Chi Minh City)
-        const defaultCenter = { lat: 10.8231, lng: 106.6297 };
+        // Default center (Hanoi)
+        const defaultCenter = { lat: 21.0285, lng: 105.8542 };
 
         map = new google.maps.Map(document.getElementById("map"), {
           zoom: 12,
@@ -2008,13 +1990,67 @@
       window.useCurrentLocation = useCurrentLocation;
       window.searchNearbyStores = searchNearbyStores;
       window.focusStore = focusStore;
-    </script>
 
-    <!-- Google Maps API -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap&libraries=places"
-      async
-      defer
-    ></script>
+      // ===== OpenStreetMap Initialization =====
+      let osmMap;
+      let osmMarkers = [];
+
+      // Custom green marker icon
+      const greenIcon = L.divIcon({
+        className: "custom-marker",
+        html: '<div style="background-color: #389738; width: 24px; height: 24px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3); position: relative; left: -12px; top: -12px;"></div>',
+        iconSize: [24, 24],
+        iconAnchor: [12, 24],
+        popupAnchor: [0, -24],
+      });
+
+      function initOSMap() {
+        // Initialize map (centered on Hanoi)
+        osmMap = L.map("map").setView([21.0285, 105.8542], 12);
+
+        // Add tile layer
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "© OpenStreetMap contributors",
+          maxZoom: 19,
+        }).addTo(osmMap);
+
+        // Add store markers
+        stores.forEach((store, index) => {
+          const marker = L.marker([store.lat, store.lng], {
+            icon: greenIcon,
+          }).addTo(osmMap);
+
+          const popupContent = `
+            <div style="padding: 12px; min-width: 220px; font-family: Inter, sans-serif;">
+              <h3 style="font-weight: 700; color: #2c7a2c; margin-bottom: 10px; font-size: 16px; font-family: 'Playfair Display', serif;">${store.name}</h3>
+              <p style="margin: 6px 0; color: #555; font-size: 13px; line-height: 1.5;"><strong>📍</strong> ${store.address}</p>
+              <p style="margin: 6px 0; color: #555; font-size: 13px;"><strong>📞</strong> ${store.phone}</p>
+              <p style="margin: 6px 0; color: #555; font-size: 13px;"><strong>🏪</strong> ${store.type}</p>
+            </div>
+          `;
+
+          marker.bindPopup(popupContent);
+          osmMarkers.push(marker);
+        });
+
+        // Display store list
+        displayStoreList(stores);
+      }
+
+      // Override focusStore to work with Leaflet
+      window.focusStore = function (lat, lng, index) {
+        osmMap.setView([lat, lng], 16, { animate: true });
+        osmMarkers[index].openPopup();
+        const mapSection = document.getElementById("map");
+        mapSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      };
+
+      // Initialize on page load
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initOSMap);
+      } else {
+        initOSMap();
+      }
+    </script>
   </body>
 </html>

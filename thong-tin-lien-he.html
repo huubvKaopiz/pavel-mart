@@ -44,7 +44,12 @@
       body {
         font-family: "Inter", sans-serif;
       }
-      h1, h2, h3, h4, h5, h6 {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
         font-family: "Playfair Display", serif;
         font-weight: 700;
         letter-spacing: -0.02em;
@@ -729,27 +734,40 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Google Maps Section -->
+    <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-8">
           <h2 class="text-3xl font-bold text-green-800 mb-4">
             TÌM ĐƯỜNG ĐẾN PAVEL MART
           </h2>
-          <div class="section-divider w-24 mx-auto"></div>
+          <div class="section-divider w-24 mx-auto mb-4"></div>
+          <p class="text-gray-600 text-lg">
+            📍 91 Nguyễn Chí Thanh, Đống Đa, Hà Nội
+          </p>
         </div>
         <div
-          class="bg-gray-300 rounded-xl overflow-hidden shadow-lg"
-          style="height: 400px"
+          class="bg-gray-200 rounded-xl overflow-hidden shadow-lg max-w-5xl mx-auto"
+          style="height: 500px"
         >
-          <div
-            class="w-full h-full flex items-center justify-center text-gray-600"
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0969445658744!2d105.81297631533135!3d21.017173993312647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab86cece8e47%3A0x8f7da407bf444444!2s91%20Nguy%E1%BB%85n%20Ch%C3%AD%20Thanh%2C%20%C4%90%E1%BB%91ng%20%C4%90a%2C%20H%C3%A0%20N%E1%BB%99i!5e0!3m2!1svi!2s!4v1637235678901!5m2!1svi!2s"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="text-center mt-6">
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=91+Nguyen+Chi+Thanh,+Dong+Da,+Hanoi"
+            target="_blank"
+            class="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-lg"
           >
-            <div class="text-center">
-              <span class="text-6xl mb-4 block">🗺️</span>
-              <p class="font-semibold">Google Maps sẽ được tích hợp tại đây</p>
-              <p class="text-sm mt-2">91 Nguyễn Chí Thanh, Đống Đa, Hà Nội</p>
-            </div>
-          </div>
+            🧭 Chỉ đường từ vị trí của bạn
+          </a>
         </div>
       </div>
     </section>
