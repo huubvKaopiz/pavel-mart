@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# python3 update_headers_footers.py
 """
 Script to update headers and footers in all HTML files to match index.html
 """
