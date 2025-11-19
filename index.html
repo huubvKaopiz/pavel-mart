@@ -136,117 +136,7 @@
         background-color: #f0f9f0;
       }
 
-      /* Timeline styles */
-      .timeline-container {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem 0;
-      }
 
-      .timeline-line {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(
-          to right,
-          #bce7bc,
-          #389738,
-          #389738,
-          #389738,
-          #bce7bc
-        );
-        z-index: 0;
-      }
-
-      .timeline-item {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex: 1;
-      }
-
-      .timeline-icon {
-        width: 80px;
-        height: 80px;
-        background: white;
-        border: 4px solid #389738;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2.5rem;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(56, 151, 56, 0.2);
-      }
-
-      .timeline-icon:hover {
-        transform: scale(1.15);
-        background: #389738;
-        box-shadow: 0 8px 25px rgba(56, 151, 56, 0.4);
-      }
-
-      .timeline-label {
-        margin-top: 1rem;
-        font-weight: 600;
-        color: #1f4f1f;
-        text-align: center;
-        font-size: 0.95rem;
-      }
-
-      .timeline-tooltip {
-        position: absolute;
-        bottom: 120%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-10px);
-        background: white;
-        padding: 1rem 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        min-width: 250px;
-        z-index: 100;
-        border: 2px solid #389738;
-      }
-
-      .timeline-tooltip::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        border: 10px solid transparent;
-        border-top-color: #389738;
-      }
-
-      .timeline-item:hover .timeline-tooltip {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(-50%) translateY(0);
-      }
-
-      .timeline-tooltip h4 {
-        color: #389738;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        font-size: 1rem;
-      }
-
-      .timeline-tooltip p {
-        color: #666;
-        font-size: 0.875rem;
-        line-height: 1.5;
-      }
     </style>
   </head>
   <body class="bg-gray-50">
@@ -751,84 +641,184 @@
     </section>
 
     <!-- Quality Process Timeline -->
-    <section class="py-16 bg-gradient-to-br from-green-50 to-white">
+    <section class="pt-16 bg-gradient-to-br from-green-50 to-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
-          <h3 class="text-4xl font-bold text-green-800 mb-4">
+          <h3 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">
             Siêu thị chuẩn chất lượng - Sản phẩm được chứng nhận uy tín
           </h3>
-          <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+          <p class="text-gray-600 text-base md:text-lg max-w-3xl mx-auto">
             Đảm bảo tươi ngon, an toàn, giúp mỗi bữa ăn trở nên trọn vẹn hơn
           </p>
           <div class="section-divider w-24 mx-auto mt-6"></div>
         </div>
 
-        <div class="timeline-container mt-16">
-          <div class="timeline-line"></div>
+        <!-- Desktop Timeline - Horizontal -->
+        <div class="hidden md:block">
+          <div class="relative max-w-5xl mx-auto py-8">
+            <!-- Connecting Line -->
+            <div class="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-green-200 via-green-600 to-green-200 transform -translate-y-1/2"></div>
+            
+            <!-- Timeline Items -->
+            <div class="relative flex justify-between items-center">
+              <!-- Step 1 -->
+              <div class="flex flex-col items-center flex-1 group">
+                <div class="w-20 h-20 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-4xl shadow-lg transform transition-all duration-300 hover:scale-110 hover:bg-green-600 hover:shadow-xl cursor-pointer z-10">
+                  🚜
+                </div>
+                <div class="mt-4 text-center">
+                  <p class="font-bold text-green-800 text-sm">Nguồn cung</p>
+                  <p class="text-xs text-gray-600">Nông trại uy tín</p>
+                </div>
+                <!-- Tooltip -->
+                <div class="absolute bottom-full mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-white p-4 rounded-lg shadow-xl border-2 border-green-600 min-w-[250px] z-20">
+                  <h4 class="font-bold text-green-800 mb-2">🚜 Nguồn cung</h4>
+                  <p class="text-sm text-gray-600">Hợp tác với các nông trại uy tín, áp dụng quy trình canh tác hữu cơ và bền vững</p>
+                  <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-green-600"></div>
+                </div>
+              </div>
 
-          <!-- Step 1: Nguồn cung -->
-          <div class="timeline-item">
-            <div class="timeline-icon">🚜</div>
-            <div class="timeline-label">Nguồn cung<br />Nông trại uy tín</div>
-            <div class="timeline-tooltip">
-              <h4>🚜 Nguồn cung</h4>
-              <p>
-                Hợp tác với các nông trại uy tín, áp dụng quy trình canh tác hữu
-                cơ và bền vững
-              </p>
+              <!-- Step 2 -->
+              <div class="flex flex-col items-center flex-1 group">
+                <div class="w-20 h-20 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-4xl shadow-lg transform transition-all duration-300 hover:scale-110 hover:bg-green-600 hover:shadow-xl cursor-pointer z-10">
+                  🔍
+                </div>
+                <div class="mt-4 text-center">
+                  <p class="font-bold text-green-800 text-sm">Kiểm định</p>
+                  <p class="text-xs text-gray-600">Chứng nhận</p>
+                </div>
+                <div class="absolute bottom-full mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-white p-4 rounded-lg shadow-xl border-2 border-green-600 min-w-[250px] z-20">
+                  <h4 class="font-bold text-green-800 mb-2">🔍 Kiểm định</h4>
+                  <p class="text-sm text-gray-600">Chứng nhận chất lượng của cơ quan quản lý nhà nước, đảm bảo an toàn tuyệt đối</p>
+                  <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-green-600"></div>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="flex flex-col items-center flex-1 group">
+                <div class="w-20 h-20 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-4xl shadow-lg transform transition-all duration-300 hover:scale-110 hover:bg-green-600 hover:shadow-xl cursor-pointer z-10">
+                  �
+                </div>
+                <div class="mt-4 text-center">
+                  <p class="font-bold text-green-800 text-sm">Vận chuyển</p>
+                  <p class="text-xs text-gray-600">Chuẩn vệ sinh</p>
+                </div>
+                <div class="absolute bottom-full mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-white p-4 rounded-lg shadow-xl border-2 border-green-600 min-w-[250px] z-20">
+                  <h4 class="font-bold text-green-800 mb-2">🚚 Vận chuyển</h4>
+                  <p class="text-sm text-gray-600">Chuẩn vệ sinh, nhanh chóng với xe lạnh chuyên dụng, giữ nguyên độ tươi ngon</p>
+                  <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-green-600"></div>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="flex flex-col items-center flex-1 group">
+                <div class="w-20 h-20 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-4xl shadow-lg transform transition-all duration-300 hover:scale-110 hover:bg-green-600 hover:shadow-xl cursor-pointer z-10">
+                  🏪
+                </div>
+                <div class="mt-4 text-center">
+                  <p class="font-bold text-green-800 text-sm">Siêu thị</p>
+                  <p class="text-xs text-gray-600">Trưng bày</p>
+                </div>
+                <div class="absolute bottom-full mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-white p-4 rounded-lg shadow-xl border-2 border-green-600 min-w-[250px] z-20">
+                  <h4 class="font-bold text-green-800 mb-2">🏪 Siêu thị</h4>
+                  <p class="text-sm text-gray-600">Trưng bày khoa học, dễ tìm, bảo quản trong điều kiện tối ưu nhất</p>
+                  <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-green-600"></div>
+                </div>
+              </div>
+
+              <!-- Step 5 -->
+              <div class="flex flex-col items-center flex-1 group">
+                <div class="w-20 h-20 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-4xl shadow-lg transform transition-all duration-300 hover:scale-110 hover:bg-green-600 hover:shadow-xl cursor-pointer z-10">
+                  �‍👩‍👧‍👦
+                </div>
+                <div class="mt-4 text-center">
+                  <p class="font-bold text-green-800 text-sm">Gia đình</p>
+                  <p class="text-xs text-gray-600">An tâm</p>
+                </div>
+                <div class="absolute bottom-full mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-white p-4 rounded-lg shadow-xl border-2 border-green-600 min-w-[250px] z-20">
+                  <h4 class="font-bold text-green-800 mb-2">👨‍👩‍👧‍👦 Gia đình</h4>
+                  <p class="text-sm text-gray-600">Trải nghiệm tiện lợi & an tâm cho mọi bữa ăn ngon của gia đình bạn</p>
+                  <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-green-600"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Timeline - Vertical -->
+        <div class="md:hidden space-y-6 px-4">
+          <!-- Step 1 -->
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-3xl shadow-lg">
+              🚜
+            </div>
+            <div class="flex-1 pt-2">
+              <h4 class="font-bold text-green-800 text-base mb-1">Nguồn cung - Nông trại uy tín</h4>
+              <p class="text-sm text-gray-600">Hợp tác với các nông trại uy tín, áp dụng quy trình canh tác hữu cơ và bền vững</p>
             </div>
           </div>
 
-          <!-- Step 2: Kiểm định -->
-          <div class="timeline-item">
-            <div class="timeline-icon">🔍</div>
-            <div class="timeline-label">
-              Kiểm định<br />Chứng nhận chất lượng
+          <!-- Connector -->
+          <div class="flex items-center pl-8">
+            <div class="w-0.5 h-8 bg-green-600"></div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-3xl shadow-lg">
+              🔍
             </div>
-            <div class="timeline-tooltip">
-              <h4>🔍 Kiểm định</h4>
-              <p>
-                Chứng nhận chất lượng của cơ quan quản lý nhà nước, đảm bảo an
-                toàn tuyệt đối
-              </p>
+            <div class="flex-1 pt-2">
+              <h4 class="font-bold text-green-800 text-base mb-1">Kiểm định - Chứng nhận chất lượng</h4>
+              <p class="text-sm text-gray-600">Chứng nhận chất lượng của cơ quan quản lý nhà nước, đảm bảo an toàn tuyệt đối</p>
             </div>
           </div>
 
-          <!-- Step 3: Vận chuyển -->
-          <div class="timeline-item">
-            <div class="timeline-icon">🚚</div>
-            <div class="timeline-label">Vận chuyển<br />Chuẩn vệ sinh</div>
-            <div class="timeline-tooltip">
-              <h4>🚚 Vận chuyển</h4>
-              <p>
-                Chuẩn vệ sinh, nhanh chóng với xe lạnh chuyên dụng, giữ nguyên
-                độ tươi ngon
-              </p>
+          <!-- Connector -->
+          <div class="flex items-center pl-8">
+            <div class="w-0.5 h-8 bg-green-600"></div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-3xl shadow-lg">
+              🚚
+            </div>
+            <div class="flex-1 pt-2">
+              <h4 class="font-bold text-green-800 text-base mb-1">Vận chuyển - Chuẩn vệ sinh</h4>
+              <p class="text-sm text-gray-600">Chuẩn vệ sinh, nhanh chóng với xe lạnh chuyên dụng, giữ nguyên độ tươi ngon</p>
             </div>
           </div>
 
-          <!-- Step 4: Siêu thị -->
-          <div class="timeline-item">
-            <div class="timeline-icon">🏪</div>
-            <div class="timeline-label">Siêu thị<br />Trưng bày khoa học</div>
-            <div class="timeline-tooltip">
-              <h4>🏪 Siêu thị</h4>
-              <p>
-                Trưng bày khoa học, dễ tìm, bảo quản trong điều kiện tối ưu nhất
-              </p>
+          <!-- Connector -->
+          <div class="flex items-center pl-8">
+            <div class="w-0.5 h-8 bg-green-600"></div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-3xl shadow-lg">
+              🏪
+            </div>
+            <div class="flex-1 pt-2">
+              <h4 class="font-bold text-green-800 text-base mb-1">Siêu thị - Trưng bày khoa học</h4>
+              <p class="text-sm text-gray-600">Trưng bày khoa học, dễ tìm, bảo quản trong điều kiện tối ưu nhất</p>
             </div>
           </div>
 
-          <!-- Step 5: Gia đình -->
-          <div class="timeline-item">
-            <div class="timeline-icon">👨‍👩‍👧‍👦</div>
-            <div class="timeline-label">Gia đình<br />Trải nghiệm an tâm</div>
-            <div class="timeline-tooltip">
-              <h4>👨‍👩‍👧‍👦 Gia đình</h4>
-              <p>
-                Trải nghiệm tiện lợi & an tâm cho mọi bữa ăn ngon của gia đình
-                bạn
-              </p>
+          <!-- Connector -->
+          <div class="flex items-center pl-8">
+            <div class="w-0.5 h-8 bg-green-600"></div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-3xl shadow-lg">
+              👨‍👩‍👧‍👦
+            </div>
+            <div class="flex-1 pt-2">
+              <h4 class="font-bold text-green-800 text-base mb-1">Gia đình - Trải nghiệm an tâm</h4>
+              <p class="text-sm text-gray-600">Trải nghiệm tiện lợi & an tâm cho mọi bữa ăn ngon của gia đình bạn</p>
             </div>
           </div>
         </div>
@@ -836,7 +826,7 @@
     </section>
 
     <!-- Featured Product Categories -->
-    <section class="py-16 bg-white">
+    <section class="pt-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
           <h3 class="text-3xl font-bold text-green-800 mb-4">
@@ -1125,7 +1115,7 @@
     </section>
 
     <!-- Services -->
-    <section class="py-16 bg-green-50">
+    <section class="pb-8 bg-green-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
           <h3 class="text-3xl font-bold text-green-800 mb-4">
@@ -1296,7 +1286,7 @@
     </section>
 
     <!-- Community, Experience & Events -->
-    <section class="py-16 bg-white">
+    <section class="pb-16 pt-8 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
           <h3 class="text-3xl font-bold text-green-800 mb-4">
