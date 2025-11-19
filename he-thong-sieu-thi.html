@@ -189,16 +189,18 @@
         <div class="flex items-center justify-between">
           <!-- Logo -->
           <div class="flex items-center space-x-3">
-            <a href="./index.html" class="flex items-center space-x-3">
-              <div
-                class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center"
-              >
-                <span class="text-white font-bold text-xl">P</span>
-              </div>
-              <div>
-                <h1 class="text-xl font-bold text-green-800">Pavel Mart</h1>
-                <p class="text-sm text-gray-600">Sống Chất Lượng</p>
-              </div>
+            <a
+              href="./index.html"
+              class="flex items-center space-x-2 hover:opacity-90 transition-opacity"
+            >
+              <img
+                src="./images/Logo Pavel Mart - Đen.png"
+                class="h-10 w-auto"
+                alt="Pavel Mart Logo"
+              />
+              <span class="text-sm text-gray-600 font-medium tracking-wider">
+                Sống Chất Lượng
+              </span>
             </a>
           </div>
 
@@ -386,15 +388,11 @@
           class="flex items-center justify-between p-4 border-b border-gray-200"
         >
           <div class="flex items-center space-x-3">
-            <div
-              class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center"
-            >
-              <span class="text-white font-bold text-lg">P</span>
-            </div>
-            <div>
-              <h1 class="text-lg font-bold text-green-800">Pavel Mart</h1>
-              <p class="text-xs text-gray-600">Sống Chất Lượng</p>
-            </div>
+            <img
+              src="./images/Logo Pavel Mart - Đen.png"
+              class="h-10 w-auto"
+              alt="Pavel Mart Logo"
+            />
           </div>
           <button
             onclick="closeMobileMenu()"
@@ -1319,11 +1317,7 @@
                 <p class="text-sm text-green-300">Sống Chất Lượng</p>
               </div>
             </div>
-            <p class="text-green-200 text-sm leading-relaxed mb-4">
-              Pavel Mart - Nâng tầm cuộc sống gia đình Việt. Nơi mỗi lựa chọn là
-              một bước nâng tầm cuộc sống, nơi gia đình Việt được trải nghiệm
-              chất lượng Châu Âu ngay tại nhà.
-            </p>
+
             <p class="text-green-300 text-xs">
               Giấy chứng nhận đăng ký kinh doanh số xxx do Sở Kế Hoạch & Đầu tư
               TP.HN cấp
@@ -1405,11 +1399,12 @@
 
           <!-- Social & Newsletter -->
           <div>
-            <h4 class="text-xl font-bold mb-4">Kết nối với chúng tôi</h4>
+            <h4 class="text-xl font-bold mb-4">Liên kết nhanh</h4>
             <div class="flex space-x-3 mb-4">
               <a
                 href="#"
                 class="text-green-200 hover:text-white transition-colors"
+                title="Facebook"
               >
                 <div
                   class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center"
@@ -1420,6 +1415,7 @@
               <a
                 href="#"
                 class="text-green-200 hover:text-white transition-colors"
+                title="Instagram"
               >
                 <div
                   class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center"
@@ -1430,6 +1426,7 @@
               <a
                 href="#"
                 class="text-green-200 hover:text-white transition-colors"
+                title="Zalo OA"
               >
                 <div
                   class="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center"
@@ -1439,7 +1436,7 @@
               </a>
             </div>
             <p class="text-sm text-green-200 mb-4">
-              Fanpage • Instagram • Zalo OA
+              Facebook • Instagram • Zalo OA
             </p>
 
             <!-- Newsletter -->
@@ -1461,25 +1458,6 @@
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Community Activities -->
-        <div class="border-t border-green-700 pt-8 mb-8">
-          <h4 class="text-lg font-bold mb-4 text-center">
-            TRẢI NGHIỆM KHÁCH HÀNG & CỘNG ĐỒNG
-          </h4>
-          <p class="text-green-200 text-center mb-6 max-w-4xl mx-auto text-sm">
-            Pavel Mart không chỉ bán hàng, chúng tôi xây dựng một lối sống. Tham
-            gia Workshop & Talkshow hướng dẫn dinh dưỡng, nấu ăn lành mạnh, chăm
-            sóc sức khỏe gia đình cùng các hoạt động cộng đồng ý nghĩa.
-          </p>
-          <div class="text-center">
-            <button
-              class="bg-white text-green-800 px-6 py-2 rounded-lg font-semibold hover:bg-green-100 transition-colors"
-            >
-              Tìm hiểu thêm về hoạt động cộng đồng
-            </button>
           </div>
         </div>
 
@@ -1707,350 +1685,6 @@
 
       // Also run immediately in case DOM is already loaded
       setActiveNavigation();
-
-      // ===== Google Maps Store Locator =====
-
-      let map;
-      let userMarker;
-      let storeMarkers = [];
-      let infoWindows = [];
-
-      // Sample store data (in real app, this would come from backend)
-      const stores = [
-        {
-          id: 1,
-          name: "Pavel Mart Hoàn Kiếm",
-          lat: 21.0285,
-          lng: 105.8542,
-          address: "123 Hàng Bài, Hoàn Kiếm, Hà Nội",
-          type: "Hypermarket",
-          phone: "024 3826 1234",
-        },
-        {
-          id: 2,
-          name: "Pavel Mart Cầu Giấy",
-          lat: 21.0278,
-          lng: 105.7823,
-          address: "456 Xuân Thủy, Cầu Giấy, Hà Nội",
-          type: "Supermarket",
-          phone: "024 3754 5678",
-        },
-        {
-          id: 3,
-          name: "Pavel Mart Đống Đa",
-          lat: 21.0171,
-          lng: 105.8265,
-          address: "789 Nguyễn Chí Thanh, Đống Đa, Hà Nội",
-          type: "Supermarket",
-          phone: "024 3537 9012",
-        },
-        {
-          id: 4,
-          name: "Pavel Mart Hai Bà Trưng",
-          lat: 21.0071,
-          lng: 105.8488,
-          address: "321 Bạch Mai, Hai Bà Trưng, Hà Nội",
-          type: "Mart Express",
-          phone: "024 3869 3456",
-        },
-        {
-          id: 5,
-          name: "Pavel Mart Thanh Xuân",
-          lat: 20.9952,
-          lng: 105.8078,
-          address: "654 Nguyễn Trãi, Thanh Xuân, Hà Nội",
-          type: "Supermarket",
-          phone: "024 3557 7890",
-        },
-        {
-          id: 6,
-          name: "Pavel Mart Long Biên",
-          lat: 21.0365,
-          lng: 105.8973,
-          address: "987 Ngọc Lâm, Long Biên, Hà Nội",
-          type: "Mart Express",
-          phone: "024 3872 1122",
-        },
-      ];
-
-      function initMap() {
-        // Default center (Hanoi)
-        const defaultCenter = { lat: 21.0285, lng: 105.8542 };
-
-        map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 12,
-          center: defaultCenter,
-          styles: [
-            {
-              featureType: "poi",
-              elementType: "labels",
-              stylers: [{ visibility: "off" }],
-            },
-          ],
-        });
-
-        // Add store markers
-        stores.forEach((store) => {
-          const marker = new google.maps.Marker({
-            position: { lat: store.lat, lng: store.lng },
-            map: map,
-            title: store.name,
-            icon: {
-              url: "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24'%3E%3Cpath fill='%23389738' d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E",
-              scaledSize: new google.maps.Size(40, 40),
-            },
-          });
-
-          const infoWindow = new google.maps.InfoWindow({
-            content: `
-              <div style="padding: 10px; max-width: 250px;">
-                <h3 style="font-weight: bold; margin-bottom: 8px; color: #389738;">${store.name}</h3>
-                <p style="font-size: 14px; margin-bottom: 5px;">📍 ${store.address}</p>
-                <p style="font-size: 14px; margin-bottom: 5px;">📞 ${store.phone}</p>
-                <p style="font-size: 12px; color: #666;">🏪 ${store.type}</p>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=${store.lat},${store.lng}" 
-                   target="_blank" 
-                   style="display: inline-block; margin-top: 10px; background: #389738; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 14px;">
-                  Chỉ đường
-                </a>
-              </div>
-            `,
-          });
-
-          marker.addListener("click", () => {
-            infoWindows.forEach((iw) => iw.close());
-            infoWindow.open(map, marker);
-          });
-
-          storeMarkers.push(marker);
-          infoWindows.push(infoWindow);
-        });
-
-        // Display all stores initially
-        displayStoreList(stores);
-      }
-
-      function useCurrentLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              const userPos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-              };
-
-              map.setCenter(userPos);
-              map.setZoom(14);
-
-              if (userMarker) {
-                userMarker.setMap(null);
-              }
-
-              userMarker = new google.maps.Marker({
-                position: userPos,
-                map: map,
-                title: "Vị trí của bạn",
-                icon: {
-                  url: "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='8' fill='%234285F4' stroke='white' stroke-width='3'/%3E%3C/svg%3E",
-                  scaledSize: new google.maps.Size(32, 32),
-                },
-              });
-
-              findNearestStores(userPos);
-            },
-            () => {
-              alert(
-                "Không thể lấy vị trí của bạn. Vui lòng kiểm tra cài đặt GPS."
-              );
-            }
-          );
-        } else {
-          alert("Trình duyệt của bạn không hỗ trợ định vị.");
-        }
-      }
-
-      function searchNearbyStores() {
-        const input = document.getElementById("location-input").value;
-        if (!input) {
-          alert("Vui lòng nhập địa chỉ để tìm kiếm");
-          return;
-        }
-
-        const geocoder = new google.maps.Geocoder();
-        geocoder.geocode(
-          { address: input + ", Vietnam" },
-          (results, status) => {
-            if (status === "OK") {
-              const location = results[0].geometry.location;
-              const userPos = { lat: location.lat(), lng: location.lng() };
-
-              map.setCenter(userPos);
-              map.setZoom(13);
-
-              if (userMarker) {
-                userMarker.setMap(null);
-              }
-
-              userMarker = new google.maps.Marker({
-                position: userPos,
-                map: map,
-                title: "Vị trí tìm kiếm",
-                icon: {
-                  url: "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='8' fill='%234285F4' stroke='white' stroke-width='3'/%3E%3C/svg%3E",
-                  scaledSize: new google.maps.Size(32, 32),
-                },
-              });
-
-              findNearestStores(userPos);
-            } else {
-              alert("Không tìm thấy địa chỉ. Vui lòng thử lại.");
-            }
-          }
-        );
-      }
-
-      function findNearestStores(userPos) {
-        const storesWithDistance = stores.map((store) => {
-          const distance = calculateDistance(
-            userPos.lat,
-            userPos.lng,
-            store.lat,
-            store.lng
-          );
-          return { ...store, distance };
-        });
-
-        storesWithDistance.sort((a, b) => a.distance - b.distance);
-        displayStoreList(storesWithDistance);
-      }
-
-      function calculateDistance(lat1, lon1, lat2, lon2) {
-        const R = 6371; // Radius of Earth in km
-        const dLat = ((lat2 - lat1) * Math.PI) / 180;
-        const dLon = ((lon2 - lon1) * Math.PI) / 180;
-        const a =
-          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-          Math.cos((lat1 * Math.PI) / 180) *
-            Math.cos((lat2 * Math.PI) / 180) *
-            Math.sin(dLon / 2) *
-            Math.sin(dLon / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return R * c;
-      }
-
-      function displayStoreList(storesList) {
-        const storeListDiv = document.getElementById("store-list");
-        storeListDiv.innerHTML = storesList
-          .map(
-            (store, index) => `
-          <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-green-600">
-            ${
-              store.distance
-                ? `<div class="text-sm font-bold text-green-600 mb-2">📍 ${store.distance.toFixed(
-                    1
-                  )} km</div>`
-                : ""
-            }
-            <h3 class="text-xl font-bold text-gray-800 mb-2">${store.name}</h3>
-            <p class="text-sm text-gray-600 mb-2">📍 ${store.address}</p>
-            <p class="text-sm text-gray-600 mb-2">📞 ${store.phone}</p>
-            <p class="text-xs text-gray-500 mb-4">🏪 ${store.type}</p>
-            <div class="flex gap-2">
-              <button
-                onclick="focusStore(${store.lat}, ${store.lng}, ${index})"
-                class="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:bg-green-700 transition"
-              >
-                Xem bản đồ
-              </button>
-              <a
-                href="https://www.google.com/maps/dir/?api=1&destination=${
-                  store.lat
-                },${store.lng}"
-                target="_blank"
-                class="flex-1 bg-orange-500 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:bg-orange-600 transition text-center"
-              >
-                Chỉ đường
-              </a>
-            </div>
-          </div>
-        `
-          )
-          .join("");
-      }
-
-      function focusStore(lat, lng, index) {
-        map.setCenter({ lat, lng });
-        map.setZoom(16);
-        google.maps.event.trigger(storeMarkers[index], "click");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      // Make functions globally available
-      window.initMap = initMap;
-      window.useCurrentLocation = useCurrentLocation;
-      window.searchNearbyStores = searchNearbyStores;
-      window.focusStore = focusStore;
-
-      // ===== OpenStreetMap Initialization =====
-      let osmMap;
-      let osmMarkers = [];
-
-      // Custom green marker icon
-      const greenIcon = L.divIcon({
-        className: "custom-marker",
-        html: '<div style="background-color: #389738; width: 24px; height: 24px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3); position: relative; left: -12px; top: -12px;"></div>',
-        iconSize: [24, 24],
-        iconAnchor: [12, 24],
-        popupAnchor: [0, -24],
-      });
-
-      function initOSMap() {
-        // Initialize map (centered on Hanoi)
-        osmMap = L.map("map").setView([21.0285, 105.8542], 12);
-
-        // Add tile layer
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          attribution: "© OpenStreetMap contributors",
-          maxZoom: 19,
-        }).addTo(osmMap);
-
-        // Add store markers
-        stores.forEach((store, index) => {
-          const marker = L.marker([store.lat, store.lng], {
-            icon: greenIcon,
-          }).addTo(osmMap);
-
-          const popupContent = `
-            <div style="padding: 12px; min-width: 220px; font-family: Inter, sans-serif;">
-              <h3 style="font-weight: 700; color: #2c7a2c; margin-bottom: 10px; font-size: 16px; font-family: 'Playfair Display', serif;">${store.name}</h3>
-              <p style="margin: 6px 0; color: #555; font-size: 13px; line-height: 1.5;"><strong>📍</strong> ${store.address}</p>
-              <p style="margin: 6px 0; color: #555; font-size: 13px;"><strong>📞</strong> ${store.phone}</p>
-              <p style="margin: 6px 0; color: #555; font-size: 13px;"><strong>🏪</strong> ${store.type}</p>
-            </div>
-          `;
-
-          marker.bindPopup(popupContent);
-          osmMarkers.push(marker);
-        });
-
-        // Display store list
-        displayStoreList(stores);
-      }
-
-      // Override focusStore to work with Leaflet
-      window.focusStore = function (lat, lng, index) {
-        osmMap.setView([lat, lng], 16, { animate: true });
-        osmMarkers[index].openPopup();
-        const mapSection = document.getElementById("map");
-        mapSection.scrollIntoView({ behavior: "smooth", block: "center" });
-      };
-
-      // Initialize on page load
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initOSMap);
-      } else {
-        initOSMap();
-      }
     </script>
   </body>
 </html>

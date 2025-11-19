@@ -182,16 +182,18 @@
         <div class="flex items-center justify-between">
           <!-- Logo -->
           <div class="flex items-center space-x-3">
-            <a href="./index.html" class="flex items-center space-x-3">
-              <div
-                class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center"
-              >
-                <span class="text-white font-bold text-xl">P</span>
-              </div>
-              <div>
-                <h1 class="text-xl font-bold text-green-800">Pavel Mart</h1>
-                <p class="text-sm text-gray-600">Sống Chất Lượng</p>
-              </div>
+            <a
+              href="./index.html"
+              class="flex items-center space-x-2 hover:opacity-90 transition-opacity"
+            >
+              <img
+                src="./images/Logo Pavel Mart - Đen.png"
+                class="h-10 w-auto"
+                alt="Pavel Mart Logo"
+              />
+              <span class="text-sm text-gray-600 font-medium tracking-wider">
+                Sống Chất Lượng
+              </span>
             </a>
           </div>
 
@@ -379,15 +381,11 @@
           class="flex items-center justify-between p-4 border-b border-gray-200"
         >
           <div class="flex items-center space-x-3">
-            <div
-              class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center"
-            >
-              <span class="text-white font-bold text-lg">P</span>
-            </div>
-            <div>
-              <h1 class="text-lg font-bold text-green-800">Pavel Mart</h1>
-              <p class="text-xs text-gray-600">Sống Chất Lượng</p>
-            </div>
+            <img
+              src="./images/Logo Pavel Mart - Đen.png"
+              class="h-10 w-auto"
+              alt="Pavel Mart Logo"
+            />
           </div>
           <button
             onclick="closeMobileMenu()"
@@ -1302,11 +1300,7 @@
                 <p class="text-sm text-green-300">Sống Chất Lượng</p>
               </div>
             </div>
-            <p class="text-green-200 text-sm leading-relaxed mb-4">
-              Pavel Mart - Nâng tầm cuộc sống gia đình Việt. Nơi mỗi lựa chọn là
-              một bước nâng tầm cuộc sống, nơi gia đình Việt được trải nghiệm
-              chất lượng Châu Âu ngay tại nhà.
-            </p>
+
             <p class="text-green-300 text-xs">
               Giấy chứng nhận đăng ký kinh doanh số xxx do Sở Kế Hoạch & Đầu tư
               TP.HN cấp
@@ -1388,11 +1382,12 @@
 
           <!-- Social & Newsletter -->
           <div>
-            <h4 class="text-xl font-bold mb-4">Kết nối với chúng tôi</h4>
+            <h4 class="text-xl font-bold mb-4">Liên kết nhanh</h4>
             <div class="flex space-x-3 mb-4">
               <a
                 href="#"
                 class="text-green-200 hover:text-white transition-colors"
+                title="Facebook"
               >
                 <div
                   class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center"
@@ -1403,6 +1398,7 @@
               <a
                 href="#"
                 class="text-green-200 hover:text-white transition-colors"
+                title="Instagram"
               >
                 <div
                   class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center"
@@ -1413,6 +1409,7 @@
               <a
                 href="#"
                 class="text-green-200 hover:text-white transition-colors"
+                title="Zalo OA"
               >
                 <div
                   class="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center"
@@ -1422,7 +1419,7 @@
               </a>
             </div>
             <p class="text-sm text-green-200 mb-4">
-              Fanpage • Instagram • Zalo OA
+              Facebook • Instagram • Zalo OA
             </p>
 
             <!-- Newsletter -->
@@ -1444,25 +1441,6 @@
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Community Activities -->
-        <div class="border-t border-green-700 pt-8 mb-8">
-          <h4 class="text-lg font-bold mb-4 text-center">
-            TRẢI NGHIỆM KHÁCH HÀNG & CỘNG ĐỒNG
-          </h4>
-          <p class="text-green-200 text-center mb-6 max-w-4xl mx-auto text-sm">
-            Pavel Mart không chỉ bán hàng, chúng tôi xây dựng một lối sống. Tham
-            gia Workshop & Talkshow hướng dẫn dinh dưỡng, nấu ăn lành mạnh, chăm
-            sóc sức khỏe gia đình cùng các hoạt động cộng đồng ý nghĩa.
-          </p>
-          <div class="text-center">
-            <button
-              class="bg-white text-green-800 px-6 py-2 rounded-lg font-semibold hover:bg-green-100 transition-colors"
-            >
-              Tìm hiểu thêm về hoạt động cộng đồng
-            </button>
           </div>
         </div>
 
@@ -1690,211 +1668,6 @@
 
       // Also run immediately in case DOM is already loaded
       setActiveNavigation();
-
-      // ===== Promotion Filtering System =====
-
-      // Get filter elements
-      const searchInput = document.getElementById("search-input");
-      const categorySelect = document.getElementById("category-select");
-      const timeSelect = document.getElementById("time-select");
-      const resetBtn = document.getElementById("reset-btn");
-      const activeFiltersDiv = document.getElementById("active-filters");
-      const resultsCountSpan = document.getElementById("results-count");
-      const promotionCards = document.querySelectorAll(".promotion-card");
-
-      // Filter state
-      let filters = {
-        search: "",
-        category: "all",
-        time: "all",
-      };
-
-      // Initialize filtering
-      function initializeFilters() {
-        if (searchInput) {
-          searchInput.addEventListener("input", (e) => {
-            filters.search = e.target.value.toLowerCase().trim();
-            applyFilters();
-          });
-        }
-
-        if (categorySelect) {
-          categorySelect.addEventListener("change", (e) => {
-            filters.category = e.target.value;
-            applyFilters();
-          });
-        }
-
-        if (timeSelect) {
-          timeSelect.addEventListener("change", (e) => {
-            filters.time = e.target.value;
-            applyFilters();
-          });
-        }
-
-        if (resetBtn) {
-          resetBtn.addEventListener("click", resetFilters);
-        }
-      }
-
-      // Apply filters to promotion cards
-      function applyFilters() {
-        let visibleCount = 0;
-
-        promotionCards.forEach((card) => {
-          const cardCategory = card.getAttribute("data-category") || "all";
-          const cardTime = card.getAttribute("data-time") || "all";
-          const cardKeywords = (
-            card.getAttribute("data-keywords") || ""
-          ).toLowerCase();
-
-          // Check search filter
-          const searchMatch =
-            !filters.search || cardKeywords.includes(filters.search);
-
-          // Check category filter
-          const categoryMatch =
-            filters.category === "all" ||
-            cardCategory === "all" ||
-            cardCategory === filters.category;
-
-          // Check time filter
-          const timeMatch =
-            filters.time === "all" ||
-            cardTime === "all" ||
-            cardTime === filters.time;
-
-          // Show or hide card
-          if (searchMatch && categoryMatch && timeMatch) {
-            card.style.display = "block";
-            visibleCount++;
-          } else {
-            card.style.display = "none";
-          }
-        });
-
-        // Update results count
-        updateResultsCount(visibleCount);
-
-        // Update active filters display
-        updateActiveFilters();
-      }
-
-      // Update results count
-      function updateResultsCount(count) {
-        if (resultsCountSpan) {
-          resultsCountSpan.textContent = count;
-        }
-      }
-
-      // Update active filters display
-      function updateActiveFilters() {
-        if (!activeFiltersDiv) return;
-
-        const activeTags = [];
-
-        // Add search tag
-        if (filters.search) {
-          activeTags.push({
-            label: `Tìm kiếm: "${filters.search}"`,
-            type: "search",
-          });
-        }
-
-        // Add category tag
-        if (filters.category !== "all") {
-          const categoryLabels = {
-            fresh: "Thực phẩm tươi sống",
-            imported: "Hàng nhập khẩu",
-            household: "Gia dụng",
-            cosmetics: "Mỹ phẩm",
-            combo: "Combo tiết kiệm",
-          };
-          activeTags.push({
-            label: categoryLabels[filters.category] || filters.category,
-            type: "category",
-          });
-        }
-
-        // Add time tag
-        if (filters.time !== "all") {
-          const timeLabels = {
-            "this-week": "Tuần này",
-            "ending-soon": "Sắp hết hạn",
-            new: "Mới nhất",
-          };
-          activeTags.push({
-            label: timeLabels[filters.time] || filters.time,
-            type: "time",
-          });
-        }
-
-        // Render tags
-        if (activeTags.length > 0) {
-          activeFiltersDiv.innerHTML = activeTags
-            .map(
-              (tag) => `
-            <span class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-              <span>${tag.label}</span>
-              <button onclick="removeFilter('${tag.type}')" class="hover:text-green-900 font-bold">×</button>
-            </span>
-          `
-            )
-            .join("");
-          activeFiltersDiv.classList.remove("hidden");
-        } else {
-          activeFiltersDiv.innerHTML = "";
-          activeFiltersDiv.classList.add("hidden");
-        }
-      }
-
-      // Remove specific filter
-      function removeFilter(type) {
-        if (type === "search") {
-          filters.search = "";
-          if (searchInput) searchInput.value = "";
-        } else if (type === "category") {
-          filters.category = "all";
-          if (categorySelect) categorySelect.value = "all";
-        } else if (type === "time") {
-          filters.time = "all";
-          if (timeSelect) timeSelect.value = "all";
-        }
-        applyFilters();
-      }
-
-      // Reset all filters
-      function resetFilters() {
-        filters = {
-          search: "",
-          category: "all",
-          time: "all",
-        };
-
-        if (searchInput) searchInput.value = "";
-        if (categorySelect) categorySelect.value = "all";
-        if (timeSelect) timeSelect.value = "all";
-
-        applyFilters();
-      }
-
-      // Make removeFilter available globally
-      window.removeFilter = removeFilter;
-
-      // Initialize filters when DOM is ready
-      document.addEventListener("DOMContentLoaded", () => {
-        initializeFilters();
-        // Initial count
-        updateResultsCount(promotionCards.length);
-      });
-
-      // Run immediately in case DOM is already loaded
-      if (document.readyState === "loading") {
-        // Do nothing, DOMContentLoaded will fire
-      } else {
-        initializeFilters();
-        updateResultsCount(promotionCards.length);
-      }
     </script>
   </body>
 </html>
