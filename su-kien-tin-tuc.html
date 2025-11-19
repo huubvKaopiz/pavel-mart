@@ -44,7 +44,12 @@
       body {
         font-family: "Inter", sans-serif;
       }
-      h1, h2, h3, h4, h5, h6 {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
         font-family: "Playfair Display", serif;
         font-weight: 700;
         letter-spacing: -0.02em;
@@ -554,16 +559,6 @@
         </div>
       </div>
     </div>
-    <!-- Hero Section -->
-    <section class="hero-gradient text-white py-20">
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-5xl font-bold mb-6">Sự Kiện & Tin Tức</h1>
-        <p class="text-xl text-green-100 max-w-3xl mx-auto">
-          Cập nhật những thông tin mới nhất về các chương trình, sự kiện và hoạt
-          động của Pavel Mart
-        </p>
-      </div>
-    </section>
 
     <!-- Breadcrumbs -->
     <section class="bg-gray-50 py-4 border-b border-gray-200">
@@ -580,910 +575,350 @@
     </section>
 
     <!-- Filter Tabs -->
-    <section class="bg-white py-6 sticky top-0 z-40 shadow-md">
+    <section class="bg-white py-6 sticky top-16 z-40 shadow-md">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap gap-3 justify-center">
           <button
             class="px-6 py-2 bg-green-600 text-white rounded-full font-semibold hover:bg-green-700 transition"
           >
-            🔥 Tất cả
+            Tất cả
           </button>
           <button
             class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-semibold hover:bg-gray-200 transition"
           >
-            🎉 Sự kiện
+            Sự kiện
           </button>
           <button
             class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-semibold hover:bg-gray-200 transition"
           >
-            🎁 Khuyến mãi
+            Khuyến mãi
           </button>
           <button
             class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-semibold hover:bg-gray-200 transition"
           >
-            🌱 Cộng đồng
+            Cộng đồng
           </button>
           <button
             class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-semibold hover:bg-gray-200 transition"
           >
-            📰 Tin tức
+            Tin tức
           </button>
           <button
             class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-semibold hover:bg-gray-200 transition"
           >
-            🏆 Thành tựu
+            Thành tựu
+          </button>
+          <button
+            class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-semibold hover:bg-gray-200 transition"
+          >
+            Tuyển dụng
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Main Content with Sidebar -->
+    <!-- Hero Banner Section -->
+    <section class="hero-gradient text-white py-16 lg:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+              Sự Kiện & Tin Tức<br />
+              Pavel Mart
+            </h1>
+            <p class="text-lg lg:text-xl mb-8 text-green-100 leading-relaxed">
+              Cập nhật thường xuyên các hoạt động, chương trình khuyến mãi, sự
+              kiện cộng đồng và tin tức mới nhất từ Pavel Mart. Đồng hành cùng
+              chúng tôi trong hành trình mang đến trải nghiệm mua sắm tốt nhất
+              cho gia đình Việt.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                class="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors"
+              >
+                📰 Xem tin tức mới nhất
+              </button>
+              <button
+                class="bg-white bg-opacity-10 text-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-colors backdrop-blur-sm"
+              >
+                🎉 Khám phá sự kiện
+              </button>
+            </div>
+          </div>
+          <div class="hidden lg:block">
+            <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-sm">
+              <h3 class="text-2xl font-bold mb-6 text-center">
+                Theo dõi Pavel Mart để không bỏ lỡ
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <span class="text-green-300 text-2xl">🎁</span>
+                  <div>
+                    <h4 class="font-semibold text-lg mb-1">
+                      Khuyến mãi hấp dẫn
+                    </h4>
+                    <p class="text-green-100 text-sm">
+                      Cập nhật deal hot, giảm giá sốc hàng tuần
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <span class="text-green-300 text-2xl">🎉</span>
+                  <div>
+                    <h4 class="font-semibold text-lg mb-1">Sự kiện đặc biệt</h4>
+                    <p class="text-green-100 text-sm">
+                      Các chương trình tri ân khách hàng thành viên
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <span class="text-green-300 text-2xl">🌱</span>
+                  <div>
+                    <h4 class="font-semibold text-lg mb-1">
+                      Hoạt động cộng đồng
+                    </h4>
+                    <p class="text-green-100 text-sm">
+                      Đồng hành vì một Việt Nam xanh - sạch - đẹp
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <span class="text-green-300 text-2xl">📢</span>
+                  <div>
+                    <h4 class="font-semibold text-lg mb-1">Tin tức nổi bật</h4>
+                    <p class="text-green-100 text-sm">
+                      Thông tin về sản phẩm mới, chính sách mới
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
     <section class="py-8 lg:py-16 bg-gray-50">
       <div class="container mx-auto px-4">
-        <div class="flex flex-col lg:flex-row lg:gap-8">
-          <!-- Sidebar - Left Menu (Hidden on Mobile) -->
-          <aside class="hidden lg:block lg:w-64 flex-shrink-0">
-            <div class="sticky top-24">
-              <!-- Categories Menu -->
-              <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
-                <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                  <span>📂</span>
-                  <span>Danh mục</span>
-                </h3>
-                <nav class="space-y-2">
-                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-green-50 text-green-700 font-semibold transition hover:bg-green-100">
-                    <span>🔥</span>
-                    <span>Tất cả</span>
-                  </a>
-                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
-                    <span>🎉</span>
-                    <span>Sự kiện</span>
-                  </a>
-                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
-                    <span>📰</span>
-                    <span>Tin tức</span>
-                  </a>
-                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
-                    <span>🎁</span>
-                    <span>Khuyến mãi</span>
-                  </a>
-                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
-                    <span>🌱</span>
-                    <span>Cộng đồng</span>
-                  </a>
-                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
-                    <span>🛒</span>
-                    <span>Cẩm nang</span>
-                  </a>
-                  <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition">
-                    <span>🏆</span>
-                    <span>Thành tựu</span>
-                  </a>
-                </nav>
-              </div>
-
-              <!-- Search Box -->
-              <div class="bg-white rounded-xl shadow-lg p-6">
-                <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                  <span>🔍</span>
-                  <span>Tìm kiếm</span>
-                </h3>
-                <div class="relative">
-                  <input
-                    type="text"
-                    placeholder="Tìm kiếm..."
-                    class="w-full px-4 py-2 pr-10 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none text-sm"
-                  />
-                  <button class="absolute right-2 top-1/2 -translate-y-1/2 text-green-600">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </aside>
-
-          <!-- Main Content Area -->
-          <div class="flex-1 w-full">
-            <!-- Featured News Section -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-8 lg:mb-12">
-          <!-- Main Featured -->
-          <div
-            class="bg-white rounded-xl lg:rounded-2xl overflow-hidden shadow-lg lg:shadow-xl card-hover"
-          >
-            <div
-              class="h-48 lg:h-80 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center relative"
-            >
-              <div class="absolute top-3 left-3 lg:top-4 lg:left-4">
-                <span
-                  class="bg-red-500 text-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-full text-xs lg:text-sm font-bold"
-                  >🔥 HOT</span
-                >
-              </div>
-              <div class="text-white text-center p-4 lg:p-8">
-                <div class="text-5xl lg:text-7xl mb-2 lg:mb-4">🎊</div>
-                <div class="text-xl lg:text-3xl font-bold">MEGA SALE TẾT 2025</div>
-              </div>
-            </div>
-            <div class="p-4 lg:p-8">
-              <div class="flex items-center gap-2 lg:gap-4 mb-3 lg:mb-4 text-xs lg:text-sm text-gray-600">
-                <span>📅 15/11/2025</span>
-                <span>•</span>
-                <span
-                  class="bg-orange-100 text-orange-600 px-2 py-1 lg:px-3 lg:py-1 rounded-full font-semibold"
-                  >Khuyến mãi</span
-                >
-              </div>
-              <h3 class="text-xl lg:text-3xl font-bold text-green-800 mb-3 lg:mb-4">
-                Đại Tiệc Mua Sắm Tết - Giảm Đến 50%
-              </h3>
-              <p class="text-sm lg:text-base text-gray-700 mb-4 lg:mb-6 leading-relaxed">
-                Pavel Mart khai màn chương trình khuyến mãi lớn nhất năm với
-                hàng ngàn sản phẩm giảm giá sâu. Từ thực phẩm tươi sống, bánh
-                kẹo Tết, đến đồ dùng gia đình - tất cả đều có ưu đãi đặc biệt.
-              </p>
-              <div class="flex gap-2 lg:gap-3">
-                <button
-                  class="flex-1 bg-green-600 text-white py-2.5 lg:py-3 rounded-lg text-sm lg:text-base font-bold hover:bg-green-700 transition"
-                >
-                  Xem chi tiết
-                </button>
-                <button
-                  class="px-4 lg:px-6 border-2 border-green-600 text-green-600 py-2.5 lg:py-3 rounded-lg text-sm lg:text-base font-bold hover:bg-green-50 transition"
-                >
-                  Chia sẻ
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Secondary Featured -->
-          <div class="space-y-4 lg:space-y-6">
-            <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg card-hover flex flex-col sm:flex-row"
-            >
-              <div
-                class="w-full sm:w-1/3 h-32 sm:h-auto bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center"
-              >
-                <div class="text-5xl sm:text-6xl">🎁</div>
-              </div>
-              <div class="w-full sm:w-2/3 p-4 lg:p-6">
-                <div class="text-xs lg:text-sm text-gray-600 mb-2">
-                  📅 10/11/2025 •
-                  <span class="text-orange-600 font-semibold">Sự kiện</span>
-                </div>
-                <h3 class="text-lg lg:text-xl font-bold text-gray-800 mb-2">
-                  Lễ Tri Ân Khách Hàng VIP Lần 5
-                </h3>
-                <p class="text-gray-600 text-xs lg:text-sm mb-3 line-clamp-2">
-                  Chương trình dành riêng cho 10,000 khách hàng VIP với quà tặng
-                  độc quyền và ưu đãi đặc biệt...
-                </p>
-                <button
-                  class="text-green-600 text-sm lg:text-base font-semibold hover:text-green-700"
-                >
-                  Đọc thêm →
-                </button>
-              </div>
-            </div>
-
-            <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg card-hover flex flex-col sm:flex-row"
-            >
-              <div
-                class="w-full sm:w-1/3 h-32 sm:h-auto bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center"
-              >
-                <div class="text-5xl sm:text-6xl">🌱</div>
-              </div>
-              <div class="w-full sm:w-2/3 p-4 lg:p-6">
-                <div class="text-xs lg:text-sm text-gray-600 mb-2">
-                  📅 05/11/2025 •
-                  <span class="text-green-600 font-semibold">Cộng đồng</span>
-                </div>
-                <h3 class="text-lg lg:text-xl font-bold text-gray-800 mb-2">
-                  Trồng 50,000 Cây Xanh Vì Môi Trường
-                </h3>
-                <p class="text-gray-600 text-xs lg:text-sm mb-3 line-clamp-2">
-                  Pavel Mart phối hợp cùng Hội Bảo vệ Thiên nhiên triển khai
-                  chiến dịch trồng cây quy mô lớn...
-                </p>
-                <button
-                  class="text-green-600 text-sm lg:text-base font-semibold hover:text-green-700"
-                >
-                  Đọc thêm →
-                </button>
-              </div>
-            </div>
-
-            <div
-              class="bg-white rounded-xl overflow-hidden shadow-lg card-hover flex flex-col sm:flex-row"
-            >
-              <div
-                class="w-full sm:w-1/3 h-32 sm:h-auto bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
-              >
-                <div class="text-5xl sm:text-6xl">🏆</div>
-              </div>
-              <div class="w-full sm:w-2/3 p-4 lg:p-6">
-                <div class="text-xs lg:text-sm text-gray-600 mb-2">
-                  📅 01/11/2025 •
-                  <span class="text-blue-600 font-semibold">Thành tựu</span>
-                </div>
-                <h3 class="text-lg lg:text-xl font-bold text-gray-800 mb-2">
-                  Pavel Mart Nhận Giải "Doanh Nghiệp Xanh"
-                </h3>
-                <p class="text-gray-600 text-xs lg:text-sm mb-3 line-clamp-2">
-                  Vinh dự được Bộ Tài nguyên & Môi trường trao tặng danh hiệu
-                  Doanh nghiệp Xanh tiêu biểu 2025...
-                </p>
-                <button
-                  class="text-green-600 text-sm lg:text-base font-semibold hover:text-green-700"
-                >
-                  Đọc thêm →
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-            </div>
-            <!-- End Featured News Section -->
-
-            <!-- Latest News Grid -->
-            <div class="mb-8 lg:mb-12">
-        <h2 class="text-2xl lg:text-4xl font-bold text-center mb-3 lg:mb-4 text-green-800">
-          Tin Tức Mới Nhất
-        </h2>
-        <p class="text-sm lg:text-base text-gray-600 text-center mb-6 lg:mb-12 px-4">
-          Cập nhật thường xuyên các hoạt động và chương trình của Pavel Mart
-        </p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-          <!-- News Card 1 -->
-          <div
-            class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center"
-            >
-              <div class="text-white text-center">
-                <div class="text-6xl mb-2">🛒</div>
-                <div class="text-xl font-bold">SALE ONLINE</div>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="text-sm text-gray-600 mb-3">
-                📅 17/11/2025 • Khuyến mãi
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3">
-                Flash Sale Giờ Vàng - Giảm Giá Shock
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Mỗi ngày từ 18h-22h, hàng trăm sản phẩm giảm giá đến 70%. Đặt
-                hàng online ngay để không bỏ lỡ!
-              </p>
-              <div class="flex items-center justify-between">
-                <button class="text-green-600 font-bold hover:text-green-700">
-                  Xem ngay →
-                </button>
-                <div class="flex gap-2">
-                  <span class="text-gray-400">👁️ 2.5K</span>
-                  <span class="text-gray-400">💬 45</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- News Card 2 -->
-          <div
-            class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center"
-            >
-              <div class="text-white text-center">
-                <div class="text-6xl mb-2">🎂</div>
-                <div class="text-xl font-bold">SỰ KIỆN</div>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="text-sm text-gray-600 mb-3">
-                📅 14/11/2025 • Sự kiện
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3">
-                Kỷ Niệm 10 Năm Pavel Mart Tại Việt Nam
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Chào mừng 10 năm có mặt tại Việt Nam với chuỗi sự kiện tri ân,
-                quà tặng và khuyến mãi hấp dẫn.
-              </p>
-              <div class="flex items-center justify-between">
-                <button class="text-green-600 font-bold hover:text-green-700">
-                  Chi tiết →
-                </button>
-                <div class="flex gap-2">
-                  <span class="text-gray-400">👁️ 4.8K</span>
-                  <span class="text-gray-400">💬 128</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- News Card 3 -->
-          <div
-            class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center"
-            >
-              <div class="text-white text-center">
-                <div class="text-6xl mb-2">📱</div>
-                <div class="text-xl font-bold">ỨNG DỤNG MỚI</div>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="text-sm text-gray-600 mb-3">
-                📅 12/11/2025 • Tin tức
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3">
-                Ra Mắt Pavel Mart App 3.0
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Phiên bản mới với AI shopping assistant, thanh toán QR nhanh và
-                tích điểm thông minh hơn.
-              </p>
-              <div class="flex items-center justify-between">
-                <button class="text-green-600 font-bold hover:text-green-700">
-                  Tải ngay →
-                </button>
-                <div class="flex gap-2">
-                  <span class="text-gray-400">👁️ 6.2K</span>
-                  <span class="text-gray-400">💬 234</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- News Card 4 -->
-          <div
-            class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center"
-            >
-              <div class="text-white text-center">
-                <div class="text-6xl mb-2">❤️</div>
-                <div class="text-xl font-bold">TỪ THIỆN</div>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="text-sm text-gray-600 mb-3">
-                📅 08/11/2025 • Cộng đồng
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3">
-                Trao 500 Suất Quà Cho Người Nghèo
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Pavel Mart phối hợp Hội Chữ thập đỏ trao quà tết cho 500 gia
-                đình khó khăn tại 3 tỉnh miền núi.
-              </p>
-              <div class="flex items-center justify-between">
-                <button class="text-green-600 font-bold hover:text-green-700">
-                  Tìm hiểu →
-                </button>
-                <div class="flex gap-2">
-                  <span class="text-gray-400">👁️ 3.1K</span>
-                  <span class="text-gray-400">💬 89</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- News Card 5 -->
-          <div
-            class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center"
-            >
-              <div class="text-white text-center">
-                <div class="text-6xl mb-2">🥗</div>
-                <div class="text-xl font-bold">HEALTHY FOOD</div>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="text-sm text-gray-600 mb-3">
-                📅 05/11/2025 • Tin tức
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3">
-                Khai Trương Khu Organic Food
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Ra mắt khu vực thực phẩm hữu cơ với hơn 2,000 sản phẩm được
-                chứng nhận quốc tế.
-              </p>
-              <div class="flex items-center justify-between">
-                <button class="text-green-600 font-bold hover:text-green-700">
-                  Khám phá →
-                </button>
-                <div class="flex gap-2">
-                  <span class="text-gray-400">👁️ 1.9K</span>
-                  <span class="text-gray-400">💬 67</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- News Card 6 -->
-          <div
-            class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center"
-            >
-              <div class="text-white text-center">
-                <div class="text-6xl mb-2">🎓</div>
-                <div class="text-xl font-bold">TUYỂN DỤNG</div>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="text-sm text-gray-600 mb-3">
-                📅 03/11/2025 • Tin tức
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-3">
-                Tuyển Dụng 1,000 Nhân Viên Dịp Tết
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Pavel Mart mở đợt tuyển dụng lớn với mức lương hấp dẫn, thưởng
-                Tết và cơ hội thăng tiến.
-              </p>
-              <div class="flex items-center justify-between">
-                <button class="text-green-600 font-bold hover:text-green-700">
-                  Ứng tuyển →
-                </button>
-                <div class="flex gap-2">
-                  <span class="text-gray-400">👁️ 8.5K</span>
-                  <span class="text-gray-400">💬 456</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Load More -->
-        <div class="text-center mt-12">
-          <button
-            class="bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition shadow-lg"
-          >
-            Xem thêm tin tức →
-          </button>
-        </div>
-
-            <!-- Upcoming Events Section -->
-            <div class="mb-12 bg-gradient-to-br from-green-50 to-orange-50 rounded-2xl p-8">
-        <h2 class="text-4xl font-bold text-center mb-4 text-green-800">
-          Sự Kiện Sắp Diễn Ra
-        </h2>
-        <p class="text-gray-600 text-center mb-12">
-          Đừng bỏ lỡ những sự kiện đặc biệt của Pavel Mart
-        </p>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <!-- Event 1 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-xl">
-            <div
-              class="bg-gradient-to-r from-red-500 to-red-600 text-white p-6 flex items-center justify-between"
-            >
-              <div>
-                <div class="text-sm font-semibold mb-1">SỰ KIỆN ĐẶC BIỆT</div>
-                <div class="text-3xl font-bold">BLACK FRIDAY 2025</div>
-              </div>
-              <div class="text-center bg-white/20 rounded-xl p-4 backdrop-blur">
-                <div class="text-4xl font-bold">24</div>
-                <div class="text-sm">THG 11</div>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center"
-                >
-                  <span class="text-2xl">🛍️</span>
-                </div>
-                <div>
-                  <div class="font-bold text-gray-800">
-                    24/11/2025 • 00:00 - 23:59
-                  </div>
-                  <div class="text-sm text-gray-600">Toàn bộ hệ thống</div>
-                </div>
-              </div>
-              <p class="text-gray-700 mb-4">
-                Ngày mua sắm lớn nhất năm với giảm giá lên đến 80% cho hàng ngàn
-                sản phẩm. Deal săn sale mỗi giờ!
-              </p>
-              <div class="flex gap-2 mb-4">
-                <span
-                  class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-semibold"
-                  >Giảm giá 80%</span
-                >
-                <span
-                  class="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-sm font-semibold"
-                  >Freeship 0đ</span
-                >
-              </div>
-              <button
-                class="w-full bg-red-500 text-white py-3 rounded-lg font-bold hover:bg-red-600 transition"
-              >
-                🔔 Đặt lịch nhắc nhở
-              </button>
-            </div>
-          </div>
-
-          <!-- Event 2 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-xl">
-            <div
-              class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 flex items-center justify-between"
-            >
-              <div>
-                <div class="text-sm font-semibold mb-1">SỰ KIỆN ĐẶC BIỆT</div>
-                <div class="text-3xl font-bold">TUẦN LỄ HÀNG VIỆT</div>
-              </div>
-              <div class="text-center bg-white/20 rounded-xl p-4 backdrop-blur">
-                <div class="text-4xl font-bold">01</div>
-                <div class="text-sm">THG 12</div>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center"
-                >
-                  <span class="text-2xl">🇻🇳</span>
-                </div>
-                <div>
-                  <div class="font-bold text-gray-800">01/12 - 07/12/2025</div>
-                  <div class="text-sm text-gray-600">150+ siêu thị</div>
-                </div>
-              </div>
-              <p class="text-gray-700 mb-4">
-                Ưu tiên sản phẩm Việt Nam chất lượng cao. Giảm giá 30% cho hơn
-                5,000 sản phẩm made in Vietnam.
-              </p>
-              <div class="flex gap-2 mb-4">
-                <span
-                  class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold"
-                  >Hàng Việt Nam</span
-                >
-                <span
-                  class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold"
-                  >Ưu đãi 30%</span
-                >
-              </div>
-              <button
-                class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition"
-              >
-                🔔 Đặt lịch nhắc nhở
-              </button>
-            </div>
-          </div>
-        </div>
-
-            <!-- Community Activities Timeline -->
-            <div class="mb-8 lg:mb-12">
-        <h2 class="text-2xl lg:text-4xl font-bold text-center mb-3 lg:mb-4 text-green-800">
-          Hoạt Động Cộng Đồng
-        </h2>
-        <p class="text-sm lg:text-base text-gray-600 text-center mb-6 lg:mb-12 px-4">
-          Pavel Mart luôn đồng hành cùng cộng đồng
-        </p>
-
-        <div class="max-w-4xl mx-auto space-y-4 lg:space-y-0">
-          <!-- Timeline Item 1 -->
-          <div class="lg:flex lg:gap-6 mb-6 lg:mb-8">
-            <div class="flex items-center lg:block mb-3 lg:mb-0 lg:flex-shrink-0 lg:w-24 lg:text-right">
-              <div
-                class="bg-green-100 text-green-600 px-3 py-1.5 lg:py-2 rounded-lg font-bold text-sm lg:text-base inline-block"
-              >
-                THG 10
-              </div>
-            </div>
-            <div class="hidden lg:block lg:flex-shrink-0 lg:w-1 bg-green-200 relative">
-              <div
-                class="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-green-600 rounded-full"
-              ></div>
-            </div>
-            <div class="lg:flex-1 lg:pb-8">
-              <div
-                class="bg-green-50 rounded-xl p-4 lg:p-6 border-l-4 border-green-600"
-              >
-                <div class="flex items-center gap-2 lg:gap-3 mb-2 lg:mb-3">
-                  <span class="text-2xl lg:text-3xl">🌱</span>
-                  <h3 class="text-lg lg:text-xl font-bold text-green-800">
-                    Chiến Dịch "Siêu Thị Xanh"
-                  </h3>
-                </div>
-                <p class="text-sm lg:text-base text-gray-700 mb-2 lg:mb-3">
-                  Triển khai túi vải tái sử dụng miễn phí cho khách hàng, thu
-                  gom nhựa tái chế và cam kết giảm 50% túi nilon trong 6 tháng
-                  tới.
-                </p>
-                <div class="flex gap-2">
-                  <span class="text-xs lg:text-sm text-gray-600"
-                    >✓ 200,000 túi vải phát miễn phí</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Timeline Item 2 -->
-          <div class="lg:flex lg:gap-6 mb-6 lg:mb-8">
-            <div class="flex items-center lg:block mb-3 lg:mb-0 lg:flex-shrink-0 lg:w-24 lg:text-right">
-              <div
-                class="bg-orange-100 text-orange-600 px-3 py-1.5 lg:py-2 rounded-lg font-bold text-sm lg:text-base inline-block"
-              >
-                THG 9
-              </div>
-            </div>
-            <div class="hidden lg:block lg:flex-shrink-0 lg:w-1 bg-green-200 relative">
-              <div
-                class="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-orange-500 rounded-full"
-              ></div>
-            </div>
-            <div class="lg:flex-1 lg:pb-8">
-              <div
-                class="bg-orange-50 rounded-xl p-4 lg:p-6 border-l-4 border-orange-500"
-              >
-                <div class="flex items-center gap-2 lg:gap-3 mb-2 lg:mb-3">
-                  <span class="text-2xl lg:text-3xl">📚</span>
-                  <h3 class="text-lg lg:text-xl font-bold text-orange-600">
-                    Tặng 10,000 Suất Học Bổng
-                  </h3>
-                </div>
-                <p class="text-sm lg:text-base text-gray-700 mb-2 lg:mb-3">
-                  Pavel Mart trao học bổng cho học sinh, sinh viên có hoàn cảnh
-                  khó khăn nhưng học giỏi tại 20 tỉnh/thành phố.
-                </p>
-                <div class="flex gap-2">
-                  <span class="text-xs lg:text-sm text-gray-600"
-                    >✓ Mỗi suất 5 triệu đồng</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Timeline Item 3 -->
-          <div class="lg:flex lg:gap-6 mb-6 lg:mb-8">
-            <div class="flex items-center lg:block mb-3 lg:mb-0 lg:flex-shrink-0 lg:w-24 lg:text-right">
-              <div
-                class="bg-blue-100 text-blue-600 px-3 py-1.5 lg:py-2 rounded-lg font-bold text-sm lg:text-base inline-block"
-              >
-                THG 8
-              </div>
-            </div>
-            <div class="hidden lg:block lg:flex-shrink-0 lg:w-1 bg-green-200 relative">
-              <div
-                class="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full"
-              ></div>
-            </div>
-            <div class="lg:flex-1 lg:pb-8">
-              <div class="bg-blue-50 rounded-xl p-4 lg:p-6 border-l-4 border-blue-600">
-                <div class="flex items-center gap-2 lg:gap-3 mb-2 lg:mb-3">
-                  <span class="text-2xl lg:text-3xl">❤️</span>
-                  <h3 class="text-lg lg:text-xl font-bold text-blue-600">
-                    Ngày Hội "Giọt Hồng Yêu Thương"
-                  </h3>
-                </div>
-                <p class="text-sm lg:text-base text-gray-700 mb-2 lg:mb-3">
-                  Tổ chức hiến máu tình nguyện với sự tham gia của 5,000 CBNV và
-                  khách hàng, góp phần cứu sống nhiều người bệnh.
-                </p>
-                <div class="flex gap-2">
-                  <span class="text-xs lg:text-sm text-gray-600">✓ 3,500 đơn vị máu</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Timeline Item 4 -->
-          <div class="lg:flex lg:gap-6">
-            <div class="flex items-center lg:block mb-3 lg:mb-0 lg:flex-shrink-0 lg:w-24 lg:text-right">
-              <div
-                class="bg-purple-100 text-purple-600 px-3 py-1.5 lg:py-2 rounded-lg font-bold text-sm lg:text-base inline-block"
-              >
-                THG 7
-              </div>
-            </div>
-            <div class="hidden lg:block lg:flex-shrink-0 lg:w-1 bg-green-200 relative">
-              <div
-                class="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-purple-600 rounded-full"
-              ></div>
-            </div>
-            <div class="lg:flex-1">
-              <div
-                class="bg-purple-50 rounded-xl p-4 lg:p-6 border-l-4 border-purple-600"
-              >
-                <div class="flex items-center gap-2 lg:gap-3 mb-2 lg:mb-3">
-                  <span class="text-2xl lg:text-3xl">🏠</span>
-                  <h3 class="text-lg lg:text-xl font-bold text-purple-600">
-                    Xây Dựng 20 Nhà Tình Thương
-                  </h3>
-                </div>
-                <p class="text-sm lg:text-base text-gray-700 mb-2 lg:mb-3">
-                  Hỗ trợ xây dựng nhà ở cho người nghèo, gia đình chính sách tại
-                  các tỉnh miền núi, vùng sâu vùng xa.
-                </p>
-                <div class="flex gap-2">
-                  <span class="text-xs lg:text-sm text-gray-600"
-                    >✓ Tổng giá trị 2 tỷ đồng</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-            <!-- Press & Media Section -->
-            <div class="mb-8 lg:mb-12 bg-gray-50 rounded-xl lg:rounded-2xl p-4 lg:p-8">
-        <h2 class="text-2xl lg:text-4xl font-bold text-center mb-3 lg:mb-4 text-green-800">
-          Pavel Mart Trên Báo Chí
-        </h2>
-        <p class="text-sm lg:text-base text-gray-600 text-center mb-6 lg:mb-12 px-4">
-          Những bài viết nổi bật về Pavel Mart
-        </p>
-
-        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
-          <div
-            class="bg-white rounded-lg lg:rounded-xl p-4 lg:p-6 shadow-md lg:shadow-lg card-hover border-l-4 border-green-600"
-          >
-            <div class="flex items-start gap-3 lg:gap-4">
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0"
-              >
-                <span class="text-xl lg:text-2xl">📰</span>
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="text-xs lg:text-sm text-gray-500 mb-1 lg:mb-2">
-                  VnExpress • 15/11/2025
-                </div>
-                <h3 class="text-sm lg:text-base font-bold text-gray-800 mb-1 lg:mb-2 line-clamp-2">
-                  "Pavel Mart - Câu chuyện thành công của chuỗi siêu thị Châu Âu
-                  tại Việt Nam"
-                </h3>
-                <p class="text-xs lg:text-sm text-gray-600 line-clamp-2">
-                  Với 150+ siêu thị và 10 năm phát triển, Pavel Mart đã trở
-                  thành lựa chọn hàng đầu...
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-white rounded-lg lg:rounded-xl p-4 lg:p-6 shadow-md lg:shadow-lg card-hover border-l-4 border-orange-500"
-          >
-            <div class="flex items-start gap-3 lg:gap-4">
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0"
-              >
-                <span class="text-xl lg:text-2xl">📺</span>
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="text-xs lg:text-sm text-gray-500 mb-1 lg:mb-2">VTV1 • 10/11/2025</div>
-                <h3 class="text-sm lg:text-base font-bold text-gray-800 mb-1 lg:mb-2 line-clamp-2">
-                  "Doanh nghiệp đồng hành cùng cộng đồng trong đại dịch"
-                </h3>
-                <p class="text-xs lg:text-sm text-gray-600 line-clamp-2">
-                  Pavel Mart được vinh danh với những đóng góp tích cực cho xã
-                  hội trong năm qua...
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-white rounded-lg lg:rounded-xl p-4 lg:p-6 shadow-md lg:shadow-lg card-hover border-l-4 border-blue-600"
-          >
-            <div class="flex items-start gap-3 lg:gap-4">
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
-              >
-                <span class="text-xl lg:text-2xl">💼</span>
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="text-xs lg:text-sm text-gray-500 mb-1 lg:mb-2">
-                  Thời báo Kinh tế • 08/11/2025
-                </div>
-                <h3 class="text-sm lg:text-base font-bold text-gray-800 mb-1 lg:mb-2 line-clamp-2">
-                  "Chiến lược xanh của Pavel Mart: Hướng tới bền vững"
-                </h3>
-                <p class="text-xs lg:text-sm text-gray-600 line-clamp-2">
-                  Doanh nghiệp bán lẻ đi đầu trong việc áp dụng các giải pháp
-                  thân thiện môi trường...
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-white rounded-lg lg:rounded-xl p-4 lg:p-6 shadow-md lg:shadow-lg card-hover border-l-4 border-purple-600"
-          >
-            <div class="flex items-start gap-3 lg:gap-4">
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0"
-              >
-                <span class="text-xl lg:text-2xl">🏆</span>
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="text-xs lg:text-sm text-gray-500 mb-1 lg:mb-2">
-                  Forbes Vietnam • 01/11/2025
-                </div>
-                <h3 class="text-sm lg:text-base font-bold text-gray-800 mb-1 lg:mb-2 line-clamp-2">
-                  "Top 50 doanh nghiệp bán lẻ uy tín năm 2025"
-                </h3>
-                <p class="text-xs lg:text-sm text-gray-600 line-clamp-2">
-                  Pavel Mart xếp hạng thứ 3 trong danh sách các chuỗi siêu thị
-                  được yêu thích nhất...
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-            </div>
-            <!-- End Main Content Area -->
-
-          </div>
-        </div>
-      </section>
-
-    <!-- Newsletter Section -->
-    <section
-      class="py-16 bg-gradient-to-r from-green-600 to-green-800 text-white"
-    >
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center">
-          <div class="text-6xl mb-6">📧</div>
-          <h2 class="text-4xl font-bold mb-4">Đăng Ký Nhận Tin Tức</h2>
-          <p class="text-xl text-green-100 mb-8">
-            Cập nhật sớm nhất về các chương trình khuyến mãi, sự kiện và tin tức
-            từ Pavel Mart
+        <!-- Latest News Section -->
+        <div class="mb-12">
+          <h2 class="text-3xl lg:text-4xl font-bold mb-3 text-green-800">
+            Tin Tức Mới Nhất
+          </h2>
+          <p class="text-gray-600 mb-8">
+            Cập nhật những tin tức, sự kiện mới nhất từ Pavel Mart
           </p>
 
-          <div class="bg-white rounded-2xl p-8 shadow-2xl">
-            <div class="flex flex-col md:flex-row gap-4 mb-6">
-              <input
-                type="email"
-                placeholder="Nhập email của bạn"
-                class="flex-1 px-6 py-4 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-gray-700 text-lg"
-              />
-              <button
-                class="bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition shadow-lg whitespace-nowrap"
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- News Card 1 -->
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition"
+            >
+              <div
+                class="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center"
               >
-                Đăng ký ngay
-              </button>
+                <div class="text-white text-center">
+                  <div class="text-6xl mb-2">🛒</div>
+                  <div class="text-xl font-bold">FLASH SALE</div>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">
+                  📅 17/11/2025 • Khuyến mãi
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">
+                  Flash Sale Giờ Vàng - Giảm Giá Shock
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                  Mỗi ngày từ 18h-22h, hàng trăm sản phẩm giảm giá đến 70%. Đặt
+                  hàng online ngay để không bỏ lỡ!
+                </p>
+                <button
+                  class="text-green-600 font-semibold hover:text-green-700"
+                >
+                  Xem chi tiết →
+                </button>
+              </div>
             </div>
 
-            <div class="flex items-center justify-center gap-2 text-gray-600">
-              <input type="checkbox" id="agree" class="w-5 h-5" />
-              <label for="agree" class="text-sm"
-                >Tôi đồng ý nhận email thông báo từ Pavel Mart</label
+            <!-- News Card 2 -->
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition"
+            >
+              <div
+                class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center"
               >
+                <div class="text-white text-center">
+                  <div class="text-6xl mb-2">📱</div>
+                  <div class="text-xl font-bold">APP MỚI</div>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">
+                  📅 12/11/2025 • Tin tức
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">
+                  Ra Mắt Pavel Mart App 3.0
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                  Phiên bản mới với AI shopping assistant, thanh toán QR nhanh
+                  và tích điểm thông minh hơn.
+                </p>
+                <button
+                  class="text-green-600 font-semibold hover:text-green-700"
+                >
+                  Xem chi tiết →
+                </button>
+              </div>
+            </div>
+
+            <!-- News Card 3 -->
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition"
+            >
+              <div
+                class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center"
+              >
+                <div class="text-white text-center">
+                  <div class="text-6xl mb-2">❤️</div>
+                  <div class="text-xl font-bold">TỪ THIỆN</div>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">
+                  📅 08/11/2025 • Cộng đồng
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">
+                  Trao 500 Suất Quà Cho Người Nghèo
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                  Pavel Mart phối hợp Hội Chữ thập đỏ trao quà tết cho 500 gia
+                  đình khó khăn tại 3 tỉnh miền núi.
+                </p>
+                <button
+                  class="text-green-600 font-semibold hover:text-green-700"
+                >
+                  Xem chi tiết →
+                </button>
+              </div>
+            </div>
+
+            <!-- News Card 4 -->
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition"
+            >
+              <div
+                class="h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center"
+              >
+                <div class="text-white text-center">
+                  <div class="text-6xl mb-2">🎉</div>
+                  <div class="text-xl font-bold">SỰ KIỆN</div>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">
+                  📅 14/11/2025 • Sự kiện
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">
+                  Kỷ Niệm 10 Năm Pavel Mart Tại Việt Nam
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                  Chào mừng 10 năm có mặt tại Việt Nam với chuỗi sự kiện tri ân,
+                  quà tặng và khuyến mãi hấp dẫn.
+                </p>
+                <button
+                  class="text-green-600 font-semibold hover:text-green-700"
+                >
+                  Xem chi tiết →
+                </button>
+              </div>
+            </div>
+
+            <!-- News Card 5 -->
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition"
+            >
+              <div
+                class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center"
+              >
+                <div class="text-white text-center">
+                  <div class="text-6xl mb-2">🥗</div>
+                  <div class="text-xl font-bold">ORGANIC</div>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">
+                  📅 05/11/2025 • Tin tức
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">
+                  Khai Trương Khu Organic Food
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                  Ra mắt khu vực thực phẩm hữu cơ với hơn 2,000 sản phẩm được
+                  chứng nhận quốc tế.
+                </p>
+                <button
+                  class="text-green-600 font-semibold hover:text-green-700"
+                >
+                  Xem chi tiết →
+                </button>
+              </div>
+            </div>
+
+            <!-- News Card 6 -->
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition"
+            >
+              <div
+                class="h-48 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center"
+              >
+                <div class="text-white text-center">
+                  <div class="text-6xl mb-2">🎓</div>
+                  <div class="text-xl font-bold">TUYỂN DỤNG</div>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">
+                  📅 03/11/2025 • Tuyển dụng
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">
+                  Tuyển Dụng 1,000 Nhân Viên Dịp Tết
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                  Pavel Mart mở đợt tuyển dụng lớn với mức lương hấp dẫn, thưởng
+                  Tết và cơ hội thăng tiến.
+                </p>
+                <button
+                  class="text-green-600 font-semibold hover:text-green-700"
+                >
+                  Xem chi tiết →
+                </button>
+              </div>
             </div>
           </div>
 
-          <div class="mt-8 grid md:grid-cols-3 gap-6">
-            <div class="text-center">
-              <div class="text-3xl font-bold mb-2">50K+</div>
-              <div class="text-green-100">Người đăng ký</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl font-bold mb-2">3x/tuần</div>
-              <div class="text-green-100">Tần suất gửi email</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl font-bold mb-2">100%</div>
-              <div class="text-green-100">Miễn phí</div>
-            </div>
+          <!-- View More Button -->
+          <div class="text-center mt-10">
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold text-lg transition"
+            >
+              Xem thêm tin tức
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
