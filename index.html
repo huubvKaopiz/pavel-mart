@@ -41,6 +41,15 @@
       };
     </script>
     <style>
+      * {
+        box-sizing: border-box;
+      }
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
       body {
         font-family: "Inter", sans-serif;
       }
@@ -294,16 +303,18 @@
         <div class="flex items-center justify-between">
           <!-- Logo -->
           <div class="flex items-center space-x-3">
-            <a href="./index.html" class="flex items-center space-x-3">
-              <div
-                class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center"
-              >
-                <span class="text-white font-bold text-xl">P</span>
-              </div>
-              <div>
-                <h1 class="text-xl font-bold text-green-800">Pavel Mart</h1>
-                <p class="text-sm text-gray-600">Sống Chất Lượng</p>
-              </div>
+            <a
+              href="./index.html"
+              class="flex items-center space-x-2 hover:opacity-90 transition-opacity"
+            >
+              <img
+                src="./images/Logo Pavel Mart - Đen.png"
+                class="h-10 w-auto"
+                alt="Pavel Mart Logo"
+              />
+              <span class="text-sm text-gray-600 font-medium tracking-wider">
+                Sống Chất Lượng
+              </span>
             </a>
           </div>
 
@@ -491,15 +502,11 @@
           class="flex items-center justify-between p-4 border-b border-gray-200"
         >
           <div class="flex items-center space-x-3">
-            <div
-              class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center"
-            >
-              <span class="text-white font-bold text-lg">P</span>
-            </div>
-            <div>
-              <h1 class="text-lg font-bold text-green-800">Pavel Mart</h1>
-              <p class="text-xs text-gray-600">Sống Chất Lượng</p>
-            </div>
+            <img
+              src="./images/Logo Pavel Mart - Đen.png"
+              class="h-10 w-auto"
+              alt="Pavel Mart Logo"
+            />
           </div>
           <button
             onclick="closeMobileMenu()"
@@ -680,11 +687,15 @@
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 class="text-5xl font-bold mb-6 leading-tight">
-              Trải nghiệm mua sắm chuẩn chất lượng<br/>
+              Trải nghiệm mua sắm chuẩn chất lượng<br />
               Vì sức khỏe gia đình Việt
             </h2>
             <p class="text-xl mb-8 text-green-100 leading-relaxed">
-              Tại Pavel Mart, chúng tôi tin rằng mỗi bữa ăn ngon và an toàn bắt đầu từ nguồn nguyên liệu chuẩn chất lượng. Vì thế, mọi sản phẩm trên quầy kệ đều được chọn lọc kỹ lưỡng, đến từ các nhà cung cấp hữu cơ, sản xuất theo phương pháp hữu cơ, sở hữu chứng nhận tiêu chuẩn từ cơ quan quản lý uy tín.
+              Tại Pavel Mart, chúng tôi tin rằng mỗi bữa ăn ngon và an toàn bắt
+              đầu từ nguồn nguyên liệu chuẩn chất lượng. Vì thế, mọi sản phẩm
+              trên quầy kệ đều được chọn lọc kỹ lưỡng, đến từ các nhà cung cấp
+              hữu cơ, sản xuất theo phương pháp hữu cơ, sở hữu chứng nhận tiêu
+              chuẩn từ cơ quan quản lý uy tín.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <button
@@ -758,14 +769,12 @@
           <!-- Step 1: Nguồn cung -->
           <div class="timeline-item">
             <div class="timeline-icon">🚜</div>
-            <div class="timeline-label">
-              Nguồn cung<br />Nông trại uy tín
-            </div>
+            <div class="timeline-label">Nguồn cung<br />Nông trại uy tín</div>
             <div class="timeline-tooltip">
               <h4>🚜 Nguồn cung</h4>
               <p>
-                Hợp tác với các nông trại uy tín, áp dụng quy trình canh tác
-                hữu cơ và bền vững
+                Hợp tác với các nông trại uy tín, áp dụng quy trình canh tác hữu
+                cơ và bền vững
               </p>
             </div>
           </div>
@@ -788,9 +797,7 @@
           <!-- Step 3: Vận chuyển -->
           <div class="timeline-item">
             <div class="timeline-icon">🚚</div>
-            <div class="timeline-label">
-              Vận chuyển<br />Chuẩn vệ sinh
-            </div>
+            <div class="timeline-label">Vận chuyển<br />Chuẩn vệ sinh</div>
             <div class="timeline-tooltip">
               <h4>🚚 Vận chuyển</h4>
               <p>
@@ -803,14 +810,11 @@
           <!-- Step 4: Siêu thị -->
           <div class="timeline-item">
             <div class="timeline-icon">🏪</div>
-            <div class="timeline-label">
-              Siêu thị<br />Trưng bày khoa học
-            </div>
+            <div class="timeline-label">Siêu thị<br />Trưng bày khoa học</div>
             <div class="timeline-tooltip">
               <h4>🏪 Siêu thị</h4>
               <p>
-                Trưng bày khoa học, dễ tìm, bảo quản trong điều kiện tối ưu
-                nhất
+                Trưng bày khoa học, dễ tìm, bảo quản trong điều kiện tối ưu nhất
               </p>
             </div>
           </div>
@@ -818,9 +822,7 @@
           <!-- Step 5: Gia đình -->
           <div class="timeline-item">
             <div class="timeline-icon">👨‍👩‍👧‍👦</div>
-            <div class="timeline-label">
-              Gia đình<br />Trải nghiệm an tâm
-            </div>
+            <div class="timeline-label">Gia đình<br />Trải nghiệm an tâm</div>
             <div class="timeline-tooltip">
               <h4>👨‍👩‍👧‍👦 Gia đình</h4>
               <p>
@@ -841,7 +843,8 @@
             DANH MỤC SẢN PHẨM NỔI BẬT
           </h3>
           <p class="text-gray-600 max-w-3xl mx-auto">
-            Những sản phẩm tươi ngon, đảm bảo chất lượng, được chứng nhận tiêu chuẩn
+            Những sản phẩm tươi ngon, đảm bảo chất lượng, được chứng nhận tiêu
+            chuẩn
           </p>
           <div class="section-divider w-24 mx-auto mb-8"></div>
         </div>
@@ -1000,9 +1003,7 @@
               </div>
               <div class="flex items-start space-x-3">
                 <span class="text-orange-500 text-lg">▪️</span>
-                <p class="text-gray-700 font-semibold">
-                  Giờ vàng - Flash Sale
-                </p>
+                <p class="text-gray-700 font-semibold">Giờ vàng - Flash Sale</p>
               </div>
               <div class="flex items-start space-x-3">
                 <span class="text-orange-500 text-lg">▪️</span>
@@ -1019,7 +1020,9 @@
           >
             <div class="flex items-center mb-6">
               <span class="text-5xl mr-4">�</span>
-              <h4 class="text-2xl font-bold text-gray-800">Ưu đãi thành viên</h4>
+              <h4 class="text-2xl font-bold text-gray-800">
+                Ưu đãi thành viên
+              </h4>
             </div>
             <div class="space-y-3 mb-6">
               <div class="flex items-start space-x-3">
@@ -1292,7 +1295,7 @@
       </div>
     </section>
 
-        <!-- Community, Experience & Events -->
+    <!-- Community, Experience & Events -->
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
@@ -1351,7 +1354,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
