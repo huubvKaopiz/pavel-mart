@@ -9,7 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       tailwind.config = {
@@ -17,19 +20,19 @@
           extend: {
             colors: {
               green: {
-                50: "#F0F9E8",   // Very light green for backgrounds
-                100: "#E1F3D1",  // Light green for badges/decorative
-                200: "#C3E7A3",  // Light green for placeholders
-                300: "#A5DB75",  // Medium light
-                400: "#81CF01",  // Primary brand green (PANTONE)
-                500: "#81CF01",  // Primary brand green (PANTONE)
-                600: "#6BB301",  // Darker for hover states
-                700: "#227041",  // Dark brand green (PANTONE)
-                800: "#227041",  // Dark brand green (footer/header)
-                900: "#1A5832",  // Even darker for emphasis
+                50: "#F0F9E8", // Very light green for backgrounds
+                100: "#E1F3D1", // Light green for badges/decorative
+                200: "#C3E7A3", // Light green for placeholders
+                300: "#A5DB75", // Medium light
+                400: "#81CF01", // Primary brand green (PANTONE)
+                500: "#81CF01", // Primary brand green (PANTONE)
+                600: "#6BB301", // Darker for hover states
+                700: "#227041", // Dark brand green (PANTONE)
+                800: "#227041", // Dark brand green (footer/header)
+                900: "#1A5832", // Even darker for emphasis
               },
               dark: {
-                900: "#333333",  // Brand text color
+                900: "#333333", // Brand text color
               },
             },
             fontFamily: {
@@ -43,12 +46,17 @@
       * {
         font-family: "Montserrat", sans-serif;
       }
-      
+
       body {
         font-family: "Montserrat", sans-serif;
       }
-      
-      h1, h2, h3, h4, h5, h6 {
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
         font-family: "Montserrat", sans-serif;
         font-weight: 800;
       }
@@ -86,7 +94,7 @@
 
       .swiper-pagination-bullet-active {
         opacity: 1;
-        background: #81CF01;
+        background: #81cf01;
         transform: scale(1.3);
       }
 
@@ -113,62 +121,80 @@
       }
 
       .hero-gradient {
-        background: linear-gradient(135deg, #227041 0%, #81CF01 100%);
+        background: linear-gradient(135deg, #227041 0%, #81cf01 100%);
       }
-      
+
       .card-hover {
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
       }
-      
+
       .card-hover:hover {
         transform: translateY(-8px) scale(1.02);
         box-shadow: 0 25px 50px rgba(129, 207, 1, 0.2);
       }
 
       .card-hover::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
         transition: left 0.5s ease;
       }
 
       .card-hover:hover::before {
         left: 100%;
       }
-      
+
       .section-divider {
-        background: linear-gradient(to right, transparent, #81CF01, transparent);
+        background: linear-gradient(
+          to right,
+          transparent,
+          #81cf01,
+          transparent
+        );
         height: 3px;
       }
 
       /* Promotional Cards with Animation */
       .promo-card {
-        background: linear-gradient(135deg, #81CF01 0%, #227041 100%);
+        background: linear-gradient(135deg, #81cf01 0%, #227041 100%);
         transition: all 0.4s ease;
         position: relative;
         overflow: hidden;
       }
 
       .promo-card::after {
-        content: '';
+        content: "";
         position: absolute;
         top: -50%;
         right: -50%;
         width: 200%;
         height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.2) 0%,
+          transparent 70%
+        );
         animation: rotate 20s linear infinite;
       }
 
       @keyframes rotate {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
 
       .promo-card:hover {
@@ -199,7 +225,8 @@
 
       /* Badge Pulse Animation */
       @keyframes pulse {
-        0%, 100% {
+        0%,
+        100% {
           transform: scale(1);
           opacity: 1;
         }
@@ -236,7 +263,8 @@
 
       /* Floating Animation */
       @keyframes float {
-        0%, 100% {
+        0%,
+        100% {
           transform: translateY(0px);
         }
         50% {
@@ -250,7 +278,7 @@
 
       /* Gradient Text */
       .gradient-text {
-        background: linear-gradient(135deg, #81CF01 0%, #227041 100%);
+        background: linear-gradient(135deg, #81cf01 0%, #227041 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -343,7 +371,7 @@
       }
 
       .nav-link.active {
-        color: #81CF01 !important;
+        color: #81cf01 !important;
         font-weight: 600;
       }
 
@@ -354,32 +382,32 @@
         left: 0;
         width: 100%;
         height: 3px;
-        background: #81CF01;
+        background: #81cf01;
         border-radius: 2px;
       }
 
       .nav-link:not(.active):hover {
-        color: #81CF01;
+        color: #81cf01;
       }
 
       /* Dropdown active styles */
       .dropdown-link.active {
         background-color: #f0f9f0;
-        color: #81CF01 !important;
+        color: #81cf01 !important;
         font-weight: 600;
       }
 
       /* Mobile navigation active styles */
       .mobile-nav-link.active {
-        color: #81CF01 !important;
+        color: #81cf01 !important;
         font-weight: 600;
         background-color: #f0f9f0;
-        border-left: 4px solid #81CF01;
+        border-left: 4px solid #81cf01;
         padding-left: calc(1rem - 4px);
       }
 
       .mobile-dropdown-link.active {
-        color: #81CF01 !important;
+        color: #81cf01 !important;
         font-weight: 600;
         background-color: #f0f9f0;
       }
@@ -388,8 +416,8 @@
       .scroll-reveal {
         opacity: 0;
         transform: translateY(120px);
-        transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), 
-                    transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .scroll-reveal.revealed {
@@ -400,8 +428,8 @@
       .scroll-reveal-left {
         opacity: 0;
         transform: translateX(-120px) scale(0.85);
-        transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), 
-                    transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .scroll-reveal-left.revealed {
@@ -412,8 +440,8 @@
       .scroll-reveal-right {
         opacity: 0;
         transform: translateX(120px) scale(0.85);
-        transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), 
-                    transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .scroll-reveal-right.revealed {
@@ -424,8 +452,8 @@
       .scroll-reveal-scale {
         opacity: 0;
         transform: scale(0.75) rotateX(20deg);
-        transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), 
-                    transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .scroll-reveal-scale.revealed {
@@ -434,12 +462,24 @@
       }
 
       /* Stagger delay for children - slower and more dramatic */
-      .scroll-reveal:nth-child(1) { transition-delay: 0.25s; }
-      .scroll-reveal:nth-child(2) { transition-delay: 0.5s; }
-      .scroll-reveal:nth-child(3) { transition-delay: 0.75s; }
-      .scroll-reveal:nth-child(4) { transition-delay: 1s; }
-      .scroll-reveal:nth-child(5) { transition-delay: 1.25s; }
-      .scroll-reveal:nth-child(6) { transition-delay: 1.5s; }
+      .scroll-reveal:nth-child(1) {
+        transition-delay: 0.25s;
+      }
+      .scroll-reveal:nth-child(2) {
+        transition-delay: 0.5s;
+      }
+      .scroll-reveal:nth-child(3) {
+        transition-delay: 0.75s;
+      }
+      .scroll-reveal:nth-child(4) {
+        transition-delay: 1s;
+      }
+      .scroll-reveal:nth-child(5) {
+        transition-delay: 1.25s;
+      }
+      .scroll-reveal:nth-child(6) {
+        transition-delay: 1.5s;
+      }
 
       /* Floating Contact Buttons */
       .floating-contacts {
@@ -474,10 +514,14 @@
       }
 
       .contact-btn::before {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+        background: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0.3)
+        );
         opacity: 0;
         transition: opacity 0.3s ease;
       }
@@ -487,19 +531,19 @@
       }
 
       .contact-btn.zalo {
-        background: linear-gradient(135deg, #0068FF, #0084FF);
+        background: linear-gradient(135deg, #0068ff, #0084ff);
       }
 
       .contact-btn.hotline {
-        background: linear-gradient(135deg, #81CF01, #227041);
+        background: linear-gradient(135deg, #81cf01, #227041);
       }
 
       .contact-btn.facebook {
-        background: linear-gradient(135deg, #1877F2, #0E5DCC);
+        background: linear-gradient(135deg, #1877f2, #0e5dcc);
       }
 
       .contact-btn.messenger {
-        background: linear-gradient(135deg, #00B2FF, #006AFF);
+        background: linear-gradient(135deg, #00b2ff, #006aff);
       }
 
       .contact-btn .tooltip {
@@ -515,11 +559,11 @@
         opacity: 0;
         pointer-events: none;
         transition: all 0.3s ease;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
       }
 
       .contact-btn .tooltip::after {
-        content: '';
+        content: "";
         position: absolute;
         right: -6px;
         top: 50%;
@@ -548,11 +592,11 @@
       }
 
       .contact-btn.hotline::after {
-        content: '';
+        content: "";
         position: absolute;
         inset: -4px;
         border-radius: 50%;
-        border: 3px solid #81CF01;
+        border: 3px solid #81cf01;
         animation: pulse-ring 1.5s ease-out infinite;
       }
 
@@ -562,33 +606,61 @@
           display: none;
         }
       }
-
     </style>
   </head>
   <body class="bg-gray-50">
     <!-- Floating Contact Buttons -->
     <div class="floating-contacts">
       <!-- Zalo -->
-      <a href="https://zalo.me/0123456789" target="_blank" class="contact-btn zalo">
+      <a
+        href="https://zalo.me/0123456789"
+        target="_blank"
+        class="contact-btn zalo"
+      >
         <span class="tooltip">Chat Zalo</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
-          <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.896 1.445 5.482 3.697 7.285-.173 1.71-.843 3.428-1.734 4.65a.5.5 0 0 0 .416.772c2.538-.07 4.637-.82 6.172-1.746A11.098 11.098 0 0 0 12 22.5c5.523 0 10-4.145 10-9.257S17.523 2 12 2z"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style="width: 24px; height: 24px"
+        >
+          <path
+            d="M12 2C6.477 2 2 6.145 2 11.243c0 2.896 1.445 5.482 3.697 7.285-.173 1.71-.843 3.428-1.734 4.65a.5.5 0 0 0 .416.772c2.538-.07 4.637-.82 6.172-1.746A11.098 11.098 0 0 0 12 22.5c5.523 0 10-4.145 10-9.257S17.523 2 12 2z"
+          />
         </svg>
       </a>
 
       <!-- Hotline -->
       <a href="tel:1900xxxx" class="contact-btn hotline">
         <span class="tooltip">1900 xxxx</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
-          <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style="width: 24px; height: 24px"
+        >
+          <path
+            d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+          />
         </svg>
       </a>
 
       <!-- Facebook -->
-      <a href="https://facebook.com/pavelmart" target="_blank" class="contact-btn facebook">
+      <a
+        href="https://facebook.com/pavelmart"
+        target="_blank"
+        class="contact-btn facebook"
+      >
         <span class="tooltip">Facebook</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style="width: 24px; height: 24px"
+        >
+          <path
+            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+          />
         </svg>
       </a>
     </div>
@@ -1016,28 +1088,69 @@
       <div class="swiper-wrapper">
         <!-- Slide 1: Tưng bừng khai trương -->
         <div class="swiper-slide relative">
-          <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=1920&h=1080&fit=crop" alt="Tưng bừng khai trương Pavel Mart" style="filter: brightness(1.2) contrast(1.15) saturate(1.4);" />
-          <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 flex items-center">
+          <img
+            src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=1920&h=1080&fit=crop"
+            alt="Tưng bừng khai trương Pavel Mart"
+            style="filter: brightness(1.2) contrast(1.15) saturate(1.4)"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 flex items-center"
+          >
             <div class="container mx-auto px-4 md:px-8">
               <div class="max-w-2xl text-white animate-fade-in-up">
-                <div class="inline-block bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/50">
+                <div
+                  class="inline-block bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/50"
+                >
                   🎊 KHAI TRƯƠNG - ƯU ĐÃI ĐẶC BIỆT
                 </div>
-                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight" style="text-shadow: 4px 4px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1);">
-                  Tưng Bừng Khai Trương<br class="hidden sm:block"/> Pavel Mart
+                <h1
+                  class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight"
+                  style="
+                    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.9),
+                      0 0 30px rgba(0, 0, 0, 0.7), 2px 2px 4px rgba(0, 0, 0, 1);
+                  "
+                >
+                  Tưng Bừng Khai Trương<br class="hidden sm:block" />
+                  Pavel Mart
                 </h1>
-                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed" style="text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);">
-                  Giảm đến <span class="text-yellow-300 text-xl sm:text-2xl md:text-3xl">50%</span> toàn bộ sản phẩm<br/>
+                <p
+                  class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed"
+                  style="
+                    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9),
+                      0 0 20px rgba(0, 0, 0, 0.7);
+                  "
+                >
+                  Giảm đến
+                  <span class="text-yellow-300 text-xl sm:text-2xl md:text-3xl"
+                    >50%</span
+                  >
+                  toàn bộ sản phẩm<br />
                   Quà tặng hấp dẫn - Ưu đãi khủng
                 </p>
                 <div class="flex flex-wrap gap-3 md:gap-4">
-                  <a href="tin-khuyen-mai.html" class="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-2xl">
+                  <a
+                    href="tin-khuyen-mai.html"
+                    class="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-2xl"
+                  >
                     Nhận ưu đãi ngay
-                    <svg class="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    <svg
+                      class="w-4 h-4 md:w-5 md:h-5 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      ></path>
                     </svg>
                   </a>
-                  <a href="he-thong-sieu-thi.html" class="bg-white/30 backdrop-blur-md hover:bg-white/40 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base transition transform hover:scale-105 shadow-xl border-2 border-white/50">
+                  <a
+                    href="he-thong-sieu-thi.html"
+                    class="bg-white/30 backdrop-blur-md hover:bg-white/40 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base transition transform hover:scale-105 shadow-xl border-2 border-white/50"
+                  >
                     Tìm siêu thị
                   </a>
                 </div>
@@ -1048,29 +1161,65 @@
 
         <!-- Slide 2: Ưu đãi thành viên -->
         <div class="swiper-slide relative">
-          <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=1920&h=1080&fit=crop" alt="Ưu đãi thành viên Pavel Mart" style="filter: brightness(1.2) contrast(1.15) saturate(1.4);" />
-          <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 flex items-center">
+          <img
+            src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=1920&h=1080&fit=crop"
+            alt="Ưu đãi thành viên Pavel Mart"
+            style="filter: brightness(1.2) contrast(1.15) saturate(1.4)"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 flex items-center"
+          >
             <div class="container mx-auto px-4 md:px-8">
               <div class="max-w-2xl text-white animate-fade-in-up">
-                <div class="inline-block bg-blue-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/30">
+                <div
+                  class="inline-block bg-blue-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/30"
+                >
                   � ƯU ĐÃI ĐẶC BIỆT
                 </div>
-                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight" style="text-shadow: 4px 4px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1);">
-                  Ưu Đãi<br/>
+                <h1
+                  class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight"
+                  style="
+                    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.9),
+                      0 0 30px rgba(0, 0, 0, 0.7), 2px 2px 4px rgba(0, 0, 0, 1);
+                  "
+                >
+                  Ưu Đãi<br />
                   <span class="text-blue-300">Thành Viên</span>
                 </h1>
-                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed" style="text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);">
-                  Tích điểm mỗi lần mua sắm<br/>
+                <p
+                  class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed"
+                  style="
+                    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9),
+                      0 0 20px rgba(0, 0, 0, 0.7);
+                  "
+                >
+                  Tích điểm mỗi lần mua sắm<br />
                   Giảm giá độc quyền cho hội viên thân thiết
                 </p>
                 <div class="flex flex-wrap gap-3 md:gap-4">
-                  <a href="khach-hang-thanh-vien.html" class="bg-blue-500 hover:bg-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-lg">
+                  <a
+                    href="khach-hang-thanh-vien.html"
+                    class="bg-blue-500 hover:bg-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-lg"
+                  >
                     Đăng ký ngay
-                    <svg class="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    <svg
+                      class="w-4 h-4 md:w-5 md:h-5 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      ></path>
                     </svg>
                   </a>
-                  <a href="khach-hang-thanh-vien.html" class="bg-white/30 backdrop-blur-md hover:bg-white/40 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base transition transform hover:scale-105">
+                  <a
+                    href="khach-hang-thanh-vien.html"
+                    class="bg-white/30 backdrop-blur-md hover:bg-white/40 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base transition transform hover:scale-105"
+                  >
                     Xem quyền lợi
                   </a>
                 </div>
@@ -1081,28 +1230,64 @@
 
         <!-- Slide 3: Mua sắm thả ga cuối tuần -->
         <div class="swiper-slide relative">
-          <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?w=1920&h=1080&fit=crop" alt="Mua sắm thả ga cuối tuần" style="filter: brightness(1.2) contrast(1.15) saturate(1.4);" />
-          <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent flex items-center">
+          <img
+            src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?w=1920&h=1080&fit=crop"
+            alt="Mua sắm thả ga cuối tuần"
+            style="filter: brightness(1.2) contrast(1.15) saturate(1.4)"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent flex items-center"
+          >
             <div class="container mx-auto px-4 md:px-8">
               <div class="max-w-2xl text-white animate-fade-in-up">
-                <div class="inline-block bg-red-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/30">
+                <div
+                  class="inline-block bg-red-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/30"
+                >
                   🛒 WEEKEND SALE
                 </div>
-                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight" style="text-shadow: 4px 4px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1);">
-                  Mua Sắm Thả Ga<br/>
+                <h1
+                  class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight"
+                  style="
+                    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.9),
+                      0 0 30px rgba(0, 0, 0, 0.7), 2px 2px 4px rgba(0, 0, 0, 1);
+                  "
+                >
+                  Mua Sắm Thả Ga<br />
                   <span class="text-red-300">Cuối Tuần</span>
                 </h1>
-                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed" style="text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);">
+                <p
+                  class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed"
+                  style="
+                    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9),
+                      0 0 20px rgba(0, 0, 0, 0.7);
+                  "
+                >
                   Flash Sale 48h - Giảm giá cực sốc mỗi cuối tuần!
                 </p>
                 <div class="flex flex-wrap gap-4">
-                  <a href="tin-khuyen-mai.html" class="bg-red-500 hover:bg-red-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-lg">
+                  <a
+                    href="tin-khuyen-mai.html"
+                    class="bg-red-500 hover:bg-red-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-lg"
+                  >
                     Mua ngay
-                    <svg class="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    <svg
+                      class="w-4 h-4 md:w-5 md:h-5 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      ></path>
                     </svg>
                   </a>
-                  <a href="tin-khuyen-mai.html" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-8 py-4 rounded-full font-bold transition transform hover:scale-105">
+                  <a
+                    href="tin-khuyen-mai.html"
+                    class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-8 py-4 rounded-full font-bold transition transform hover:scale-105"
+                  >
                     Xem ưu đãi
                   </a>
                 </div>
@@ -1113,28 +1298,64 @@
 
         <!-- Slide 4: Sống chất lượng -->
         <div class="swiper-slide relative">
-          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1920&h=1080&fit=crop" alt="Sống chất lượng cùng Pavel Mart" style="filter: brightness(1.2) contrast(1.15) saturate(1.4);" />
-          <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent flex items-center">
+          <img
+            src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1920&h=1080&fit=crop"
+            alt="Sống chất lượng cùng Pavel Mart"
+            style="filter: brightness(1.2) contrast(1.15) saturate(1.4)"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent flex items-center"
+          >
             <div class="container mx-auto px-4 md:px-8">
               <div class="max-w-2xl text-white animate-fade-in-up">
-                <div class="inline-block bg-green-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/30">
+                <div
+                  class="inline-block bg-green-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/30"
+                >
                   ✨ THỰC PHẨM CAO CẤP
                 </div>
-                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight" style="text-shadow: 4px 4px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1);">
-                  Sống<br/>
+                <h1
+                  class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight"
+                  style="
+                    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.9),
+                      0 0 30px rgba(0, 0, 0, 0.7), 2px 2px 4px rgba(0, 0, 0, 1);
+                  "
+                >
+                  Sống<br />
                   <span class="text-green-300">Chất Lượng</span>
                 </h1>
-                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed" style="text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);">
+                <p
+                  class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed"
+                  style="
+                    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9),
+                      0 0 20px rgba(0, 0, 0, 0.7);
+                  "
+                >
                   Hơn 1000 sản phẩm tươi ngon - An toàn cho mọi gia đình
                 </p>
                 <div class="flex flex-wrap gap-4">
-                  <a href="gioi-thieu.html" class="bg-green-500 hover:bg-green-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-lg">
+                  <a
+                    href="gioi-thieu.html"
+                    class="bg-green-500 hover:bg-green-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-lg"
+                  >
                     Khám phá ngay
-                    <svg class="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    <svg
+                      class="w-4 h-4 md:w-5 md:h-5 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      ></path>
                     </svg>
                   </a>
-                  <a href="he-thong-sieu-thi.html" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-8 py-4 rounded-full font-bold transition transform hover:scale-105">
+                  <a
+                    href="he-thong-sieu-thi.html"
+                    class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-8 py-4 rounded-full font-bold transition transform hover:scale-105"
+                  >
                     Tìm siêu thị
                   </a>
                 </div>
@@ -1143,218 +1364,179 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Navigation buttons -->
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-      
+
       <!-- Pagination -->
       <div class="swiper-pagination"></div>
-      
+
       <!-- Wave Transition -->
       <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-        <svg class="relative block w-full h-20 md:h-32" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#ffffff"></path>
-          <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#ffffff"></path>
-          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#ffffff"></path>
+        <svg
+          class="relative block w-full h-20 md:h-32"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            opacity=".25"
+            fill="#ffffff"
+          ></path>
+          <path
+            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+            opacity=".5"
+            fill="#ffffff"
+          ></path>
+          <path
+            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+            fill="#ffffff"
+          ></path>
         </svg>
       </div>
     </section>
 
     <!-- Giới thiệu Pavel Mart -->
-    <section class="py-24 bg-gradient-to-b from-white via-green-50/30 to-white overflow-hidden relative">
+    <section
+      class="py-24 bg-gradient-to-b from-white via-green-50/30 to-white overflow-hidden relative"
+    >
       <!-- Decorative Elements -->
-      <div class="absolute top-0 right-0 w-72 h-72 bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
-      <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style="animation-delay: 2s;"></div>
-      
+      <div
+        class="absolute top-0 right-0 w-72 h-72 bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"
+        style="animation-delay: 2s"
+      ></div>
+
       <div class="container mx-auto px-4 relative z-10">
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <!-- Images Gallery -->
           <div class="relative scroll-reveal-left">
             <div class="grid grid-cols-2 gap-4">
               <!-- Store image 1 -->
-              <div class="bg-gradient-to-br from-green-100 to-green-200 rounded-3xl h-72 overflow-hidden shadow-2xl transform hover:scale-105 hover:rotate-1 transition duration-500 animate-scale-in">
-                <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&h=600&fit=crop" alt="Pavel Mart - Siêu thị" class="w-full h-full object-cover" />
+              <div
+                class="bg-gradient-to-br from-green-100 to-green-200 rounded-3xl h-72 overflow-hidden shadow-2xl transform hover:scale-105 hover:rotate-1 transition duration-500 animate-scale-in"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&h=600&fit=crop"
+                  alt="Pavel Mart - Siêu thị"
+                  class="w-full h-full object-cover"
+                />
               </div>
               <!-- Store image 2 -->
-              <div class="bg-gradient-to-br from-green-100 to-green-200 rounded-3xl h-72 overflow-hidden shadow-2xl transform hover:scale-105 hover:-rotate-1 transition duration-500 animate-scale-in" style="animation-delay: 0.2s; margin-top: 3rem;">
-                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&h=600&fit=crop" alt="Pavel Mart - Sản phẩm" class="w-full h-full object-cover" />
+              <div
+                class="bg-gradient-to-br from-green-100 to-green-200 rounded-3xl h-72 overflow-hidden shadow-2xl transform hover:scale-105 hover:-rotate-1 transition duration-500 animate-scale-in"
+                style="animation-delay: 0.2s; margin-top: 3rem"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&h=600&fit=crop"
+                  alt="Pavel Mart - Sản phẩm"
+                  class="w-full h-full object-cover"
+                />
               </div>
             </div>
             <!-- Floating badge -->
-            <div class="absolute -top-6 -right-6 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full w-36 h-36 flex items-center justify-center shadow-2xl animate-float badge-pulse">
+            <div
+              class="absolute -top-6 -right-6 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full w-36 h-36 flex items-center justify-center shadow-2xl animate-float badge-pulse"
+            >
               <div class="text-center">
                 <div class="text-4xl font-black">1000+</div>
-                <div class="text-xs font-bold uppercase tracking-wider">Sản phẩm<br/>cao cấp</div>
+                <div class="text-xs font-bold uppercase tracking-wider">
+                  Sản phẩm<br />cao cấp
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Content -->
           <div class="scroll-reveal-right">
-            <div class="inline-block bg-white/90 backdrop-blur-sm text-gray-700 border border-gray-200 px-4 py-2 md:px-5 md:py-2 rounded-full text-xs sm:text-sm font-bold mb-4 md:mb-6 shadow-sm animate-fade-in-up">
+            <div
+              class="inline-block bg-white/90 backdrop-blur-sm text-gray-700 border border-gray-200 px-4 py-2 md:px-5 md:py-2 rounded-full text-xs sm:text-sm font-bold mb-4 md:mb-6 shadow-sm animate-fade-in-up"
+            >
               <span class="text-base md:text-lg">🏪</span> PAVEL MART
             </div>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6 leading-tight animate-fade-in-up" style="animation-delay: 0.1s">
-              <span class="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">Sống Chất Lượng</span>
+            <h2
+              class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6 leading-tight animate-fade-in-up"
+              style="animation-delay: 0.1s"
+            >
+              <span
+                class="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
+                >Sống Chất Lượng</span
+              >
             </h2>
-            <p class="text-gray-600 text-base sm:text-lg md:text-xl mb-6 md:mb-8 leading-relaxed max-w-xl animate-fade-in-up" style="animation-delay: 0.2s">
+            <p
+              class="text-gray-600 text-base sm:text-lg md:text-xl mb-6 md:mb-8 leading-relaxed max-w-xl animate-fade-in-up"
+              style="animation-delay: 0.2s"
+            >
               Siêu thị chuẩn chất lượng cho gia đình Việt
             </p>
-            <div class="flex flex-wrap gap-4 mb-6 md:mb-8 animate-fade-in-up" style="animation-delay: 0.3s">
+            <div
+              class="flex flex-wrap gap-4 mb-6 md:mb-8 animate-fade-in-up"
+              style="animation-delay: 0.3s"
+            >
               <div class="flex items-center space-x-2">
                 <div class="bg-green-500 rounded-full p-1.5 flex-shrink-0">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                  <svg
+                    class="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    ></path>
                   </svg>
                 </div>
-                <span class="font-semibold text-sm md:text-base text-gray-700">100% chính hãng</span>
+                <span class="font-semibold text-sm md:text-base text-gray-700"
+                  >100% chính hãng</span
+                >
               </div>
               <div class="flex items-center space-x-2">
                 <div class="bg-green-500 rounded-full p-1.5 flex-shrink-0">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                  <svg
+                    class="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    ></path>
                   </svg>
                 </div>
-                <span class="font-semibold text-sm md:text-base text-gray-700">Chất lượng đảm bảo</span>
+                <span class="font-semibold text-sm md:text-base text-gray-700"
+                  >Chất lượng đảm bảo</span
+                >
               </div>
             </div>
-            <a href="gioi-thieu.html" class="inline-flex items-center bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg transition transform hover:scale-105 shadow-lg animate-fade-in-up" style="animation-delay: 0.4s">
+            <a
+              href="gioi-thieu.html"
+              class="inline-flex items-center bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg transition transform hover:scale-105 shadow-lg animate-fade-in-up"
+              style="animation-delay: 0.4s"
+            >
               Tìm hiểu thêm
-              <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              <svg
+                class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 transform group-hover:translate-x-1 transition"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path>
               </svg>
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tuyên bố về chất lượng, sản phẩm, dịch vụ -->
-    <section class="py-24 bg-white relative overflow-hidden">
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="text-center mb-16 scroll-reveal">
-          <h2 class="text-4xl md:text-5xl font-black mb-4">
-            <span class="gradient-text">Cam Kết</span> Của Chúng Tôi
-          </h2>
-          <p class="text-gray-600 text-lg">Đặt sự hài lòng của khách hàng lên hàng đầu</p>
-          <div class="section-divider w-24 mx-auto mt-4"></div>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Quality -->
-          <div class="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-green-500 transition-all duration-300 hover:shadow-lg scroll-reveal">
-            <div class="relative bg-gray-50 h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=800&h=600&fit=crop" alt="Chất lượng hàng đầu" class="w-full h-full object-cover opacity-60" />
-              <div class="absolute inset-0 flex items-center justify-center">
-                <span class="text-6xl">🏆</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-3">
-                Chất Lượng Hàng Đầu
-              </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">100% sản phẩm nhập khẩu chính hãng, có nguồn gốc xuất xứ rõ ràng, được kiểm định nghiêm ngặt</p>
-            </div>
-          </div>
-
-          <!-- Products -->
-          <div class="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-green-500 transition-all duration-300 hover:shadow-lg scroll-reveal">
-            <div class="relative bg-gray-50 h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=800&h=600&fit=crop" alt="Sản phẩm đa dạng" class="w-full h-full object-cover opacity-60" />
-              <div class="absolute inset-0 flex items-center justify-center">
-                <span class="text-6xl">🛒</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-3">
-                Sản Phẩm Đa Dạng
-              </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">Hơn 5000+ sản phẩm cao cấp từ Pháp, Ý, Đức, Hà Lan, Bỉ, Tây Ban Nha và nhiều nước khác</p>
-            </div>
-          </div>
-
-          <!-- Service -->
-          <div class="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-green-500 transition-all duration-300 hover:shadow-lg scroll-reveal">
-            <div class="relative bg-gray-50 h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop" alt="Dịch vụ tận tâm" class="w-full h-full object-cover opacity-60" />
-              <div class="absolute inset-0 flex items-center justify-center">
-                <span class="text-6xl">⭐</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-3">
-                Dịch Vụ Tận Tâm
-              </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">Đội ngũ chuyên nghiệp, tư vấn nhiệt tình, hỗ trợ khách hàng tận tình 24/7</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tiện ích khách hàng -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16 scroll-reveal">
-          <h2 class="text-4xl md:text-5xl font-black mb-4">
-            <span class="gradient-text">Tiện Ích</span> Mua Sắm
-          </h2>
-          <p class="text-gray-600 text-lg">Trải nghiệm mua sắm hiện đại, tiện lợi</p>
-          <div class="section-divider w-24 mx-auto mt-4"></div>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- App Mobile -->
-          <div class="relative group overflow-hidden rounded-3xl shadow-xl scroll-reveal">
-            <div class="bg-gradient-to-br from-green-100 to-green-200 h-96 relative">
-              <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=800&fit=crop" alt="Pavel Mart App" class="w-full h-full object-cover" />
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-8 transform group-hover:scale-105 transition duration-500">
-              <div class="text-white">
-                <div class="text-4xl mb-3">📱</div>
-                <h3 class="text-2xl font-black mb-2">App Pavel Mart</h3>
-                <p class="text-sm mb-4">Mua sắm mọi lúc, mọi nơi</p>
-                <div class="flex space-x-2">
-                  <div class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold">iOS</div>
-                  <div class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold">Android</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Online Shopping -->
-          <div class="relative group overflow-hidden rounded-3xl shadow-xl scroll-reveal">
-            <div class="bg-gradient-to-br from-green-600 to-green-800 h-96 relative">
-              <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=800&fit=crop" alt="Mua sắm online" class="w-full h-full object-cover opacity-80" />
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20 flex items-end p-8 transform group-hover:scale-105 transition duration-500">
-              <div class="text-white">
-                <div class="text-4xl mb-3">🛍️</div>
-                <h3 class="text-2xl font-black mb-2">Đặt Hàng Online</h3>
-                <p class="text-sm mb-4">Giao hàng tận nhà trong 2h</p>
-                <div class="bg-green-500 inline-block px-4 py-2 rounded-full text-sm font-bold">
-                  Đặt ngay
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Member Card -->
-          <div class="relative group overflow-hidden rounded-3xl shadow-xl scroll-reveal">
-            <div class="bg-gradient-to-br from-green-100 to-green-200 h-96 relative">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=800&fit=crop" alt="Thẻ thành viên" class="w-full h-full object-cover" />
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-8 transform group-hover:scale-105 transition duration-500">
-              <div class="text-white">
-                <div class="text-4xl mb-3">💳</div>
-                <h3 class="text-2xl font-black mb-2">Thẻ Thành Viên</h3>
-                <p class="text-sm mb-4">Tích điểm, đổi quà hấp dẫn</p>
-                <div class="bg-green-500 inline-block px-4 py-2 rounded-full text-sm font-bold text-white">
-                  Đăng ký
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -1367,20 +1549,32 @@
           <h2 class="text-4xl md:text-5xl font-black mb-4">
             <span class="gradient-text">Chính Sách</span> Bán Hàng
           </h2>
-          <p class="text-gray-600 text-lg">Minh bạch, rõ ràng, bảo vệ quyền lợi khách hàng</p>
+          <p class="text-gray-600 text-lg">
+            Minh bạch, rõ ràng, bảo vệ quyền lợi khách hàng
+          </p>
           <div class="section-divider w-24 mx-auto mt-4"></div>
         </div>
 
         <div class="grid md:grid-cols-2 gap-8 mb-12">
           <!-- Đổi trả hàng -->
-          <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover scroll-reveal">
+          <div
+            class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover scroll-reveal"
+          >
             <div class="grid md:grid-cols-2">
-              <div class="bg-gradient-to-br from-green-100 to-green-200 h-64 md:h-auto relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=600&fit=crop" alt="Đổi trả dễ dàng" class="w-full h-full object-cover" />
+              <div
+                class="bg-gradient-to-br from-green-100 to-green-200 h-64 md:h-auto relative overflow-hidden"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=600&fit=crop"
+                  alt="Đổi trả dễ dàng"
+                  class="w-full h-full object-cover"
+                />
               </div>
               <div class="p-8 flex flex-col justify-center">
                 <div class="text-5xl mb-4">🔄</div>
-                <h3 class="text-2xl font-black text-gray-800 mb-3">Đổi Trả Dễ Dàng</h3>
+                <h3 class="text-2xl font-black text-gray-800 mb-3">
+                  Đổi Trả Dễ Dàng
+                </h3>
                 <ul class="space-y-2 text-gray-600">
                   <li class="flex items-start">
                     <span class="text-green-500 mr-2">✓</span>
@@ -1400,14 +1594,24 @@
           </div>
 
           <!-- VAT -->
-          <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover scroll-reveal">
+          <div
+            class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover scroll-reveal"
+          >
             <div class="grid md:grid-cols-2">
-              <div class="bg-gradient-to-br from-green-100 to-green-200 h-64 md:h-auto relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop" alt="Hóa đơn VAT" class="w-full h-full object-cover" />
+              <div
+                class="bg-gradient-to-br from-green-100 to-green-200 h-64 md:h-auto relative overflow-hidden"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop"
+                  alt="Hóa đơn VAT"
+                  class="w-full h-full object-cover"
+                />
               </div>
               <div class="p-8 flex flex-col justify-center">
                 <div class="text-5xl mb-4">🧾</div>
-                <h3 class="text-2xl font-black text-gray-800 mb-3">Xuất Hóa Đơn VAT</h3>
+                <h3 class="text-2xl font-black text-gray-800 mb-3">
+                  Xuất Hóa Đơn VAT
+                </h3>
                 <ul class="space-y-2 text-gray-600">
                   <li class="flex items-start">
                     <span class="text-green-500 mr-2">✓</span>
@@ -1428,18 +1632,28 @@
         </div>
 
         <!-- Giao hàng -->
-        <div class="bg-white rounded-3xl shadow-lg border border-gray-200 overflow-hidden scroll-reveal">
+        <div
+          class="bg-white rounded-3xl shadow-lg border border-gray-200 overflow-hidden scroll-reveal"
+        >
           <div class="grid md:grid-cols-2 gap-0">
             <div class="p-12 flex flex-col justify-center">
               <div class="text-6xl mb-6">🚚</div>
-              <h3 class="text-3xl md:text-4xl font-black mb-4 text-gray-800">Giao Hàng Tận Nhà</h3>
-              <p class="text-xl mb-6 text-gray-600">Nhanh chóng, an toàn, đúng hẹn</p>
+              <h3 class="text-3xl md:text-4xl font-black mb-4 text-gray-800">
+                Giao Hàng Tận Nhà
+              </h3>
+              <p class="text-xl mb-6 text-gray-600">
+                Nhanh chóng, an toàn, đúng hẹn
+              </p>
               <div class="grid grid-cols-2 gap-4">
-                <div class="bg-green-50 border border-green-200 rounded-2xl p-4">
+                <div
+                  class="bg-green-50 border border-green-200 rounded-2xl p-4"
+                >
                   <div class="text-3xl font-black text-green-600">2H</div>
                   <div class="text-sm text-gray-600">Giao nội thành</div>
                 </div>
-                <div class="bg-green-50 border border-green-200 rounded-2xl p-4">
+                <div
+                  class="bg-green-50 border border-green-200 rounded-2xl p-4"
+                >
                   <div class="text-3xl font-black text-green-600">24H</div>
                   <div class="text-sm text-gray-600">Giao ngoại thành</div>
                 </div>
@@ -1447,41 +1661,273 @@
               <div class="mt-6 space-y-3">
                 <div class="flex items-center space-x-3">
                   <div class="bg-green-500 rounded-full p-1 flex-shrink-0">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                    <svg
+                      class="w-4 h-4 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="3"
+                        d="M5 13l4 4L19 7"
+                      ></path>
                     </svg>
                   </div>
                   <span class="text-gray-700">Miễn phí từ 500K</span>
                 </div>
                 <div class="flex items-center space-x-3">
                   <div class="bg-green-500 rounded-full p-1 flex-shrink-0">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                    <svg
+                      class="w-4 h-4 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="3"
+                        d="M5 13l4 4L19 7"
+                      ></path>
                     </svg>
                   </div>
-                  <span class="text-gray-700">Kiểm tra hàng trước khi nhận</span>
+                  <span class="text-gray-700"
+                    >Kiểm tra hàng trước khi nhận</span
+                  >
                 </div>
                 <div class="flex items-center space-x-3">
                   <div class="bg-green-500 rounded-full p-1 flex-shrink-0">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                    <svg
+                      class="w-4 h-4 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="3"
+                        d="M5 13l4 4L19 7"
+                      ></path>
                     </svg>
                   </div>
-                  <span class="text-gray-700">Đóng gói cẩn thận, chuyên nghiệp</span>
+                  <span class="text-gray-700"
+                    >Đóng gói cẩn thận, chuyên nghiệp</span
+                  >
                 </div>
               </div>
             </div>
             <div class="bg-gray-50 h-96 md:h-auto relative overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&h=800&fit=crop" alt="Giao hàng nhanh" class="w-full h-full object-cover" />
+              <img
+                src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&h=800&fit=crop"
+                alt="Giao hàng nhanh"
+                class="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Original Quality Process Timeline -->
+    <!-- Tiện ích khách hàng -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 scroll-reveal">
+          <h2 class="text-4xl md:text-5xl font-black mb-4">
+            <span class="gradient-text">Tiện Ích</span> Mua Sắm
+          </h2>
+          <p class="text-gray-600 text-lg">
+            Trải nghiệm mua sắm hiện đại, tiện lợi
+          </p>
+          <div class="section-divider w-24 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- App Mobile -->
+          <div
+            class="relative group overflow-hidden rounded-3xl shadow-xl scroll-reveal"
+          >
+            <div
+              class="bg-gradient-to-br from-green-100 to-green-200 h-96 relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=800&fit=crop"
+                alt="Pavel Mart App"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-8 transform group-hover:scale-105 transition duration-500"
+            >
+              <div class="text-white">
+                <div class="text-4xl mb-3">📱</div>
+                <h3 class="text-2xl font-black mb-2">App Pavel Mart</h3>
+                <p class="text-sm mb-4">Mua sắm mọi lúc, mọi nơi</p>
+                <div class="flex space-x-2">
+                  <div
+                    class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold"
+                  >
+                    iOS
+                  </div>
+                  <div
+                    class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold"
+                  >
+                    Android
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <!-- Online Shopping -->
+          <div
+            class="relative group overflow-hidden rounded-3xl shadow-xl scroll-reveal"
+          >
+            <div
+              class="bg-gradient-to-br from-green-600 to-green-800 h-96 relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=800&fit=crop"
+                alt="Mua sắm online"
+                class="w-full h-full object-cover opacity-80"
+              />
+            </div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20 flex items-end p-8 transform group-hover:scale-105 transition duration-500"
+            >
+              <div class="text-white">
+                <div class="text-4xl mb-3">🛍️</div>
+                <h3 class="text-2xl font-black mb-2">Đặt Hàng Online</h3>
+                <p class="text-sm mb-4">Giao hàng tận nhà trong 2h</p>
+                <div
+                  class="bg-green-500 inline-block px-4 py-2 rounded-full text-sm font-bold"
+                >
+                  Đặt ngay
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member Card -->
+          <div
+            class="relative group overflow-hidden rounded-3xl shadow-xl scroll-reveal"
+          >
+            <div
+              class="bg-gradient-to-br from-green-100 to-green-200 h-96 relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=800&fit=crop"
+                alt="Thẻ thành viên"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-8 transform group-hover:scale-105 transition duration-500"
+            >
+              <div class="text-white">
+                <div class="text-4xl mb-3">💳</div>
+                <h3 class="text-2xl font-black mb-2">Thẻ Thành Viên</h3>
+                <p class="text-sm mb-4">Tích điểm, đổi quà hấp dẫn</p>
+                <div
+                  class="bg-green-500 inline-block px-4 py-2 rounded-full text-sm font-bold text-white"
+                >
+                  Đăng ký
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tuyên bố về chất lượng, sản phẩm, dịch vụ -->
+    <section class="py-24 bg-white relative overflow-hidden">
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center mb-16 scroll-reveal">
+          <h2 class="text-4xl md:text-5xl font-black mb-4">
+            <span class="gradient-text">Cam Kết</span> Của Chúng Tôi
+          </h2>
+          <p class="text-gray-600 text-lg">
+            Đặt sự hài lòng của khách hàng lên hàng đầu
+          </p>
+          <div class="section-divider w-24 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Quality -->
+          <div
+            class="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-green-500 transition-all duration-300 hover:shadow-lg scroll-reveal"
+          >
+            <div class="relative bg-gray-50 h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=800&h=600&fit=crop"
+                alt="Chất lượng hàng đầu"
+                class="w-full h-full object-cover opacity-60"
+              />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-6xl">🏆</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Chất Lượng Hàng Đầu
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                100% sản phẩm nhập khẩu chính hãng, có nguồn gốc xuất xứ rõ
+                ràng, được kiểm định nghiêm ngặt
+              </p>
+            </div>
+          </div>
+
+          <!-- Products -->
+          <div
+            class="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-green-500 transition-all duration-300 hover:shadow-lg scroll-reveal"
+          >
+            <div class="relative bg-gray-50 h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=800&h=600&fit=crop"
+                alt="Sản phẩm đa dạng"
+                class="w-full h-full object-cover opacity-60"
+              />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-6xl">🛒</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Sản Phẩm Đa Dạng
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                Hơn 5000+ sản phẩm cao cấp từ Pháp, Ý, Đức, Hà Lan, Bỉ, Tây Ban
+                Nha và nhiều nước khác
+              </p>
+            </div>
+          </div>
+
+          <!-- Service -->
+          <div
+            class="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-green-500 transition-all duration-300 hover:shadow-lg scroll-reveal"
+          >
+            <div class="relative bg-gray-50 h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
+                alt="Dịch vụ tận tâm"
+                class="w-full h-full object-cover opacity-60"
+              />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-6xl">⭐</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Dịch Vụ Tận Tâm
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                Đội ngũ chuyên nghiệp, tư vấn nhiệt tình, hỗ trợ khách hàng tận
+                tình 24/7
+              </p>
             </div>
           </div>
         </div>
@@ -1697,13 +2143,13 @@
       // Scroll Reveal Animation (like TopsMart)
       const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: "0px 0px -50px 0px",
       };
 
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
+            entry.target.classList.add("revealed");
             // Optional: stop observing after reveal
             // observer.unobserve(entry.target);
           }
@@ -1711,9 +2157,11 @@
       }, observerOptions);
 
       // Observe all scroll-reveal elements
-      document.addEventListener('DOMContentLoaded', () => {
-        const scrollElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale');
-        scrollElements.forEach(el => observer.observe(el));
+      document.addEventListener("DOMContentLoaded", () => {
+        const scrollElements = document.querySelectorAll(
+          ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale"
+        );
+        scrollElements.forEach((el) => observer.observe(el));
       });
 
       // Smooth scrolling for navigation links
@@ -1898,24 +2346,24 @@
       setActiveNavigation();
 
       // Initialize Swiper for Hero Banner
-      const swiper = new Swiper('.swiper-hero', {
+      const swiper = new Swiper(".swiper-hero", {
         loop: true,
         autoplay: {
           delay: 4000,
           disableOnInteraction: false,
         },
         speed: 1200,
-        effect: 'fade',
+        effect: "fade",
         fadeEffect: {
-          crossFade: true
+          crossFade: true,
         },
         pagination: {
-          el: '.swiper-pagination',
+          el: ".swiper-pagination",
           clickable: true,
         },
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         },
       });
     </script>
