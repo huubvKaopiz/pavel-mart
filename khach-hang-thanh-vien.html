@@ -804,19 +804,39 @@
       </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient text-white py-20">
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-5xl font-bold mb-6">Khách Hàng Thành Viên</h1>
-        <p class="text-xl text-green-100 max-w-3xl mx-auto mb-8">
-          Trở thành thành viên Pavel Mart để tận hưởng đặc quyền mua sắm và tích
-          lũy điểm thưởng
-        </p>
-        <button
-          class="bg-orange-500 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition shadow-xl"
-        >
-          🎁 Đăng ký miễn phí ngay
-        </button>
+    <!-- Hero Banner -->
+    <section class="relative overflow-hidden" style="height: 500px;">
+      <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&h=1080&fit=crop" alt="Khách Hàng Thành Viên" class="w-full h-full object-cover" style="filter: brightness(1.2) contrast(1.15) saturate(1.4);" />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20"></div>
+      </div>
+      
+      <div class="relative h-full flex items-center">
+        <div class="container mx-auto px-4 md:px-8">
+          <div class="max-w-2xl text-white animate-fade-in-up">
+            <div class="inline-block bg-gradient-to-r from-yellow-500 to-amber-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/50">
+              💳 THÀNH VIÊN VIP
+            </div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight" style="text-shadow: 4px 4px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1);">
+              Ưu Đãi Đặc Biệt<br/>
+              <span class="text-amber-300">Khách Hàng Thành Viên</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed" style="text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);">
+              Tích điểm mỗi lần mua sắm<br/>Giảm giá độc quyền cho hội viên thân thiết
+            </p>
+            <div class="flex flex-wrap gap-3 md:gap-4">
+              <a href="#register" class="bg-gradient-to-r from-yellow-500 to-amber-500 hover:opacity-90 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-2xl">
+                Đăng ký ngay
+                <svg class="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+              <a href="index.html" class="bg-white/30 backdrop-blur-md hover:bg-white/40 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base transition transform hover:scale-105 shadow-xl border-2 border-white/50">
+                Trang chủ
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

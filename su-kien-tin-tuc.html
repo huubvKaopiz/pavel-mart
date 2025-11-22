@@ -861,81 +861,36 @@
       </div>
     </section>
 
-    <!-- Hero Banner Section -->
-    <section class="hero-gradient text-white py-16 lg:py-20">
-      <div class="container mx-auto px-4">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              Sự Kiện & Tin Tức<br />
-              Pavel Mart
-            </h1>
-            <p class="text-lg lg:text-xl mb-8 text-green-100 leading-relaxed">
-              Cập nhật thường xuyên các hoạt động, chương trình khuyến mãi, sự
-              kiện cộng đồng và tin tức mới nhất từ Pavel Mart. Đồng hành cùng
-              chúng tôi trong hành trình mang đến trải nghiệm mua sắm tốt nhất
-              cho gia đình Việt.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <button
-                class="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors"
-              >
-                📰 Xem tin tức mới nhất
-              </button>
-              <button
-                class="bg-white bg-opacity-10 text-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-colors backdrop-blur-sm"
-              >
-                🎉 Khám phá sự kiện
-              </button>
+        <!-- Hero Banner -->
+    <section class="relative overflow-hidden" style="height: 500px;">
+      <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1920&h=1080&fit=crop" alt="Sự Kiện & Tin Tức" class="w-full h-full object-cover" style="filter: brightness(1.2) contrast(1.15) saturate(1.4);" />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20"></div>
+      </div>
+      
+      <div class="relative h-full flex items-center">
+        <div class="container mx-auto px-4 md:px-8">
+          <div class="max-w-2xl text-white animate-fade-in-up">
+            <div class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/50">
+              📰 TIN TỨC MỚI
             </div>
-          </div>
-          <div class="hidden lg:block">
-            <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-sm">
-              <h3 class="text-2xl font-bold mb-6 text-center">
-                Theo dõi Pavel Mart để không bỏ lỡ
-              </h3>
-              <div class="space-y-4">
-                <div class="flex items-start space-x-3">
-                  <span class="text-green-300 text-2xl">🎁</span>
-                  <div>
-                    <h4 class="font-semibold text-lg mb-1">
-                      Khuyến mãi hấp dẫn
-                    </h4>
-                    <p class="text-green-100 text-sm">
-                      Cập nhật deal hot, giảm giá sốc hàng tuần
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <span class="text-green-300 text-2xl">🎉</span>
-                  <div>
-                    <h4 class="font-semibold text-lg mb-1">Sự kiện đặc biệt</h4>
-                    <p class="text-green-100 text-sm">
-                      Các chương trình tri ân khách hàng thành viên
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <span class="text-green-300 text-2xl">🌱</span>
-                  <div>
-                    <h4 class="font-semibold text-lg mb-1">
-                      Hoạt động cộng đồng
-                    </h4>
-                    <p class="text-green-100 text-sm">
-                      Đồng hành vì một Việt Nam xanh - sạch - đẹp
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <span class="text-green-300 text-2xl">📢</span>
-                  <div>
-                    <h4 class="font-semibold text-lg mb-1">Tin tức nổi bật</h4>
-                    <p class="text-green-100 text-sm">
-                      Thông tin về sản phẩm mới, chính sách mới
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight" style="text-shadow: 4px 4px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1);">
+              Cập Nhật Mới Nhất<br/>
+              <span class="text-pink-300">Sự Kiện & Tin Tức</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed" style="text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);">
+              Thông tin sự kiện, tin tức mới nhất<br/>Hoạt động cộng đồng, trách nhiệm xã hội
+            </p>
+            <div class="flex flex-wrap gap-3 md:gap-4">
+              <a href="#news" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-2xl">
+                Xem tin tức
+                <svg class="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+              <a href="index.html" class="bg-white/30 backdrop-blur-md hover:bg-white/40 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base transition transform hover:scale-105 shadow-xl border-2 border-white/50">
+                Trang chủ
+              </a>
             </div>
           </div>
         </div>
