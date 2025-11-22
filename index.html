@@ -6,35 +6,34 @@
     <title>Pavel Mart - Sống Chất Lượng</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               green: {
-                50: "#f0f9f0",
-                100: "#dcf4dc",
-                200: "#bce7bc",
-                300: "#8fd68f",
-                400: "#5bb85b",
-                500: "#389738",
-                600: "#2c7a2c",
-                700: "#256425",
-                800: "#1f4f1f",
-                900: "#1a4a1a",
+                50: "#F0F9E8",   // Very light green for backgrounds
+                100: "#E1F3D1",  // Light green for badges/decorative
+                200: "#C3E7A3",  // Light green for placeholders
+                300: "#A5DB75",  // Medium light
+                400: "#81CF01",  // Primary brand green (PANTONE)
+                500: "#81CF01",  // Primary brand green (PANTONE)
+                600: "#6BB301",  // Darker for hover states
+                700: "#227041",  // Dark brand green (PANTONE)
+                800: "#227041",  // Dark brand green (footer/header)
+                900: "#1A5832",  // Even darker for emphasis
               },
-              orange: {
-                400: "#fb923c",
-                500: "#f97316",
-                600: "#ea580c",
+              dark: {
+                900: "#333333",  // Brand text color
               },
             },
             fontFamily: {
-              display: ["Playfair Display", "serif"],
-              body: ["Inter", "sans-serif"],
+              sans: ["Montserrat", "sans-serif"],
             },
           },
         },
@@ -42,50 +41,299 @@
     </script>
     <style>
       * {
-        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
       }
-      html, body {
-        overflow-x: hidden;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-      }
+      
       body {
-        font-family: "Inter", sans-serif;
+        font-family: "Montserrat", sans-serif;
       }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: "Playfair Display", serif;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
       }
-      .hero-gradient {
-        background: linear-gradient(
-          135deg,
-          #389738 0%,
-          #256425 50%,
-          #1a4a1a 100%
-        );
+
+      /* Hero Banner Slider */
+      .swiper-hero {
+        width: 100%;
+        height: 650px;
       }
-      .card-hover {
+
+      @media (max-width: 768px) {
+        .swiper-hero {
+          height: 450px;
+        }
+      }
+
+      .swiper-slide {
+        overflow: hidden;
+      }
+
+      .swiper-slide img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block;
+      }
+
+      .swiper-pagination-bullet {
+        background: white;
+        opacity: 0.7;
+        width: 14px;
+        height: 14px;
+      }
+
+      .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #81CF01;
+        transform: scale(1.3);
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: white;
+        background: rgba(129, 207, 1, 0.9);
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
         transition: all 0.3s ease;
       }
-      .card-hover:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        background: rgba(129, 207, 1, 1);
+        transform: scale(1.1);
       }
+
+      .swiper-button-next:after,
+      .swiper-button-prev:after {
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      .hero-gradient {
+        background: linear-gradient(135deg, #227041 0%, #81CF01 100%);
+      }
+      
+      .card-hover {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .card-hover:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(129, 207, 1, 0.2);
+      }
+
+      .card-hover::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .card-hover:hover::before {
+        left: 100%;
+      }
+      
       .section-divider {
-        background: linear-gradient(
-          to right,
-          transparent,
-          #389738,
-          transparent
-        );
-        height: 2px;
+        background: linear-gradient(to right, transparent, #81CF01, transparent);
+        height: 3px;
+      }
+
+      /* Promotional Cards with Animation */
+      .promo-card {
+        background: linear-gradient(135deg, #81CF01 0%, #227041 100%);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .promo-card::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+        animation: rotate 20s linear infinite;
+      }
+
+      @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .promo-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 30px 60px rgba(129, 207, 1, 0.3);
+      }
+
+      /* Product Card Animation */
+      .product-card {
+        transition: all 0.3s ease;
+        border-radius: 20px;
+        overflow: hidden;
+        background: white;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-card img {
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover img {
+        transform: scale(1.15) rotate(2deg);
+      }
+
+      /* Badge Pulse Animation */
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      .badge-pulse {
+        animation: pulse 2s infinite;
+      }
+
+      /* Smooth Scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Loading Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      /* Floating Animation */
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* Gradient Text */
+      .gradient-text {
+        background: linear-gradient(135deg, #81CF01 0%, #227041 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Slide In Animation */
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .animate-slide-in-left {
+        animation: slideInLeft 0.8s ease-out;
+      }
+
+      .animate-slide-in-right {
+        animation: slideInRight 0.8s ease-out;
+      }
+
+      /* Scale Animation */
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .animate-scale-in {
+        animation: scaleIn 0.6s ease-out;
+      }
+
+      /* Parallax Effect */
+      .parallax-section {
+        transition: transform 0.5s ease-out;
+      }
+
+      /* Image Brightness */
+      .brightness-110 {
+        filter: brightness(1.1);
+      }
+
+      /* Smooth Section Transitions */
+      section {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      /* Wave SVG Animation */
+      @keyframes wave {
+        0% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(-25px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .wave-animate {
+        animation: wave 10s ease-in-out infinite;
       }
 
       /* Active navigation styles */
@@ -95,7 +343,7 @@
       }
 
       .nav-link.active {
-        color: #389738 !important;
+        color: #81CF01 !important;
         font-weight: 600;
       }
 
@@ -106,32 +354,32 @@
         left: 0;
         width: 100%;
         height: 3px;
-        background: #389738;
+        background: #81CF01;
         border-radius: 2px;
       }
 
       .nav-link:not(.active):hover {
-        color: #389738;
+        color: #81CF01;
       }
 
       /* Dropdown active styles */
       .dropdown-link.active {
         background-color: #f0f9f0;
-        color: #389738 !important;
+        color: #81CF01 !important;
         font-weight: 600;
       }
 
       /* Mobile navigation active styles */
       .mobile-nav-link.active {
-        color: #389738 !important;
+        color: #81CF01 !important;
         font-weight: 600;
         background-color: #f0f9f0;
-        border-left: 4px solid #389738;
+        border-left: 4px solid #81CF01;
         padding-left: calc(1rem - 4px);
       }
 
       .mobile-dropdown-link.active {
-        color: #389738 !important;
+        color: #81CF01 !important;
         font-weight: 600;
         background-color: #f0f9f0;
       }
@@ -558,776 +806,479 @@
       </div>
     </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-gradient text-white py-20">
-      <div class="container mx-auto px-4">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 class="text-5xl font-bold mb-6 leading-tight">
-              Trải nghiệm mua sắm chuẩn chất lượng<br />
-              Vì sức khỏe gia đình Việt
+    <!-- Hero Banner Slider -->
+    <section id="home" class="swiper swiper-hero relative">
+      <div class="swiper-wrapper">
+        <!-- Slide 1: Tưng bừng khai trương -->
+        <div class="swiper-slide relative">
+          <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=1920&h=1080&fit=crop" alt="Tưng bừng khai trương Pavel Mart" style="filter: brightness(1.2) contrast(1.15) saturate(1.4);" />
+          <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 flex items-center">
+            <div class="container mx-auto px-4 md:px-8">
+              <div class="max-w-2xl text-white animate-fade-in-up">
+                <div class="inline-block bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/50">
+                  🎊 KHAI TRƯƠNG - ƯU ĐÃI ĐẶC BIỆT
+                </div>
+                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight" style="text-shadow: 4px 4px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1);">
+                  Tưng Bừng Khai Trương<br class="hidden sm:block"/> Pavel Mart
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed" style="text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);">
+                  Giảm đến <span class="text-yellow-300 text-xl sm:text-2xl md:text-3xl">50%</span> toàn bộ sản phẩm<br/>
+                  Quà tặng hấp dẫn - Ưu đãi khủng
+                </p>
+                <div class="flex flex-wrap gap-3 md:gap-4">
+                  <a href="tin-khuyen-mai.html" class="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-2xl">
+                    Nhận ưu đãi ngay
+                    <svg class="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                  </a>
+                  <a href="he-thong-sieu-thi.html" class="bg-white/30 backdrop-blur-md hover:bg-white/40 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base transition transform hover:scale-105 shadow-xl border-2 border-white/50">
+                    Tìm siêu thị
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Ưu đãi thành viên -->
+        <div class="swiper-slide relative">
+          <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=1920&h=1080&fit=crop" alt="Ưu đãi thành viên Pavel Mart" style="filter: brightness(1.2) contrast(1.15) saturate(1.4);" />
+          <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 flex items-center">
+            <div class="container mx-auto px-4 md:px-8">
+              <div class="max-w-2xl text-white animate-fade-in-up">
+                <div class="inline-block bg-blue-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/30">
+                  � ƯU ĐÃI ĐẶC BIỆT
+                </div>
+                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight" style="text-shadow: 4px 4px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1);">
+                  Ưu Đãi<br/>
+                  <span class="text-blue-300">Thành Viên</span>
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed" style="text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);">
+                  Tích điểm mỗi lần mua sắm<br/>
+                  Giảm giá độc quyền cho hội viên thân thiết
+                </p>
+                <div class="flex flex-wrap gap-3 md:gap-4">
+                  <a href="khach-hang-thanh-vien.html" class="bg-blue-500 hover:bg-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-lg">
+                    Đăng ký ngay
+                    <svg class="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                  </a>
+                  <a href="khach-hang-thanh-vien.html" class="bg-white/30 backdrop-blur-md hover:bg-white/40 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base transition transform hover:scale-105">
+                    Xem quyền lợi
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Mua sắm thả ga cuối tuần -->
+        <div class="swiper-slide relative">
+          <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?w=1920&h=1080&fit=crop" alt="Mua sắm thả ga cuối tuần" style="filter: brightness(1.2) contrast(1.15) saturate(1.4);" />
+          <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent flex items-center">
+            <div class="container mx-auto px-4 md:px-8">
+              <div class="max-w-2xl text-white animate-fade-in-up">
+                <div class="inline-block bg-red-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/30">
+                  🛒 WEEKEND SALE
+                </div>
+                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight" style="text-shadow: 4px 4px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1);">
+                  Mua Sắm Thả Ga<br/>
+                  <span class="text-red-300">Cuối Tuần</span>
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed" style="text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);">
+                  Flash Sale 48h - Giảm giá cực sốc mỗi cuối tuần!
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <a href="tin-khuyen-mai.html" class="bg-red-500 hover:bg-red-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-lg">
+                    Mua ngay
+                    <svg class="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                  </a>
+                  <a href="tin-khuyen-mai.html" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-8 py-4 rounded-full font-bold transition transform hover:scale-105">
+                    Xem ưu đãi
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Sống chất lượng -->
+        <div class="swiper-slide relative">
+          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1920&h=1080&fit=crop" alt="Sống chất lượng cùng Pavel Mart" style="filter: brightness(1.2) contrast(1.15) saturate(1.4);" />
+          <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent flex items-center">
+            <div class="container mx-auto px-4 md:px-8">
+              <div class="max-w-2xl text-white animate-fade-in-up">
+                <div class="inline-block bg-green-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black mb-3 md:mb-4 badge-pulse shadow-2xl border-2 border-white/30">
+                  ✨ THỰC PHẨM CAO CẤP
+                </div>
+                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight" style="text-shadow: 4px 4px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1);">
+                  Sống<br/>
+                  <span class="text-green-300">Chất Lượng</span>
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-bold leading-relaxed" style="text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);">
+                  Hơn 1000 sản phẩm tươi ngon - An toàn cho mọi gia đình
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <a href="gioi-thieu.html" class="bg-green-500 hover:bg-green-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-sm md:text-base inline-flex items-center transition transform hover:scale-105 shadow-lg">
+                    Khám phá ngay
+                    <svg class="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                  </a>
+                  <a href="he-thong-sieu-thi.html" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-8 py-4 rounded-full font-bold transition transform hover:scale-105">
+                    Tìm siêu thị
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+      
+      <!-- Wave Transition -->
+      <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+        <svg class="relative block w-full h-20 md:h-32" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#ffffff"></path>
+          <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#ffffff"></path>
+          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#ffffff"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Giới thiệu Pavel Mart -->
+    <section class="py-24 bg-gradient-to-b from-white via-green-50/30 to-white overflow-hidden relative">
+      <!-- Decorative Elements -->
+      <div class="absolute top-0 right-0 w-72 h-72 bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
+      <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style="animation-delay: 2s;"></div>
+      
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <!-- Images Gallery -->
+          <div class="relative animate-slide-in-left">
+            <div class="grid grid-cols-2 gap-4">
+              <!-- Store image 1 -->
+              <div class="bg-gradient-to-br from-green-100 to-green-200 rounded-3xl h-72 overflow-hidden shadow-2xl transform hover:scale-105 hover:rotate-1 transition duration-500 animate-scale-in">
+                <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&h=600&fit=crop" alt="Pavel Mart - Siêu thị" class="w-full h-full object-cover" />
+              </div>
+              <!-- Store image 2 -->
+              <div class="bg-gradient-to-br from-green-100 to-green-200 rounded-3xl h-72 overflow-hidden shadow-2xl transform hover:scale-105 hover:-rotate-1 transition duration-500 animate-scale-in" style="animation-delay: 0.2s; margin-top: 3rem;">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&h=600&fit=crop" alt="Pavel Mart - Sản phẩm" class="w-full h-full object-cover" />
+              </div>
+            </div>
+            <!-- Floating badge -->
+            <div class="absolute -top-6 -right-6 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full w-36 h-36 flex items-center justify-center shadow-2xl animate-float badge-pulse">
+              <div class="text-center">
+                <div class="text-4xl font-black">1000+</div>
+                <div class="text-xs font-bold uppercase tracking-wider">Sản phẩm<br/>cao cấp</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="animate-slide-in-right">
+            <div class="inline-block bg-gradient-to-r from-green-100 to-green-200 text-green-700 px-4 py-2 md:px-5 md:py-2 rounded-full text-xs sm:text-sm font-bold mb-4 md:mb-6 shadow-md animate-fade-in-up">
+              <span class="text-base md:text-lg">🏪</span> PAVEL MART
+            </div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6 leading-tight animate-fade-in-up" style="animation-delay: 0.1s">
+              <span class="gradient-text">Sống Chất Lượng</span>
             </h2>
-            <p class="text-xl mb-8 text-green-100 leading-relaxed">
-              Tại Pavel Mart, chúng tôi tin rằng mỗi bữa ăn ngon và an toàn bắt
-              đầu từ nguồn nguyên liệu chuẩn chất lượng. Vì thế, mọi sản phẩm
-              trên quầy kệ đều được chọn lọc kỹ lưỡng, đến từ các nhà cung cấp
-              hữu cơ, sản xuất theo phương pháp hữu cơ, sở hữu chứng nhận tiêu
-              chuẩn từ cơ quan quản lý uy tín.
+            <p class="text-gray-600 text-base sm:text-lg md:text-xl mb-6 md:mb-8 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
+              Siêu thị chuẩn chất lượng cho gia đình Việt
             </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <button
-                class="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors"
-              >
-                👉 Khám phá ngay
-              </button>
-            </div>
-          </div>
-          <div class="hidden lg:block">
-            <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-sm">
-              <h3 class="text-2xl font-bold mb-6 text-center">
-                Tại sao khách hàng chọn Pavel Mart?
-              </h3>
-              <div class="space-y-4">
-                <div class="flex items-start space-x-3">
-                  <span class="text-green-300 text-xl">✅</span>
-                  <div>
-                    <h4 class="font-semibold">
-                      Thực phẩm tươi mới - Chuẩn hữu cơ
-                    </h4>
-                  </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8 animate-fade-in-up" style="animation-delay: 0.3s">
+              <div class="flex items-center space-x-2 md:space-x-3 bg-white/80 backdrop-blur-sm p-3 md:p-4 rounded-xl md:rounded-2xl shadow-md hover:shadow-lg transition">
+                <div class="bg-gradient-to-br from-green-400 to-green-500 rounded-full p-2 md:p-3 shadow-md flex-shrink-0">
+                  <span class="text-lg md:text-2xl text-white">✓</span>
                 </div>
-                <div class="flex items-start space-x-3">
-                  <span class="text-green-300 text-xl">✅</span>
-                  <div>
-                    <h4 class="font-semibold">
-                      Danh mục sản phẩm chọn lọc - Tiêu chuẩn cao
-                    </h4>
-                  </div>
+                <span class="font-bold text-sm md:text-base text-gray-800">100% chính hãng</span>
+              </div>
+              <div class="flex items-center space-x-2 md:space-x-3 bg-white/80 backdrop-blur-sm p-3 md:p-4 rounded-xl md:rounded-2xl shadow-md hover:shadow-lg transition">
+                <div class="bg-gradient-to-br from-green-400 to-green-500 rounded-full p-2 md:p-3 shadow-md flex-shrink-0">
+                  <span class="text-lg md:text-2xl text-white">✓</span>
                 </div>
-                <div class="flex items-start space-x-3">
-                  <span class="text-green-300 text-xl">✅</span>
-                  <div>
-                    <h4 class="font-semibold">
-                      Không gian mua sắm hiện đại, thân thiện
-                    </h4>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <span class="text-green-300 text-xl">✅</span>
-                  <div>
-                    <h4 class="font-semibold">
-                      Ưu đãi thông minh - Combo tiện lợi mỗi ngày
-                    </h4>
-                  </div>
-                </div>
+                <span class="font-bold text-sm md:text-base text-gray-800">Chất lượng đảm bảo</span>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quality Process Timeline -->
-    <section class="pt-16 bg-gradient-to-br from-green-50 to-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-          <h3 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">
-            Siêu thị chuẩn chất lượng - Sản phẩm được chứng nhận uy tín
-          </h3>
-          <p class="text-gray-600 text-base md:text-lg max-w-3xl mx-auto">
-            Đảm bảo tươi ngon, an toàn, giúp mỗi bữa ăn trở nên trọn vẹn hơn
-          </p>
-          <div class="section-divider w-24 mx-auto mt-6"></div>
-        </div>
-
-        <!-- Desktop Timeline - Horizontal -->
-        <div class="hidden md:block">
-          <div class="relative max-w-5xl mx-auto py-8">
-            <!-- Connecting Line -->
-            <div class="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-green-200 via-green-600 to-green-200 transform -translate-y-1/2"></div>
-            
-            <!-- Timeline Items -->
-            <div class="relative flex justify-between items-center">
-              <!-- Step 1 -->
-              <div class="flex flex-col items-center flex-1 group">
-                <div class="w-20 h-20 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-4xl shadow-lg transform transition-all duration-300 hover:scale-110 hover:bg-green-600 hover:shadow-xl cursor-pointer z-10">
-                  🚜
-                </div>
-                <div class="mt-4 text-center">
-                  <p class="font-bold text-green-800 text-sm">Nguồn cung</p>
-                  <p class="text-xs text-gray-600">Nông trại uy tín</p>
-                </div>
-                <!-- Tooltip -->
-                <div class="absolute bottom-full mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-white p-4 rounded-lg shadow-xl border-2 border-green-600 min-w-[250px] z-20">
-                  <h4 class="font-bold text-green-800 mb-2">🚜 Nguồn cung</h4>
-                  <p class="text-sm text-gray-600">Hợp tác với các nông trại uy tín, áp dụng quy trình canh tác hữu cơ và bền vững</p>
-                  <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-green-600"></div>
-                </div>
-              </div>
-
-              <!-- Step 2 -->
-              <div class="flex flex-col items-center flex-1 group">
-                <div class="w-20 h-20 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-4xl shadow-lg transform transition-all duration-300 hover:scale-110 hover:bg-green-600 hover:shadow-xl cursor-pointer z-10">
-                  🔍
-                </div>
-                <div class="mt-4 text-center">
-                  <p class="font-bold text-green-800 text-sm">Kiểm định</p>
-                  <p class="text-xs text-gray-600">Chứng nhận</p>
-                </div>
-                <div class="absolute bottom-full mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-white p-4 rounded-lg shadow-xl border-2 border-green-600 min-w-[250px] z-20">
-                  <h4 class="font-bold text-green-800 mb-2">🔍 Kiểm định</h4>
-                  <p class="text-sm text-gray-600">Chứng nhận chất lượng của cơ quan quản lý nhà nước, đảm bảo an toàn tuyệt đối</p>
-                  <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-green-600"></div>
-                </div>
-              </div>
-
-              <!-- Step 3 -->
-              <div class="flex flex-col items-center flex-1 group">
-                <div class="w-20 h-20 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-4xl shadow-lg transform transition-all duration-300 hover:scale-110 hover:bg-green-600 hover:shadow-xl cursor-pointer z-10">
-                  �
-                </div>
-                <div class="mt-4 text-center">
-                  <p class="font-bold text-green-800 text-sm">Vận chuyển</p>
-                  <p class="text-xs text-gray-600">Chuẩn vệ sinh</p>
-                </div>
-                <div class="absolute bottom-full mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-white p-4 rounded-lg shadow-xl border-2 border-green-600 min-w-[250px] z-20">
-                  <h4 class="font-bold text-green-800 mb-2">🚚 Vận chuyển</h4>
-                  <p class="text-sm text-gray-600">Chuẩn vệ sinh, nhanh chóng với xe lạnh chuyên dụng, giữ nguyên độ tươi ngon</p>
-                  <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-green-600"></div>
-                </div>
-              </div>
-
-              <!-- Step 4 -->
-              <div class="flex flex-col items-center flex-1 group">
-                <div class="w-20 h-20 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-4xl shadow-lg transform transition-all duration-300 hover:scale-110 hover:bg-green-600 hover:shadow-xl cursor-pointer z-10">
-                  🏪
-                </div>
-                <div class="mt-4 text-center">
-                  <p class="font-bold text-green-800 text-sm">Siêu thị</p>
-                  <p class="text-xs text-gray-600">Trưng bày</p>
-                </div>
-                <div class="absolute bottom-full mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-white p-4 rounded-lg shadow-xl border-2 border-green-600 min-w-[250px] z-20">
-                  <h4 class="font-bold text-green-800 mb-2">🏪 Siêu thị</h4>
-                  <p class="text-sm text-gray-600">Trưng bày khoa học, dễ tìm, bảo quản trong điều kiện tối ưu nhất</p>
-                  <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-green-600"></div>
-                </div>
-              </div>
-
-              <!-- Step 5 -->
-              <div class="flex flex-col items-center flex-1 group">
-                <div class="w-20 h-20 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-4xl shadow-lg transform transition-all duration-300 hover:scale-110 hover:bg-green-600 hover:shadow-xl cursor-pointer z-10">
-                  �‍👩‍👧‍👦
-                </div>
-                <div class="mt-4 text-center">
-                  <p class="font-bold text-green-800 text-sm">Gia đình</p>
-                  <p class="text-xs text-gray-600">An tâm</p>
-                </div>
-                <div class="absolute bottom-full mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-white p-4 rounded-lg shadow-xl border-2 border-green-600 min-w-[250px] z-20">
-                  <h4 class="font-bold text-green-800 mb-2">👨‍👩‍👧‍👦 Gia đình</h4>
-                  <p class="text-sm text-gray-600">Trải nghiệm tiện lợi & an tâm cho mọi bữa ăn ngon của gia đình bạn</p>
-                  <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-green-600"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mobile Timeline - Vertical -->
-        <div class="md:hidden space-y-6 px-4">
-          <!-- Step 1 -->
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-3xl shadow-lg">
-              🚜
-            </div>
-            <div class="flex-1 pt-2">
-              <h4 class="font-bold text-green-800 text-base mb-1">Nguồn cung - Nông trại uy tín</h4>
-              <p class="text-sm text-gray-600">Hợp tác với các nông trại uy tín, áp dụng quy trình canh tác hữu cơ và bền vững</p>
-            </div>
-          </div>
-
-          <!-- Connector -->
-          <div class="flex items-center pl-8">
-            <div class="w-0.5 h-8 bg-green-600"></div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-3xl shadow-lg">
-              🔍
-            </div>
-            <div class="flex-1 pt-2">
-              <h4 class="font-bold text-green-800 text-base mb-1">Kiểm định - Chứng nhận chất lượng</h4>
-              <p class="text-sm text-gray-600">Chứng nhận chất lượng của cơ quan quản lý nhà nước, đảm bảo an toàn tuyệt đối</p>
-            </div>
-          </div>
-
-          <!-- Connector -->
-          <div class="flex items-center pl-8">
-            <div class="w-0.5 h-8 bg-green-600"></div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-3xl shadow-lg">
-              🚚
-            </div>
-            <div class="flex-1 pt-2">
-              <h4 class="font-bold text-green-800 text-base mb-1">Vận chuyển - Chuẩn vệ sinh</h4>
-              <p class="text-sm text-gray-600">Chuẩn vệ sinh, nhanh chóng với xe lạnh chuyên dụng, giữ nguyên độ tươi ngon</p>
-            </div>
-          </div>
-
-          <!-- Connector -->
-          <div class="flex items-center pl-8">
-            <div class="w-0.5 h-8 bg-green-600"></div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-3xl shadow-lg">
-              🏪
-            </div>
-            <div class="flex-1 pt-2">
-              <h4 class="font-bold text-green-800 text-base mb-1">Siêu thị - Trưng bày khoa học</h4>
-              <p class="text-sm text-gray-600">Trưng bày khoa học, dễ tìm, bảo quản trong điều kiện tối ưu nhất</p>
-            </div>
-          </div>
-
-          <!-- Connector -->
-          <div class="flex items-center pl-8">
-            <div class="w-0.5 h-8 bg-green-600"></div>
-          </div>
-
-          <!-- Step 5 -->
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-3xl shadow-lg">
-              👨‍👩‍👧‍👦
-            </div>
-            <div class="flex-1 pt-2">
-              <h4 class="font-bold text-green-800 text-base mb-1">Gia đình - Trải nghiệm an tâm</h4>
-              <p class="text-sm text-gray-600">Trải nghiệm tiện lợi & an tâm cho mọi bữa ăn ngon của gia đình bạn</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Product Categories -->
-    <section class="pt-16 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-          <h3 class="text-3xl font-bold text-green-800 mb-4">
-            DANH MỤC SẢN PHẨM NỔI BẬT
-          </h3>
-          <p class="text-gray-600 max-w-3xl mx-auto">
-            Những sản phẩm tươi ngon, đảm bảo chất lượng, được chứng nhận tiêu
-            chuẩn
-          </p>
-          <div class="section-divider w-24 mx-auto mb-8"></div>
-        </div>
-
-        <!-- Product Category Tabs -->
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-          <button
-            class="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition"
-          >
-            Thực phẩm nhập khẩu
-          </button>
-          <button
-            class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition"
-          >
-            Thực phẩm tươi sống
-          </button>
-          <button
-            class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition"
-          >
-            Thực phẩm chế biến
-          </button>
-          <button
-            class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition"
-          >
-            Thực phẩm khô và gia vị
-          </button>
-        </div>
-
-        <!-- Featured Category Banners -->
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Category 1: Premium Imports -->
-          <div
-            class="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl overflow-hidden shadow-xl card-hover"
-          >
-            <div
-              class="h-64 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center relative"
-            >
-              <span class="text-white text-8xl">🍷</span>
-              <div
-                class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
-              >
-                HOT
-              </div>
-            </div>
-            <div class="p-8 text-center">
-              <h4 class="text-2xl font-bold text-purple-900 mb-3">
-                Nhập Khẩu Cao Cấp
-              </h4>
-              <p class="text-gray-700 mb-4 leading-relaxed">
-                Tinh hoa ẩm thực Châu Âu - Rượu vang, phô mai, pasta, bánh ngọt
-                cao cấp
-              </p>
-              <button
-                class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors w-full"
-              >
-                Khám phá ngay
-              </button>
-            </div>
-          </div>
-
-          <!-- Category 2: Fresh & Organic -->
-          <div
-            class="bg-gradient-to-br from-green-100 to-green-200 rounded-xl overflow-hidden shadow-xl card-hover"
-          >
-            <div
-              class="h-64 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center relative"
-            >
-              <span class="text-white text-8xl">🥬</span>
-              <div
-                class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold"
-              >
-                FRESH
-              </div>
-            </div>
-            <div class="p-8 text-center">
-              <h4 class="text-2xl font-bold text-green-900 mb-3">
-                Tươi Sống & Hữu Cơ
-              </h4>
-              <p class="text-gray-700 mb-4 leading-relaxed">
-                Rau củ, thịt cá, trái cây tươi mới mỗi ngày - An toàn, rõ nguồn
-                gốc
-              </p>
-              <button
-                class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors w-full"
-              >
-                Khám phá ngay
-              </button>
-            </div>
-          </div>
-
-          <!-- Category 3: Family Combos -->
-          <div
-            class="bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl overflow-hidden shadow-xl card-hover"
-          >
-            <div
-              class="h-64 bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center relative"
-            >
-              <span class="text-white text-8xl">👨‍👩‍👧‍👦</span>
-              <div
-                class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold"
-              >
-                SALE
-              </div>
-            </div>
-            <div class="p-8 text-center">
-              <h4 class="text-2xl font-bold text-orange-900 mb-3">
-                Combo Gia Đình
-              </h4>
-              <p class="text-gray-700 mb-4 leading-relaxed">
-                Gợi ý bữa ăn tiện lợi, tiết kiệm - Trọn vẹn bữa ăn ngon cho cả
-                nhà
-              </p>
-              <button
-                class="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors w-full"
-              >
-                Khám phá ngay
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Promotions & Membership -->
-    <section class="py-16 bg-green-50">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-          <h3 class="text-3xl font-bold text-green-800 mb-4">
-            KHUYẾN MÃI & ƯU ĐÃI THÀNH VIÊN
-          </h3>
-          <p class="text-gray-600 max-w-4xl mx-auto">
-            Trải nghiệm mua sắm thông minh với hàng loạt ưu đãi hấp dẫn dành
-            riêng cho thành viên Pavel Family
-          </p>
-          <div class="section-divider w-24 mx-auto mb-8"></div>
-        </div>
-
-        <!-- Promotion Categories -->
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-          <!-- Khuyến mãi hấp dẫn / Combo sản phẩm -->
-          <div
-            class="bg-white p-8 rounded-xl shadow-lg card-hover border-l-4 border-orange-500"
-          >
-            <div class="flex items-center mb-6">
-              <span class="text-5xl mr-4">🎁</span>
-              <h4 class="text-2xl font-bold text-gray-800">
-                Khuyến mãi hấp dẫn / Combo sản phẩm
-              </h4>
-            </div>
-            <div class="space-y-3">
-              <div class="flex items-start space-x-3">
-                <span class="text-orange-500 text-lg">▪️</span>
-                <p class="text-gray-700 font-semibold">
-                  Combo tiết kiệm - Ưu đãi trọn bữa
-                </p>
-              </div>
-              <div class="flex items-start space-x-3">
-                <span class="text-orange-500 text-lg">▪️</span>
-                <p class="text-gray-700 font-semibold">Giờ vàng - Flash Sale</p>
-              </div>
-              <div class="flex items-start space-x-3">
-                <span class="text-orange-500 text-lg">▪️</span>
-                <p class="text-gray-700 font-semibold">
-                  Mua 1 tặng 1 / Quà tặng hấp dẫn
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Ưu đãi thành viên -->
-          <div
-            class="bg-white p-8 rounded-xl shadow-lg card-hover border-l-4 border-purple-600"
-          >
-            <div class="flex items-center mb-6">
-              <span class="text-5xl mr-4">�</span>
-              <h4 class="text-2xl font-bold text-gray-800">
-                Ưu đãi thành viên
-              </h4>
-            </div>
-            <div class="space-y-3 mb-6">
-              <div class="flex items-start space-x-3">
-                <span class="text-purple-600 text-lg">▪️</span>
-                <p class="text-gray-700 font-semibold">
-                  Tích điểm - Đổi quà liền tay!
-                </p>
-              </div>
-              <div class="flex items-start space-x-3">
-                <span class="text-purple-600 text-lg">▪️</span>
-                <p class="text-gray-700">Tích điểm mỗi hóa đơn</p>
-              </div>
-              <div class="flex items-start space-x-3">
-                <span class="text-purple-600 text-lg">▪️</span>
-                <p class="text-gray-700">Quà tặng sinh nhật</p>
-              </div>
-              <div class="flex items-start space-x-3">
-                <span class="text-purple-600 text-lg">▪️</span>
-                <p class="text-gray-700">Voucher tri ân hàng quý</p>
-              </div>
-            </div>
-            <div class="mt-6">
-              <button
-                class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors w-full font-semibold"
-              >
-                📱 Cập nhật ưu đãi qua App
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Special Offer Banner -->
-        <div
-          class="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white p-8 rounded-xl text-center mb-8"
-        >
-          <h4 class="text-3xl font-bold mb-4">
-            🎉 THÁNG NÀY - THÀNH VIÊN MỚI NHẬN NGAY
-          </h4>
-          <div class="text-6xl font-bold mb-2">VOUCHER 50.000Đ</div>
-          <p class="text-xl mb-6">
-            Áp dụng cho hóa đơn từ 200.000đ - Không giới hạn số lượng sản phẩm
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              class="bg-white text-red-500 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
-            >
-              Đăng ký ngay - Scan QR
-            </button>
-            <button
-              class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-red-500 transition-colors"
-            >
-              Tại quầy dịch vụ khách hàng
-            </button>
-          </div>
-        </div>
-
-        <!-- Membership CTA - Simplified -->
-        <div
-          class="bg-gradient-to-r from-purple-600 to-purple-800 text-white p-8 rounded-xl text-center mt-12"
-        >
-          <h4 class="text-3xl font-bold mb-4">
-            💳 CHƯƠNG TRÌNH THÀNH VIÊN PAVEL FAMILY
-          </h4>
-          <p class="text-xl text-purple-100 mb-6">
-            Tích điểm đổi quà, nhận ưu đãi sinh nhật, voucher tri ân hàng quý và
-            nhiều quyền lợi đặc biệt khác
-          </p>
-          <div class="grid md:grid-cols-3 gap-4 mb-6 max-w-4xl mx-auto">
-            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
-              <div class="text-3xl mb-2">💰</div>
-              <p class="font-semibold">Tích điểm 3-7%</p>
-              <p class="text-sm text-purple-100">Mỗi hóa đơn</p>
-            </div>
-            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
-              <div class="text-3xl mb-2">🎂</div>
-              <p class="font-semibold">Quà sinh nhật</p>
-              <p class="text-sm text-purple-100">Voucher đặc biệt</p>
-            </div>
-            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
-              <div class="text-3xl mb-2">📱</div>
-              <p class="font-semibold">App Pavel Mart</p>
-              <p class="text-sm text-purple-100">Cập nhật ưu đãi</p>
-            </div>
-          </div>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="./khach-hang-thanh-vien.html"
-              class="bg-white text-purple-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors"
-            >
-              Xem chi tiết chương trình
+            <a href="gioi-thieu.html" class="inline-flex items-center bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg transition transform hover:scale-105 shadow-xl hover:shadow-2xl animate-fade-in-up" style="animation-delay: 0.4s">
+              Tìm hiểu thêm
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
             </a>
-            <button
-              class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-purple-600 transition-colors"
-            >
-              Đăng ký ngay
-            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services -->
-    <section class="pb-8 bg-green-50">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-          <h3 class="text-3xl font-bold text-green-800 mb-4">
-            DỊCH VỤ TIỆN ÍCH
-          </h3>
-          <div class="section-divider w-24 mx-auto mb-8"></div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-8">
-          <!-- Online Shopping -->
-          <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
-            <div class="flex items-center mb-4">
-              <div
-                class="bg-green-500 w-12 h-12 rounded-full flex items-center justify-center mr-4"
-              >
-                <span class="text-white text-xl">🛒</span>
-              </div>
-              <h4 class="text-xl font-bold text-green-800">
-                Mua sắm online và dịch vụ giao hàng
-              </h4>
-            </div>
-            <p class="text-gray-600 mb-6">
-              Dịch vụ mua sắm online và Giao hàng tận nơi dành cho khách hàng
-              thành viên của Pavel Mart với nhiều chính sách hấp dẫn
-            </p>
-            <div class="bg-green-50 p-4 rounded-lg mb-4">
-              <h5 class="font-semibold text-green-800 mb-2">
-                Ưu đãi đặc biệt:
-              </h5>
-              <ul class="text-sm text-gray-700 space-y-1">
-                <li>• Miễn phí giao hàng cho đơn từ 300.000đ</li>
-                <li>• Giao hàng trong 2-4h tại nội thành</li>
-                <li>• Đặt hàng 24/7 qua website & app</li>
-              </ul>
-            </div>
-            <button
-              class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors"
-            >
-              Xem chi tiết
-            </button>
+    <!-- Tuyên bố về chất lượng, sản phẩm, dịch vụ -->
+    <section class="py-24 bg-gradient-to-br from-green-50 via-white to-white relative overflow-hidden">
+      <!-- Decorative shapes -->
+      <div class="absolute top-20 left-10 w-20 h-20 bg-green-200 rounded-full opacity-20 animate-float"></div>
+      <div class="absolute bottom-20 right-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-float" style="animation-delay: 1s;"></div>
+      
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center mb-20 animate-fade-in-up">
+          <div class="inline-block bg-gradient-to-r from-green-100 to-green-200 text-green-700 px-5 py-2 rounded-full text-sm font-bold mb-6 shadow-md">
+            <span class="text-lg">💎</span> CAM KẾT CHẤT LƯỢNG
           </div>
-
-          <!-- Points Program -->
-          <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
-            <div class="flex items-center mb-4">
-              <div
-                class="bg-orange-500 w-12 h-12 rounded-full flex items-center justify-center mr-4"
-              >
-                <span class="text-white text-xl">💎</span>
-              </div>
-              <h4 class="text-xl font-bold text-orange-800">
-                Tích điểm và ưu đãi online
-              </h4>
-            </div>
-            <p class="text-gray-600 mb-6">
-              Dễ dàng tích điểm và nhận ưu đãi trực tuyến dành cho khách hàng
-              thành viên Pavel Mart khi mua sắm trên website hoặc ứng dụng di
-              động
-            </p>
-            <div class="bg-orange-50 p-4 rounded-lg mb-4">
-              <h5 class="font-semibold text-orange-800 mb-2">
-                Quyền lợi tích điểm:
-              </h5>
-              <ul class="text-sm text-gray-700 space-y-1">
-                <li>• Nhân đôi điểm thưởng khi mua online</li>
-                <li>• Đổi điểm lấy voucher giảm giá</li>
-                <li>• Ưu đãi sinh nhật đặc biệt</li>
-              </ul>
-            </div>
-            <button
-              class="w-full bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition-colors"
-            >
-              Xem chi tiết
-            </button>
-          </div>
-        </div>
-
-        <!-- Additional Services -->
-        <div class="grid md:grid-cols-2 gap-8">
-          <!-- Member Exclusive Prices -->
-          <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
-            <div class="flex items-center mb-4">
-              <div
-                class="bg-purple-500 w-12 h-12 rounded-full flex items-center justify-center mr-4"
-              >
-                <span class="text-white text-xl">💰</span>
-              </div>
-              <h4 class="text-xl font-bold text-purple-800">
-                Giá độc quyền cho các hạng hội viên
-              </h4>
-            </div>
-            <p class="text-gray-600 mb-6">
-              Khách hàng hội viên Pavel Mart được hưởng giá ưu đãi riêng, giúp
-              tiết kiệm khi mua sắm các sản phẩm yêu thích mỗi ngày
-            </p>
-            <div class="bg-purple-50 p-4 rounded-lg mb-4">
-              <h5 class="font-semibold text-purple-800 mb-2">
-                Ưu đãi theo hạng:
-              </h5>
-              <ul class="text-sm text-gray-700 space-y-1">
-                <li>• Silver: Giảm 5% sản phẩm chọn lọc</li>
-                <li>• Gold: Giảm 5-10% các ngành hàng ưu tiên</li>
-                <li>• Platinum: Giảm 10-15% hầu hết sản phẩm</li>
-              </ul>
-            </div>
-            <button
-              class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors"
-            >
-              Xem chi tiết
-            </button>
-          </div>
-
-          <!-- Multi-channel Shopping -->
-          <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
-            <div class="flex items-center mb-4">
-              <div
-                class="bg-blue-500 w-12 h-12 rounded-full flex items-center justify-center mr-4"
-              >
-                <span class="text-white text-xl">📱</span>
-              </div>
-              <h4 class="text-xl font-bold text-blue-800">Mua sắm đa kênh</h4>
-            </div>
-            <p class="text-gray-600 mb-6">
-              Trải nghiệm mua sắm tiện lợi trên nhiều kênh: cửa hàng, website và
-              ứng dụng, với dịch vụ đồng bộ, nhanh chóng và thân thiện
-            </p>
-            <div class="bg-blue-50 p-4 rounded-lg mb-4">
-              <h5 class="font-semibold text-blue-800 mb-2">Kênh mua sắm:</h5>
-              <ul class="text-sm text-gray-700 space-y-1">
-                <li>• Cửa hàng trực tiếp (XX điểm bán)</li>
-                <li>• Website pavelmart.vn</li>
-                <li>• Ứng dụng Pavel Mart App</li>
-              </ul>
-            </div>
-            <button
-              class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Xem chi tiết
-            </button>
-          </div>
-        </div>
-
-        <!-- Other Services -->
-        <div class="mt-12 bg-white p-8 rounded-xl shadow-lg text-center">
-          <h4 class="text-xl font-bold text-gray-800 mb-4">
-            CÁC DỊCH VỤ TIỆN ÍCH KHÁC
-          </h4>
-          <div class="grid md:grid-cols-4 gap-4">
-            <div class="p-4 bg-gray-50 rounded-lg">
-              <span class="text-2xl block mb-2">🎁</span>
-              <p class="text-sm font-semibold">Gói quà miễn phí</p>
-            </div>
-            <div class="p-4 bg-gray-50 rounded-lg">
-              <span class="text-2xl block mb-2">📞</span>
-              <p class="text-sm font-semibold">Tư vấn 24/7</p>
-            </div>
-            <div class="p-4 bg-gray-50 rounded-lg">
-              <span class="text-2xl block mb-2">🔄</span>
-              <p class="text-sm font-semibold">Đổi trả dễ dàng</p>
-            </div>
-            <div class="p-4 bg-gray-50 rounded-lg">
-              <span class="text-2xl block mb-2">⏰</span>
-              <p class="text-sm font-semibold">Giao hàng nhanh</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Community, Experience & Events -->
-    <section class="pb-16 pt-8 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-          <h3 class="text-3xl font-bold text-green-800 mb-4">
-            TRẢI NGHIỆM KHÁCH HÀNG & CỘNG ĐỒNG
-          </h3>
-          <p class="text-xl text-gray-600">
-            Tại Pavel Mart, chúng tôi không chỉ bán hàng, chúng tôi chia sẻ một
-            lối sống
+          <h2 class="text-4xl md:text-6xl font-black mb-6">
+            <span class="gradient-text">Cam Kết</span> Của Chúng Tôi
+          </h2>
+          <p class="text-gray-600 text-xl max-w-2xl mx-auto">
+            Đặt sự hài lòng của khách hàng lên hàng đầu
           </p>
-          <div class="section-divider w-24 mx-auto mb-8"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-          <!-- Workshop & Events -->
-          <div
-            class="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-xl card-hover"
-          >
-            <div class="flex items-center mb-6">
-              <div
-                class="bg-orange-500 w-16 h-16 rounded-full flex items-center justify-center mr-4"
-              >
-                <span class="text-white text-2xl">🎓</span>
+        <div class="grid md:grid-cols-3 gap-10">
+          <!-- Quality -->
+          <div class="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up">
+            <div class="relative bg-gradient-to-br from-green-100 to-green-200 h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=800&h=600&fit=crop" alt="Chất lượng hàng đầu" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-8xl opacity-40 transform group-hover:scale-110 transition duration-500">🏆</span>
               </div>
-              <h4 class="text-xl font-bold text-orange-800">
-                Workshop & Talkshow
-              </h4>
             </div>
-            <div class="space-y-4 text-gray-700">
-              <p>• Hướng dẫn dinh dưỡng cho gia đình</p>
-              <p>• Workshop nấu ăn lành mạnh</p>
-              <p>• Chăm sóc sức khỏe gia đình</p>
-              <p>• Tư vấn chọn thực phẩm an toàn</p>
+            <div class="p-8">
+              <h3 class="text-2xl font-black text-gray-800 mb-4 group-hover:text-green-600 transition">
+                Chất Lượng Hàng Đầu
+              </h3>
+              <p class="text-gray-600 leading-relaxed">100% sản phẩm nhập khẩu chính hãng, có nguồn gốc xuất xứ rõ ràng, được kiểm định nghiêm ngặt</p>
             </div>
           </div>
 
-          <!-- Community Activities -->
-          <div
-            class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl card-hover"
-          >
-            <div class="flex items-center mb-6">
-              <div
-                class="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center mr-4"
-              >
-                <span class="text-white text-2xl">❤️</span>
+          <!-- Products -->
+          <div class="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="relative bg-gradient-to-br from-green-100 to-green-200 h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=800&h=600&fit=crop" alt="Sản phẩm đa dạng" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-8xl opacity-40 transform group-hover:scale-110 transition duration-500">🛒</span>
               </div>
-              <h4 class="text-xl font-bold text-green-800">
-                Hoạt động cộng đồng
-              </h4>
             </div>
-            <div class="space-y-4 text-gray-700">
-              <p>• Hỗ trợ trẻ em khó khăn</p>
-              <p>• Chiến dịch "Sống Xanh - Tiêu dùng có ý thức"</p>
-              <p>• Chương trình "Gian hàng 0 đồng"</p>
-              <p>• Tổ chức hội thảo sức khỏe cộng đồng</p>
+            <div class="p-8">
+              <h3 class="text-2xl font-black text-gray-800 mb-4 group-hover:text-green-600 transition">
+                Sản Phẩm Đa Dạng
+              </h3>
+              <p class="text-gray-600 leading-relaxed">Hơn 5000+ sản phẩm cao cấp từ Pháp, Ý, Đức, Hà Lan, Bỉ, Tây Ban Nha và nhiều nước khác</p>
+            </div>
+          </div>
+
+          <!-- Service -->
+          <div class="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up" style="animation-delay: 0.4s">
+            <div class="relative bg-gradient-to-br from-green-100 to-green-200 h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop" alt="Dịch vụ tận tâm" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-8xl opacity-40 transform group-hover:scale-110 transition duration-500">⭐</span>
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-black text-gray-800 mb-4 group-hover:text-green-600 transition">
+                Dịch Vụ Tận Tâm
+              </h3>
+              <p class="text-gray-600 leading-relaxed">Đội ngũ chuyên nghiệp, tư vấn nhiệt tình, hỗ trợ khách hàng tận tình 24/7</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Wave Transition -->
+      <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+        <svg class="relative block w-full h-20 md:h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Tiện ích khách hàng -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 animate-fade-in-up">
+          <h2 class="text-4xl md:text-5xl font-black mb-4">
+            <span class="gradient-text">Tiện Ích</span> Mua Sắm
+          </h2>
+          <p class="text-gray-600 text-lg">Trải nghiệm mua sắm hiện đại, tiện lợi</p>
+          <div class="section-divider w-24 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- App Mobile -->
+          <div class="relative group overflow-hidden rounded-3xl shadow-xl animate-fade-in-up">
+            <div class="bg-gradient-to-br from-green-100 to-green-200 h-96 relative">
+              <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=800&fit=crop" alt="Pavel Mart App" class="w-full h-full object-cover" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-8 transform group-hover:scale-105 transition duration-500">
+              <div class="text-white">
+                <div class="text-4xl mb-3">📱</div>
+                <h3 class="text-2xl font-black mb-2">App Pavel Mart</h3>
+                <p class="text-sm mb-4">Mua sắm mọi lúc, mọi nơi</p>
+                <div class="flex space-x-2">
+                  <div class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold">iOS</div>
+                  <div class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold">Android</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Online Shopping -->
+          <div class="relative group overflow-hidden rounded-3xl shadow-xl animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="bg-gradient-to-br from-green-600 to-green-800 h-96 relative">
+              <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=800&fit=crop" alt="Mua sắm online" class="w-full h-full object-cover opacity-80" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20 flex items-end p-8 transform group-hover:scale-105 transition duration-500">
+              <div class="text-white">
+                <div class="text-4xl mb-3">🛍️</div>
+                <h3 class="text-2xl font-black mb-2">Đặt Hàng Online</h3>
+                <p class="text-sm mb-4">Giao hàng tận nhà trong 2h</p>
+                <div class="bg-green-500 inline-block px-4 py-2 rounded-full text-sm font-bold">
+                  Đặt ngay
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member Card -->
+          <div class="relative group overflow-hidden rounded-3xl shadow-xl animate-fade-in-up" style="animation-delay: 0.4s">
+            <div class="bg-gradient-to-br from-green-100 to-green-200 h-96 relative">
+              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=800&fit=crop" alt="Thẻ thành viên" class="w-full h-full object-cover" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-8 transform group-hover:scale-105 transition duration-500">
+              <div class="text-white">
+                <div class="text-4xl mb-3">💳</div>
+                <h3 class="text-2xl font-black mb-2">Thẻ Thành Viên</h3>
+                <p class="text-sm mb-4">Tích điểm, đổi quà hấp dẫn</p>
+                <div class="bg-green-500 inline-block px-4 py-2 rounded-full text-sm font-bold text-white">
+                  Đăng ký
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chính sách bán hàng -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 animate-fade-in-up">
+          <h2 class="text-4xl md:text-5xl font-black mb-4">
+            <span class="gradient-text">Chính Sách</span> Bán Hàng
+          </h2>
+          <p class="text-gray-600 text-lg">Minh bạch, rõ ràng, bảo vệ quyền lợi khách hàng</p>
+          <div class="section-divider w-24 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- Đổi trả hàng -->
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover animate-fade-in-up">
+            <div class="grid md:grid-cols-2">
+              <div class="bg-gradient-to-br from-green-100 to-green-200 h-64 md:h-auto relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=600&fit=crop" alt="Đổi trả dễ dàng" class="w-full h-full object-cover" />
+              </div>
+              <div class="p-8 flex flex-col justify-center">
+                <div class="text-5xl mb-4">🔄</div>
+                <h3 class="text-2xl font-black text-gray-800 mb-3">Đổi Trả Dễ Dàng</h3>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-start">
+                    <span class="text-green-500 mr-2">✓</span>
+                    <span>Đổi trả trong 7 ngày</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-green-500 mr-2">✓</span>
+                    <span>Không cần lý do</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-green-500 mr-2">✓</span>
+                    <span>Hoàn tiền 100%</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- VAT -->
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="grid md:grid-cols-2">
+              <div class="bg-gradient-to-br from-green-100 to-green-200 h-64 md:h-auto relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop" alt="Hóa đơn VAT" class="w-full h-full object-cover" />
+              </div>
+              <div class="p-8 flex flex-col justify-center">
+                <div class="text-5xl mb-4">🧾</div>
+                <h3 class="text-2xl font-black text-gray-800 mb-3">Xuất Hóa Đơn VAT</h3>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-start">
+                    <span class="text-green-500 mr-2">✓</span>
+                    <span>Hóa đơn đỏ VAT</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-green-500 mr-2">✓</span>
+                    <span>Xuất ngay trong ngày</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-green-500 mr-2">✓</span>
+                    <span>Hỗ trợ công ty</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Giao hàng -->
+        <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-3xl shadow-2xl overflow-hidden animate-fade-in-up">
+          <div class="grid md:grid-cols-2 gap-0">
+            <div class="p-12 flex flex-col justify-center text-white">
+              <div class="text-6xl mb-6 animate-float">🚚</div>
+              <h3 class="text-3xl md:text-4xl font-black mb-4">Giao Hàng Tận Nhà</h3>
+              <p class="text-xl mb-6 text-green-100">Nhanh chóng, an toàn, đúng hẹn</p>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4">
+                  <div class="text-3xl font-black">2H</div>
+                  <div class="text-sm">Giao nội thành</div>
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4">
+                  <div class="text-3xl font-black">24H</div>
+                  <div class="text-sm">Giao ngoại thành</div>
+                </div>
+              </div>
+              <div class="mt-6">
+                <div class="flex items-center space-x-3 mb-3">
+                  <span class="text-2xl">✓</span>
+                  <span class="text-lg">Miễn phí từ 500K</span>
+                </div>
+                <div class="flex items-center space-x-3 mb-3">
+                  <span class="text-2xl">✓</span>
+                  <span class="text-lg">Kiểm tra hàng trước khi nhận</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <span class="text-2xl">✓</span>
+                  <span class="text-lg">Đóng gói cẩn thận, chuyên nghiệp</span>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gradient-to-br from-green-400 to-green-600 h-96 md:h-auto relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&h=800&fit=crop" alt="Giao hàng nhanh" class="w-full h-full object-cover opacity-80" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Original Quality Process Timeline -->
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1720,6 +1671,28 @@
 
       // Also run immediately in case DOM is already loaded
       setActiveNavigation();
+
+      // Initialize Swiper for Hero Banner
+      const swiper = new Swiper('.swiper-hero', {
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        speed: 1200,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
     </script>
   </body>
 </html>

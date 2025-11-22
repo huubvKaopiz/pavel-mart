@@ -9,74 +9,329 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script>
+        <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               green: {
-                50: "#f0f9f0",
-                100: "#dcf4dc",
-                200: "#bce7bc",
-                300: "#8fd68f",
-                400: "#5bb85b",
-                500: "#389738",
-                600: "#2c7a2c",
-                700: "#256425",
-                800: "#1f4f1f",
-                900: "#1a4a1a",
+                50: "#F0F9E8",   // Very light green for backgrounds
+                100: "#E1F3D1",  // Light green for badges/decorative
+                200: "#C3E7A3",  // Light green for placeholders
+                300: "#A5DB75",  // Medium light
+                400: "#81CF01",  // Primary brand green (PANTONE)
+                500: "#81CF01",  // Primary brand green (PANTONE)
+                600: "#6BB301",  // Darker for hover states
+                700: "#227041",  // Dark brand green (PANTONE)
+                800: "#227041",  // Dark brand green (footer/header)
+                900: "#1A5832",  // Even darker for emphasis
               },
-              orange: {
-                400: "#fb923c",
-                500: "#f97316",
-                600: "#ea580c",
+              dark: {
+                900: "#333333",  // Brand text color
               },
             },
             fontFamily: {
-              display: ["Playfair Display", "serif"],
-              body: ["Inter", "sans-serif"],
+              sans: ["Montserrat", "sans-serif"],
             },
           },
         },
       };
     </script>
-    <style>
+        <style>
+      * {
+        font-family: "Montserrat", sans-serif;
+      }
+      
       body {
-        font-family: "Inter", sans-serif;
+        font-family: "Montserrat", sans-serif;
       }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: "Playfair Display", serif;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
       }
-      .hero-gradient {
-        background: linear-gradient(
-          135deg,
-          #389738 0%,
-          #256425 50%,
-          #1a4a1a 100%
-        );
+
+      /* Hero Banner Slider */
+      .swiper-hero {
+        width: 100%;
+        height: 650px;
       }
-      .card-hover {
+
+      @media (max-width: 768px) {
+        .swiper-hero {
+          height: 450px;
+        }
+      }
+
+      .swiper-slide {
+        overflow: hidden;
+      }
+
+      .swiper-slide img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block;
+      }
+
+      .swiper-pagination-bullet {
+        background: white;
+        opacity: 0.7;
+        width: 14px;
+        height: 14px;
+      }
+
+      .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #81CF01;
+        transform: scale(1.3);
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: white;
+        background: rgba(129, 207, 1, 0.9);
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
         transition: all 0.3s ease;
       }
-      .card-hover:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        background: rgba(129, 207, 1, 1);
+        transform: scale(1.1);
       }
+
+      .swiper-button-next:after,
+      .swiper-button-prev:after {
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      .hero-gradient {
+        background: linear-gradient(135deg, #227041 0%, #81CF01 100%);
+      }
+      
+      .card-hover {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .card-hover:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(129, 207, 1, 0.2);
+      }
+
+      .card-hover::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .card-hover:hover::before {
+        left: 100%;
+      }
+      
       .section-divider {
-        background: linear-gradient(
-          to right,
-          transparent,
-          #389738,
-          transparent
-        );
-        height: 2px;
+        background: linear-gradient(to right, transparent, #81CF01, transparent);
+        height: 3px;
+      }
+
+      /* Promotional Cards with Animation */
+      .promo-card {
+        background: linear-gradient(135deg, #81CF01 0%, #227041 100%);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .promo-card::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+        animation: rotate 20s linear infinite;
+      }
+
+      @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .promo-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 30px 60px rgba(129, 207, 1, 0.3);
+      }
+
+      /* Product Card Animation */
+      .product-card {
+        transition: all 0.3s ease;
+        border-radius: 20px;
+        overflow: hidden;
+        background: white;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-card img {
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover img {
+        transform: scale(1.15) rotate(2deg);
+      }
+
+      /* Badge Pulse Animation */
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      .badge-pulse {
+        animation: pulse 2s infinite;
+      }
+
+      /* Smooth Scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Loading Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      /* Floating Animation */
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* Gradient Text */
+      .gradient-text {
+        background: linear-gradient(135deg, #81CF01 0%, #227041 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Slide In Animation */
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .animate-slide-in-left {
+        animation: slideInLeft 0.8s ease-out;
+      }
+
+      .animate-slide-in-right {
+        animation: slideInRight 0.8s ease-out;
+      }
+
+      /* Scale Animation */
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .animate-scale-in {
+        animation: scaleIn 0.6s ease-out;
+      }
+
+      /* Parallax Effect */
+      .parallax-section {
+        transition: transform 0.5s ease-out;
+      }
+
+      /* Image Brightness */
+      .brightness-110 {
+        filter: brightness(1.1);
+      }
+
+      /* Smooth Section Transitions */
+      section {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      /* Wave SVG Animation */
+      @keyframes wave {
+        0% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(-25px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .wave-animate {
+        animation: wave 10s ease-in-out infinite;
       }
 
       /* Active navigation styles */
@@ -86,7 +341,7 @@
       }
 
       .nav-link.active {
-        color: #389738 !important;
+        color: #81CF01 !important;
         font-weight: 600;
       }
 
@@ -97,35 +352,37 @@
         left: 0;
         width: 100%;
         height: 3px;
-        background: #389738;
+        background: #81CF01;
         border-radius: 2px;
       }
 
       .nav-link:not(.active):hover {
-        color: #389738;
+        color: #81CF01;
       }
 
       /* Dropdown active styles */
       .dropdown-link.active {
         background-color: #f0f9f0;
-        color: #389738 !important;
+        color: #81CF01 !important;
         font-weight: 600;
       }
 
       /* Mobile navigation active styles */
       .mobile-nav-link.active {
-        color: #389738 !important;
+        color: #81CF01 !important;
         font-weight: 600;
         background-color: #f0f9f0;
-        border-left: 4px solid #389738;
+        border-left: 4px solid #81CF01;
         padding-left: calc(1rem - 4px);
       }
 
       .mobile-dropdown-link.active {
-        color: #389738 !important;
+        color: #81CF01 !important;
         font-weight: 600;
         background-color: #f0f9f0;
       }
+
+
     </style>
   </head>
   <body class="bg-gray-50">
@@ -1464,6 +1721,28 @@
 
       // Also run immediately in case DOM is already loaded
       setActiveNavigation();
+
+      // Initialize Swiper for Hero Banner
+      const swiper = new Swiper('.swiper-hero', {
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        speed: 1200,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
     </script>
   </body>
 </html>
