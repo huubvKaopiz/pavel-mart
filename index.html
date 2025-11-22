@@ -387,8 +387,9 @@
       /* Scroll Animation Effects */
       .scroll-reveal {
         opacity: 0;
-        transform: translateY(50px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        transform: translateY(80px);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .scroll-reveal.revealed {
@@ -398,49 +399,200 @@
 
       .scroll-reveal-left {
         opacity: 0;
-        transform: translateX(-50px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        transform: translateX(-80px) scale(0.95);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .scroll-reveal-left.revealed {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateX(0) scale(1);
       }
 
       .scroll-reveal-right {
         opacity: 0;
-        transform: translateX(50px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        transform: translateX(80px) scale(0.95);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .scroll-reveal-right.revealed {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateX(0) scale(1);
       }
 
       .scroll-reveal-scale {
         opacity: 0;
-        transform: scale(0.9);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        transform: scale(0.85) rotateX(10deg);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .scroll-reveal-scale.revealed {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) rotateX(0deg);
       }
 
-      /* Stagger delay for children */
-      .scroll-reveal:nth-child(1) { transition-delay: 0.1s; }
-      .scroll-reveal:nth-child(2) { transition-delay: 0.2s; }
-      .scroll-reveal:nth-child(3) { transition-delay: 0.3s; }
-      .scroll-reveal:nth-child(4) { transition-delay: 0.4s; }
-      .scroll-reveal:nth-child(5) { transition-delay: 0.5s; }
-      .scroll-reveal:nth-child(6) { transition-delay: 0.6s; }
+      /* Stagger delay for children - slower and more dramatic */
+      .scroll-reveal:nth-child(1) { transition-delay: 0.15s; }
+      .scroll-reveal:nth-child(2) { transition-delay: 0.3s; }
+      .scroll-reveal:nth-child(3) { transition-delay: 0.45s; }
+      .scroll-reveal:nth-child(4) { transition-delay: 0.6s; }
+      .scroll-reveal:nth-child(5) { transition-delay: 0.75s; }
+      .scroll-reveal:nth-child(6) { transition-delay: 0.9s; }
 
+      /* Floating Contact Buttons */
+      .floating-contacts {
+        position: fixed;
+        right: 20px;
+        bottom: 80px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .contact-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      }
+
+      .contact-btn::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .contact-btn:hover::before {
+        opacity: 1;
+      }
+
+      .contact-btn.zalo {
+        background: linear-gradient(135deg, #0068FF, #0084FF);
+      }
+
+      .contact-btn.hotline {
+        background: linear-gradient(135deg, #81CF01, #227041);
+      }
+
+      .contact-btn.facebook {
+        background: linear-gradient(135deg, #1877F2, #0E5DCC);
+      }
+
+      .contact-btn.messenger {
+        background: linear-gradient(135deg, #00B2FF, #006AFF);
+      }
+
+      .contact-btn .tooltip {
+        position: absolute;
+        right: 70px;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .contact-btn .tooltip::after {
+        content: '';
+        position: absolute;
+        right: -6px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 6px solid rgba(0, 0, 0, 0.9);
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+      }
+
+      .contact-btn:hover .tooltip {
+        opacity: 1;
+        right: 75px;
+      }
+
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      .contact-btn.hotline::after {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        border: 3px solid #81CF01;
+        animation: pulse-ring 1.5s ease-out infinite;
+      }
+
+      /* Mobile responsive */
+      @media (max-width: 768px) {
+        .floating-contacts {
+          display: none;
+        }
+      }
 
     </style>
   </head>
   <body class="bg-gray-50">
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contacts">
+      <!-- Zalo -->
+      <a href="https://zalo.me/0123456789" target="_blank" class="contact-btn zalo">
+        <span class="tooltip">Chat Zalo</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
+          <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.896 1.445 5.482 3.697 7.285-.173 1.71-.843 3.428-1.734 4.65a.5.5 0 0 0 .416.772c2.538-.07 4.637-.82 6.172-1.746A11.098 11.098 0 0 0 12 22.5c5.523 0 10-4.145 10-9.257S17.523 2 12 2z"/>
+        </svg>
+      </a>
+
+      <!-- Hotline -->
+      <a href="tel:1900xxxx" class="contact-btn hotline">
+        <span class="tooltip">1900 xxxx</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
+          <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+        </svg>
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://facebook.com/pavelmart" target="_blank" class="contact-btn facebook">
+        <span class="tooltip">Facebook</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+    </div>
+
     <!-- Top Header Bar -->
     <div class="bg-gray-100 py-2 text-sm border-b border-gray-200">
       <div class="container mx-auto px-4">
