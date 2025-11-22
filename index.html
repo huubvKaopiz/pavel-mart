@@ -384,6 +384,59 @@
         background-color: #f0f9f0;
       }
 
+      /* Scroll Animation Effects */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-reveal-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-reveal-left.revealed {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .scroll-reveal-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-reveal-right.revealed {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .scroll-reveal-scale {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-reveal-scale.revealed {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Stagger delay for children */
+      .scroll-reveal:nth-child(1) { transition-delay: 0.1s; }
+      .scroll-reveal:nth-child(2) { transition-delay: 0.2s; }
+      .scroll-reveal:nth-child(3) { transition-delay: 0.3s; }
+      .scroll-reveal:nth-child(4) { transition-delay: 0.4s; }
+      .scroll-reveal:nth-child(5) { transition-delay: 0.5s; }
+      .scroll-reveal:nth-child(6) { transition-delay: 0.6s; }
+
 
     </style>
   </head>
@@ -965,7 +1018,7 @@
       <div class="container mx-auto px-4 relative z-10">
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <!-- Images Gallery -->
-          <div class="relative animate-slide-in-left">
+          <div class="relative scroll-reveal-left">
             <div class="grid grid-cols-2 gap-4">
               <!-- Store image 1 -->
               <div class="bg-gradient-to-br from-green-100 to-green-200 rounded-3xl h-72 overflow-hidden shadow-2xl transform hover:scale-105 hover:rotate-1 transition duration-500 animate-scale-in">
@@ -986,7 +1039,7 @@
           </div>
 
           <!-- Content -->
-          <div class="animate-slide-in-right">
+          <div class="scroll-reveal-right">
             <div class="inline-block bg-gradient-to-r from-green-100 to-green-200 text-green-700 px-4 py-2 md:px-5 md:py-2 rounded-full text-xs sm:text-sm font-bold mb-4 md:mb-6 shadow-md animate-fade-in-up">
               <span class="text-base md:text-lg">🏪</span> PAVEL MART
             </div>
@@ -1028,7 +1081,7 @@
       <div class="absolute bottom-20 right-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-float" style="animation-delay: 1s;"></div>
       
       <div class="container mx-auto px-4 relative z-10">
-        <div class="text-center mb-20 animate-fade-in-up">
+        <div class="text-center mb-20 scroll-reveal">
           <div class="inline-block bg-gradient-to-r from-green-100 to-green-200 text-green-700 px-5 py-2 rounded-full text-sm font-bold mb-6 shadow-md">
             <span class="text-lg">💎</span> CAM KẾT CHẤT LƯỢNG
           </div>
@@ -1042,7 +1095,7 @@
 
         <div class="grid md:grid-cols-3 gap-10">
           <!-- Quality -->
-          <div class="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up">
+          <div class="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 scroll-reveal">
             <div class="relative bg-gradient-to-br from-green-100 to-green-200 h-64 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=800&h=600&fit=crop" alt="Chất lượng hàng đầu" class="w-full h-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent"></div>
@@ -1059,7 +1112,7 @@
           </div>
 
           <!-- Products -->
-          <div class="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up" style="animation-delay: 0.2s">
+          <div class="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 scroll-reveal">
             <div class="relative bg-gradient-to-br from-green-100 to-green-200 h-64 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=800&h=600&fit=crop" alt="Sản phẩm đa dạng" class="w-full h-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent"></div>
@@ -1076,7 +1129,7 @@
           </div>
 
           <!-- Service -->
-          <div class="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up" style="animation-delay: 0.4s">
+          <div class="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 scroll-reveal">
             <div class="relative bg-gradient-to-br from-green-100 to-green-200 h-64 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop" alt="Dịch vụ tận tâm" class="w-full h-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent"></div>
@@ -1105,7 +1158,7 @@
     <!-- Tiện ích khách hàng -->
     <section class="py-20 bg-white">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-16 animate-fade-in-up">
+        <div class="text-center mb-16 scroll-reveal">
           <h2 class="text-4xl md:text-5xl font-black mb-4">
             <span class="gradient-text">Tiện Ích</span> Mua Sắm
           </h2>
@@ -1115,7 +1168,7 @@
 
         <div class="grid md:grid-cols-3 gap-8">
           <!-- App Mobile -->
-          <div class="relative group overflow-hidden rounded-3xl shadow-xl animate-fade-in-up">
+          <div class="relative group overflow-hidden rounded-3xl shadow-xl scroll-reveal">
             <div class="bg-gradient-to-br from-green-100 to-green-200 h-96 relative">
               <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=800&fit=crop" alt="Pavel Mart App" class="w-full h-full object-cover" />
             </div>
@@ -1133,7 +1186,7 @@
           </div>
 
           <!-- Online Shopping -->
-          <div class="relative group overflow-hidden rounded-3xl shadow-xl animate-fade-in-up" style="animation-delay: 0.2s">
+          <div class="relative group overflow-hidden rounded-3xl shadow-xl scroll-reveal">
             <div class="bg-gradient-to-br from-green-600 to-green-800 h-96 relative">
               <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=800&fit=crop" alt="Mua sắm online" class="w-full h-full object-cover opacity-80" />
             </div>
@@ -1150,7 +1203,7 @@
           </div>
 
           <!-- Member Card -->
-          <div class="relative group overflow-hidden rounded-3xl shadow-xl animate-fade-in-up" style="animation-delay: 0.4s">
+          <div class="relative group overflow-hidden rounded-3xl shadow-xl scroll-reveal">
             <div class="bg-gradient-to-br from-green-100 to-green-200 h-96 relative">
               <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=800&fit=crop" alt="Thẻ thành viên" class="w-full h-full object-cover" />
             </div>
@@ -1172,7 +1225,7 @@
     <!-- Chính sách bán hàng -->
     <section class="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-16 animate-fade-in-up">
+        <div class="text-center mb-16 scroll-reveal">
           <h2 class="text-4xl md:text-5xl font-black mb-4">
             <span class="gradient-text">Chính Sách</span> Bán Hàng
           </h2>
@@ -1182,7 +1235,7 @@
 
         <div class="grid md:grid-cols-2 gap-8 mb-12">
           <!-- Đổi trả hàng -->
-          <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover animate-fade-in-up">
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover scroll-reveal">
             <div class="grid md:grid-cols-2">
               <div class="bg-gradient-to-br from-green-100 to-green-200 h-64 md:h-auto relative overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=600&fit=crop" alt="Đổi trả dễ dàng" class="w-full h-full object-cover" />
@@ -1209,7 +1262,7 @@
           </div>
 
           <!-- VAT -->
-          <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover animate-fade-in-up" style="animation-delay: 0.2s">
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover scroll-reveal">
             <div class="grid md:grid-cols-2">
               <div class="bg-gradient-to-br from-green-100 to-green-200 h-64 md:h-auto relative overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop" alt="Hóa đơn VAT" class="w-full h-full object-cover" />
@@ -1237,7 +1290,7 @@
         </div>
 
         <!-- Giao hàng -->
-        <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-3xl shadow-2xl overflow-hidden animate-fade-in-up">
+        <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-3xl shadow-2xl overflow-hidden scroll-reveal">
           <div class="grid md:grid-cols-2 gap-0">
             <div class="p-12 flex flex-col justify-center text-white">
               <div class="text-6xl mb-6 animate-float">🚚</div>
@@ -1491,6 +1544,28 @@
     </button>
 
     <script>
+      // Scroll Reveal Animation (like TopsMart)
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            // Optional: stop observing after reveal
+            // observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe all scroll-reveal elements
+      document.addEventListener('DOMContentLoaded', () => {
+        const scrollElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale');
+        scrollElements.forEach(el => observer.observe(el));
+      });
+
       // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
