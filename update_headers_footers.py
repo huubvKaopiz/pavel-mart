@@ -23,9 +23,21 @@ html_files = [
 with open('index.html', 'r', encoding='utf-8') as f:
     index_content = f.read()
 
-# Extract header (from <!-- Top Bar - Hidden on Mobile --> to </header>)
+# Extract Top Bar (from <!-- Top Bar - Hidden on Mobile --> to end of that div)
+top_bar_match = re.search(
+    r'(<!-- Top Bar - Hidden on Mobile -->.*?</div>\s*</div>\s*</div>)(?=\s*<!-- Header/Navigation -->)',
+    index_content,
+    re.DOTALL
+)
+if not top_bar_match:
+    print("Error: Could not find top bar in index.html")
+    exit(1)
+
+new_top_bar = top_bar_match.group(1)
+
+# Extract Header/Navigation (from <!-- Header/Navigation --> to </header>)
 header_match = re.search(
-    r'(<!-- Top Bar - Hidden on Mobile -->.*?</header>)',
+    r'(<!-- Header/Navigation -->.*?</header>)',
     index_content,
     re.DOTALL
 )
@@ -35,9 +47,9 @@ if not header_match:
 
 new_header = header_match.group(1)
 
-# Extract mobile menu (from <!-- Mobile Menu Modal --> to the closing script section before Hero)
+# Extract mobile menu (from <!-- Mobile Menu Modal --> to the closing div)
 mobile_menu_match = re.search(
-    r'(<!-- Mobile Menu Modal -->.*?</div>\s*</div>)',
+    r'(<!-- Mobile Menu Modal -->.*?</div>\s*</div>\s*</div>)(?=\s*<!--|\s*<section|\s*<main)',
     index_content,
     re.DOTALL
 )
@@ -84,17 +96,34 @@ for filename in html_files:
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # Replace header (try both old and new comment formats)
+    # Replace Top Bar
     if '<!-- Top Bar - Hidden on Mobile -->' in content:
         content = re.sub(
-            r'<!-- Top Bar - Hidden on Mobile -->.*?</header>',
-            new_header,
+            r'<!-- Top Bar - Hidden on Mobile -->.*?</div>\s*</div>\s*</div>(?=\s*<!-- Header/Navigation -->)',
+            new_top_bar,
             content,
             flags=re.DOTALL
         )
     elif '<!-- Top Header Bar -->' in content:
+        # Old format - replace with new top bar
         content = re.sub(
-            r'<!-- Top Header Bar -->.*?</header>',
+            r'<!-- Top Header Bar -->.*?(?=<!-- Header/Navigation -->|<header)',
+            new_top_bar + '\n\n    ',
+            content,
+            flags=re.DOTALL
+        )
+    else:
+        # Insert top bar before header if not exists
+        content = re.sub(
+            r'(<!-- Header/Navigation -->|<header)',
+            new_top_bar + '\n\n    ' + r'\1',
+            content
+        )
+    
+    # Replace Header/Navigation
+    if '<!-- Header/Navigation -->' in content:
+        content = re.sub(
+            r'<!-- Header/Navigation -->.*?</header>',
             new_header,
             content,
             flags=re.DOTALL
@@ -103,7 +132,7 @@ for filename in html_files:
         # Try to find any header tag
         content = re.sub(
             r'<header.*?</header>',
-            new_header.replace('<!-- Top Bar - Hidden on Mobile -->\n    ', ''),
+            new_header,
             content,
             flags=re.DOTALL
         )
@@ -111,7 +140,7 @@ for filename in html_files:
     # Replace or add mobile menu
     if '<!-- Mobile Menu Modal -->' in content:
         content = re.sub(
-            r'<!-- Mobile Menu Modal -->.*?</div>\s*</div>(?=\s*<!--)',
+            r'<!-- Mobile Menu Modal -->.*?</div>\s*</div>\s*</div>(?=\s*<!--|\s*<section|\s*<main)',
             new_mobile_menu,
             content,
             flags=re.DOTALL
