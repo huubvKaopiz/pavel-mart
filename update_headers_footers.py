@@ -23,9 +23,9 @@ html_files = [
 with open('index.html', 'r', encoding='utf-8') as f:
     index_content = f.read()
 
-# Extract header (from <!-- Top Header Bar --> to </header>)
+# Extract header (from <!-- Top Bar - Hidden on Mobile --> to </header>)
 header_match = re.search(
-    r'(<!-- Top Header Bar -->.*?</header>)',
+    r'(<!-- Top Bar - Hidden on Mobile -->.*?</header>)',
     index_content,
     re.DOTALL
 )
@@ -84,13 +84,29 @@ for filename in html_files:
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # Replace header
-    content = re.sub(
-        r'<!-- Top Header Bar -->.*?</header>',
-        new_header,
-        content,
-        flags=re.DOTALL
-    )
+    # Replace header (try both old and new comment formats)
+    if '<!-- Top Bar - Hidden on Mobile -->' in content:
+        content = re.sub(
+            r'<!-- Top Bar - Hidden on Mobile -->.*?</header>',
+            new_header,
+            content,
+            flags=re.DOTALL
+        )
+    elif '<!-- Top Header Bar -->' in content:
+        content = re.sub(
+            r'<!-- Top Header Bar -->.*?</header>',
+            new_header,
+            content,
+            flags=re.DOTALL
+        )
+    else:
+        # Try to find any header tag
+        content = re.sub(
+            r'<header.*?</header>',
+            new_header.replace('<!-- Top Bar - Hidden on Mobile -->\n    ', ''),
+            content,
+            flags=re.DOTALL
+        )
     
     # Replace or add mobile menu
     if '<!-- Mobile Menu Modal -->' in content:
